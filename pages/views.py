@@ -5,3 +5,9 @@ def homePage(request):
 
 def discoverPage(request):
     return render(request, 'discoverPage.html', {})
+    
+def contactPage(request):
+    return render(request, 'contactPage.html', {})
+
+def aboutPage(request):
+    return render(request, 'aboutPage.html', {})
