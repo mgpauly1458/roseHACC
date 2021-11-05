@@ -1,4 +1,56 @@
-{% load static %}
-<h1>Test Homepage</h1>
-<img src="{% static 'images/testPic.jpg' %}" alt="Test Pic"/>
-<script src="{% static 'js/index-bundle.js' %}"></script>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/tailwind-output.css' %}">
+    <script src="{% static 'js/index-bundle.js' %}"></script>
+</head>
+
+<nav class="flex items-center justify-between flex-wrap bg-gray-100 p-6">
+  <div class="flex items-center flex-shrink-0 text-black mr-6">
+    <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
+    <span class="font-semibold text-xl tracking-tight text-black-200">Oahu Hiking Directory</span>
+  </div>
+  <div class="block lg:hidden">
+    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    </button>
+  </div>
+  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div class="text-sm lg:flex-grow">
+      <a href="{% url 'discover' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+        Discover
+      </a>
+      <a href="#responsive-header" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+        Trail Map
+      </a>
+      <a href="#responsive-header" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+        About
+      </a>
+      <a href="#responsive-header" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+        Contact Us
+      </a>
+    </div>
+    <div>
+    </div>
+  </div>
+  <div class ="flex items-center justify-right gap-4">
+    <button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+      Login
+    </button>
+    <button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+      Sign Up
+    </button>
+  </div>
+</nav>
+
+<div class="min-h-screen max-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('/static/images/kokohead.jpg')">  
+  <div class="container min-h-screen max-h-screen my-auto mx-auto bg-red">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"> 
+
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
