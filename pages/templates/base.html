@@ -33,7 +33,7 @@
       <a href="{% url 'discover' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
         Discover
       </a>
-      <a href="#responsive-header" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+      <a href="{% url 'trailmap' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
         Trail Map
       </a>
       <a href="{% url 'about' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
@@ -58,14 +58,10 @@
   </div>
 </nav>
 
-<div class="min-h-screen max-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('/static/images/kokohead.jpg')">  
-  <div class="container min-h-screen max-h-screen my-auto mx-auto bg-red">
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"> 
+<div class="relative min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('/static/images/kokohead.jpg')">  
         {% block content %}
 
         {% endblock content %}
-    </div>
-  </div>
 </div>
 
 

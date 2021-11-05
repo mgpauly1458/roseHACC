@@ -11,3 +11,6 @@ def contactPage(request):
 
 def aboutPage(request):
     return render(request, 'aboutPage.html', {})
+
+def trailMapPage(request):
+    return render(request, 'trailMapPage.html', {})
