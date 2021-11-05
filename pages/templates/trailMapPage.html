@@ -13,7 +13,6 @@ crossorigin=""/>
   href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
 />
 
-
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
 integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -42,47 +41,52 @@ crossorigin=""></script>
                 </div>
             </div>
         </div>
-        <button class="w-full h-auto bg-white border-4 border-white rounded-md px-3 hover:border-white-100 shadow hover:border-blue-500 text-left">
-            <div class="flex flex-row-1 space-x-3">
-                <h><b> Kokohead Crater Trail (Easy) </b></h>
-            </div>
-            <div class="flex flex-row-1 space-x-3">
-                <p> Average Rating </p>
-                <ul class="flex justify-center">
-                    <li>
-                    <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
+
+        {% for hike in hike_list %}
+        
+            <button class="w-full h-auto bg-white border-4 border-white rounded-md px-3 hover:border-white-100 shadow hover:border-blue-500 text-left">
+                <div class="flex flex-row-1 space-x-3">
+                    <h><b> {{ hike.hike_name }} (Difficulty: {{hike.hike_difficulty}} / 5) </b></h>
+                </div>
+                <div class="flex flex-row-1 space-x-3">
+                    <p> Average Rating </p>
+                    <ul class="flex justify-center">
+                        <li>
+                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
+                        </li>
+                        <li>
+                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
+                        </li>
+                        <li>
+                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
+                        </li>
+                        <li>
+                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
+                        </li>
+                        <li>
+                        <i class="far fa-star fa-sm text-yellow-500 mr-1"></i>
+                        </li>
+                    </ul>
+                </div>
+                <p> 3km / 30min</p>
+                <div class="flex flex-row-1 space-x-3">
+                    {% if hike.hike_traffic == 3 %}
+                    <p> Heavy Traffic </p>
+                    {% endif %}
+                    {% if hike.hike_traffic == 2 %}
+                    <p> Moderate Traffic </p>
+                    {% endif %}
+                    {% if hike.hike_traffic == 1 %}
+                    <p> Light Traffic </p>
+                    {% endif %}
+                    <ul class="flex justify-center space-x-1">                        
+                    <li>                
+                        <i class="fas fa-car fa-sm"></i>
                     </li>
-                    <li>
-                    <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
-                    </li>
-                    <li>
-                    <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
-                    </li>
-                    <li>
-                    <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
-                    </li>
-                    <li>
-                    <i class="far fa-star fa-sm text-yellow-500 mr-1"></i>
-                    </li>
-                </ul>
-            </div>
-            <p> 3km / 30min</p>
-            <div class="flex flex-row-1 space-x-3">
-                <p> Heavy Traffic </p>
-                <ul class="flex justify-center space-x-1">
-                <li>                
-                    <i class="fas fa-car fa-sm"></i>
-                </li>
-                <li>                
-                    <i class="fas fa-car fa-sm"></i>
-                </li>
-                <li>                
-                    <i class="fas fa-car fa-sm"></i>
-                </li>   
-                </ul>
-            </div>
-            
-        </button>
+            </button>
+
+        {% endfor %}
+
     </div> 
      
     <div class="p-4 flex-auto w-full h-full border border-blue">
@@ -90,17 +94,7 @@ crossorigin=""></script>
     </div>
 </div>
 
+<script src="{% static 'js/trailMapPage.js' %}"></script>
 
-<script>
-    var mymap = L.map('map').setView([51.505, -0.09], 13);
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'your.mapbox.access.token'
-}).addTo(mymap);
-</script>
 
 {% endblock content %}

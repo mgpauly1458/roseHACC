@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from pages.models import Hike
 
 def homePage(request):
     return render(request, 'homePage.html', {})
@@ -13,4 +14,4 @@ def aboutPage(request):
     return render(request, 'aboutPage.html', {})
 
 def trailMapPage(request):
-    return render(request, 'trailMapPage.html', {})
+    return render(request, 'trailMapPage.html', {'hike_list': Hike.objects.all() })

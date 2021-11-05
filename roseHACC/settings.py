@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #my Apps
     'pages',
     'userApp',
+    
 
     #3rd party apps
 ]
