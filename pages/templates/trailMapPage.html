@@ -18,6 +18,7 @@ crossorigin=""/>
 integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 crossorigin=""></script>
 
+<script src="{% static 'js/trailMapPage.js' %}"></script>
 
 <div class="absolute flex h-full w-full bg-white">
     <div class="p-4 flex-auto flex-col-1 flex-row-auto w-1/3 h-full overflow-y-auto space-y-4 bg-gray-50">
@@ -50,39 +51,28 @@ crossorigin=""></script>
                 </div>
                 <div class="flex flex-row-1 space-x-3">
                     <p> Average Rating </p>
-                    <ul class="flex justify-center">
-                        <li>
-                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
-                        </li>
-                        <li>
-                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
-                        </li>
-                        <li>
-                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
-                        </li>
-                        <li>
-                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
-                        </li>
-                        <li>
-                        <i class="far fa-star fa-sm text-yellow-500 mr-1"></i>
+                    <ul class="flex justify-center">                        
+                        <li class="flex justify-center space-x-2" id="{{hike.id}}-rating">                
                         </li>
                     </ul>
+                    <script>add_stars("{{hike.id}}-rating","{{hike.hike_rating}}")</script>
                 </div>
                 <p> 3km / 30min</p>
                 <div class="flex flex-row-1 space-x-3">
                     {% if hike.hike_traffic == 3 %}
                     <p> Heavy Traffic </p>
-                    {% endif %}
+                    {% endif %} 
                     {% if hike.hike_traffic == 2 %}
                     <p> Moderate Traffic </p>
                     {% endif %}
                     {% if hike.hike_traffic == 1 %}
                     <p> Light Traffic </p>
                     {% endif %}
-                    <ul class="flex justify-center space-x-1">                        
-                    <li>                
-                        <i class="fas fa-car fa-sm"></i>
-                    </li>
+                    <ul class="flex justify-center">                        
+                        <li class="flex justify-center space-x-2" id="{{hike.id}}-traffic">                
+                        </li>
+                    </ul>
+                    <script>add_cars("{{hike.id}}-traffic","{{hike.hike_traffic}}")</script>
             </button>
 
         {% endfor %}
@@ -94,7 +84,19 @@ crossorigin=""></script>
     </div>
 </div>
 
-<script src="{% static 'js/trailMapPage.js' %}"></script>
+<script>
 
+
+var mymap = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'your.mapbox.access.token'
+}).addTo(mymap);
+
+</script>
 
 {% endblock content %}

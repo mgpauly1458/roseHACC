@@ -5,3 +5,4 @@ class Hike(models.Model):
     hike_name = models.CharField(max_length=50)
     hike_difficulty = models.IntegerField(default=3)
     hike_traffic = models.IntegerField(default=3)
+    hike_rating = models.IntegerField(default=4)
