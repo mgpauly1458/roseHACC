@@ -1,2 +1,4 @@
 .env
 node_modules
+media
+db.sqlite3

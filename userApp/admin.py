@@ -10,13 +10,13 @@ class CustomUserAdmin(UserAdmin):
     ordering = ('email',)
 
     fieldsets = (
-        ('User Info', {'fields':('email', 'password')}),
+        ('User Info', {'fields':('email', 'password', 'profile_picture')}),
     )
 
     add_fieldsets = (
         (None, {
         'classes':('wide',),
-        'fields':('email', 'password1', 'password2'),
+        'fields':('email', 'password1', 'password2', 'profile_picture'),
     }),
     )
 
