@@ -34,8 +34,6 @@ function populate_hike_popout(hike_name, hike_difficulty, hike_rating, hike_traf
 
     var description = document.getElementById('hike_description');
     description.innerHTML = hike_description;
-
-
     
 }
 
