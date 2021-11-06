@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf.urls import include
 
 from .views import homePage, discoverPage, contactPage, aboutPage, trailMapPage, loginPage, signupPage
 
@@ -9,5 +10,6 @@ urlpatterns = [
     path('about/', aboutPage, name="about"),
     path('trailmap/', trailMapPage, name="trailmap"),
     path("login/", loginPage, name="login"),
-    path("signup/", signupPage, name="signup")
+    path("signup/", signupPage, name="signup"),
+
 ]
