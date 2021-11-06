@@ -15,9 +15,3 @@ def aboutPage(request):
 
 def trailMapPage(request):
     return render(request, 'trailMapPage.html', {'hike_list': Hike.objects.all() })
-
-def loginPage(request):
-    return render(request, 'loginPage.html', {})
-
-def signupPage(request):
-    return render(request, "signupPage.html", {})

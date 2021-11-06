@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+.content-container {
+    width: 94vw;
+    height: 94vh;
+    background: orange;
+    z-index: 10;
+    position: relative;
+    left: 3vw;
+    top: 3vh;
+}

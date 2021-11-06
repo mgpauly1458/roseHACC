@@ -45,9 +45,11 @@ INSTALLED_APPS = [
     #my Apps
     'pages',
     'userApp',
+    'reservations',
     
 
     #3rd party apps
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
