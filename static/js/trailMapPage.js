@@ -1,5 +1,5 @@
 
-function open_menu(id, name, difficulty, traffic, image){
+function open_menu(id, name, difficulty, rating, traffic, image){
     var menu = document.getElementById('hike-popout');
     menu.classList.remove('hidden');
     menu.classList.add('block')
@@ -8,10 +8,10 @@ function open_menu(id, name, difficulty, traffic, image){
     list.classList.remove('block');
     list.classList.add('hidden');
 
-    populate_hike_popout(name, difficulty, traffic, 'Hike Description', image);
+    populate_hike_popout(name, difficulty, rating, traffic, 'Hike Description', image);
 }
 
-function populate_hike_popout(hike_name, hike_difficulty, hike_traffic, hike_description, hike_image){
+function populate_hike_popout(hike_name, hike_difficulty, hike_rating, hike_traffic, hike_description, hike_image){
     
     console.log(hike_name, hike_difficulty, hike_traffic, hike_description, hike_image);
     var name = document.getElementById('hike_title');
@@ -27,6 +27,11 @@ function populate_hike_popout(hike_name, hike_difficulty, hike_traffic, hike_des
     traffic.replaceChildren();
     add_cars('hike_traffic', hike_traffic);
     
+    
+    var rating = document.getElementById('hike_rating');
+    rating.replaceChildren();
+    add_stars('hike_rating', hike_rating);
+
     var description = document.getElementById('hike_description');
     description.innerHTML = hike_description;
 
