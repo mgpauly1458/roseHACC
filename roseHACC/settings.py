@@ -45,13 +45,17 @@ INSTALLED_APPS = [
     #my Apps
     'pages',
     'userApp',
+<<<<<<< HEAD
     'reservations',
     
+=======
+>>>>>>> Dynamic popout card, hike image added to hike model
 
     #3rd party apps
     'crispy_forms',
     'storages',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
