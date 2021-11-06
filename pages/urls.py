@@ -1,7 +1,5 @@
 from django.urls import path
-from django.conf.urls import include
-
-from .views import homePage, discoverPage, contactPage, aboutPage, trailMapPage, loginPage, signupPage
+from .views import homePage, discoverPage, contactPage, aboutPage, trailMapPage, pointsVerification
 
 urlpatterns = [
     path('', homePage, name="home"),
@@ -9,7 +7,5 @@ urlpatterns = [
     path('contact/', contactPage, name="contact"),
     path('about/', aboutPage, name="about"),
     path('trailmap/', trailMapPage, name="trailmap"),
-    path("login/", loginPage, name="login"),
-    path("signup/", signupPage, name="signup"),
-
+    path('pointsVerification/', pointsVerification, name="pointsVerification"),
 ]

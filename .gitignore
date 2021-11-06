@@ -1,3 +1,4 @@
+
 # Django #
 *.log
 *.pot
@@ -115,3 +116,4 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 node_modules/
+
