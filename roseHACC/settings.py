@@ -168,4 +168,4 @@ else:
     MEDIAFILES_LOCATION = 'media'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-print(os.getenv("SITE_STATUS"))
+
