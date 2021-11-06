@@ -1,4 +1,5 @@
 from django.urls import path
+
 from .views import homePage, discoverPage, contactPage, aboutPage, trailMapPage, loginPage, signupPage
 
 urlpatterns = [
