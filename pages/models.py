@@ -6,6 +6,7 @@ class Hike(models.Model):
     hike_difficulty = models.IntegerField(default=3)
     hike_traffic = models.IntegerField(default=3)
     hike_rating = models.IntegerField(default=4)
-
+    hike_images = models.CharField(max_length=50, default="")
+    
     def __str__(self):
         return self.hike_name
