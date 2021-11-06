@@ -45,15 +45,8 @@ INSTALLED_APPS = [
     #my Apps
     'pages',
     'userApp',
-<<<<<<< HEAD
-<<<<<<< HEAD
     'reservations',
     
-=======
->>>>>>> Dynamic popout card, hike image added to hike model
-=======
->>>>>>> 04223fbaf41acccb464fdfeebf5d6921783163a4
-
     #3rd party apps
     'crispy_forms',
     'storages',
