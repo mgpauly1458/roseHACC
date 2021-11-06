@@ -47,11 +47,11 @@ INSTALLED_APPS = [
     'userApp',
     'reservations',
     
-
     #3rd party apps
     'crispy_forms',
     'storages',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
