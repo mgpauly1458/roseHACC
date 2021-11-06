@@ -114,8 +114,4 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
-<<<<<<< HEAD
 node_modules/
-=======
-node_modules/
->>>>>>> 04223fbaf41acccb464fdfeebf5d6921783163a4
