@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'reservations',
     
     #3rd party apps
-    'crispy_forms',
     'storages',
 ]
 
@@ -66,6 +65,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'roseHACC.urls'
+
 
 TEMPLATES = [
     {
