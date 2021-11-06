@@ -1,0 +1,32 @@
+[33mb6a9f6a[m[33m ([m[1;36mHEAD -> [m[1;32missue13[m[33m)[m HEAD@{0}: checkout: moving from main to issue13
+[33mb901c00[m[33m ([m[1;32mmain[m[33m)[m HEAD@{1}: reset: moving to HEAD
+[33mb901c00[m[33m ([m[1;32mmain[m[33m)[m HEAD@{2}: reset: moving to HEAD
+[33mb901c00[m[33m ([m[1;32mmain[m[33m)[m HEAD@{3}: checkout: moving from main to main
+[33mb901c00[m[33m ([m[1;32mmain[m[33m)[m HEAD@{4}: merge issue13: Merge made by the 'recursive' strategy.
+[33m06a325a[m HEAD@{5}: checkout: moving from issue13 to main
+[33mb6a9f6a[m[33m ([m[1;36mHEAD -> [m[1;32missue13[m[33m)[m HEAD@{6}: checkout: moving from 1b0425e7f598f42d964b57954229f5094e2cc177 to issue13
+[33m1b0425e[m HEAD@{7}: checkout: moving from issue13 to origin
+[33mb6a9f6a[m[33m ([m[1;36mHEAD -> [m[1;32missue13[m[33m)[m HEAD@{8}: commit: Popout menu
+[33ma867ef4[m HEAD@{9}: commit: Popout menu
+[33m327bc1f[m[33m ([m[1;31morigin/issue13[m[33m)[m HEAD@{10}: commit: Dynamic hiking ratings and traffic
+[33m975fa3c[m[33m ([m[1;31morigin/issue11[m[33m, [m[1;32missue11[m[33m)[m HEAD@{11}: checkout: moving from issue11 to issue13
+[33m975fa3c[m[33m ([m[1;31morigin/issue11[m[33m, [m[1;32missue11[m[33m)[m HEAD@{12}: commit: Hike model, dynamic cards based on hike model
+[33m2a5968e[m[33m ([m[1;31morigin/issue01[m[33m, [m[1;32missue01[m[33m)[m HEAD@{13}: checkout: moving from issue01 to issue11
+[33m2a5968e[m[33m ([m[1;31morigin/issue01[m[33m, [m[1;32missue01[m[33m)[m HEAD@{14}: commit: Trailmap Page
+[33m24962f4[m[33m ([m[1;31morigin/issue04[m[33m, [m[1;32missue04[m[33m)[m HEAD@{15}: checkout: moving from issue04 to issue01
+[33m24962f4[m[33m ([m[1;31morigin/issue04[m[33m, [m[1;32missue04[m[33m)[m HEAD@{16}: commit: Remove head from patch
+[33mc24648d[m HEAD@{17}: pull: Merge made by the 'recursive' strategy.
+[33mdc0d3b0[m HEAD@{18}: commit: Resolve merge conflicts homePage.html
+[33m6ce88fb[m HEAD@{19}: reset: moving to HEAD~4
+[33mb19d71e[m HEAD@{20}: commit: Remove head from merge conflict in homePage.html
+[33m230add8[m HEAD@{21}: commit (merge): Update to origin
+[33me7481c7[m HEAD@{22}: commit: Add view to navbar href
+[33mac7b86c[m HEAD@{23}: rebase finished: returning to refs/heads/issue04
+[33mac7b86c[m HEAD@{24}: rebase: Empty template & views for about, contact us, discover pages
+[33m6ce88fb[m HEAD@{25}: rebase: checkout origin/main
+[33m6e91147[m HEAD@{26}: rebase: checkout issue04
+[33m6e91147[m HEAD@{27}: rebase: checkout issue04
+[33m6e91147[m HEAD@{28}: commit: Empty template & views for about, contact us, discover pages
+[33m06a325a[m HEAD@{29}: checkout: moving from main to issue04
+[33m06a325a[m HEAD@{30}: commit: Home page
+[33m0979eb2[m HEAD@{31}: clone: from https://github.com/anotheruser1458/roseHACC

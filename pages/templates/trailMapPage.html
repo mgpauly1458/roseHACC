@@ -21,7 +21,7 @@ crossorigin=""></script>
 <script src="{% static 'js/trailMapPage.js' %}"></script>
 
 <div class="absolute flex h-full w-full bg-white">
-    <div class="p-4 flex-auto flex-col-1 flex-row-auto w-1/3 h-full overflow-y-auto space-y-4 bg-gray-50">
+    <div id='hike-list' class="p-4 flex-auto flex-col-1 flex-row-auto w-1/3 h-full overflow-y-auto space-y-4 bg-gray-50">  
         <div class = "flex w-full h-auto flex-row-1 space-x-3 bg-gray-50 justify-left">
             <div class = "flex w-auto h-auto flex-row-1 justify-left">
                 <div class = "flex w-full h-auto flex-col-1 space-x-2">
@@ -43,49 +43,78 @@ crossorigin=""></script>
             </div>
         </div>
 
-        {% for hike in hike_list %}
-        
-            <button class="w-full h-auto bg-white border-4 border-white rounded-md px-3 hover:border-white-100 shadow hover:border-blue-500 text-left">
-                <div class="flex flex-row-1 space-x-3">
-                    <h><b> {{ hike.hike_name }} (Difficulty: {{hike.hike_difficulty}} / 5) </b></h>
-                </div>
-                <div class="flex flex-row-1 space-x-3">
-                    <p> Average Rating </p>
-                    <ul class="flex justify-center">                        
-                        <li class="flex justify-center space-x-2" id="{{hike.id}}-rating">                
-                        </li>
-                    </ul>
-                    <script>add_stars("{{hike.id}}-rating","{{hike.hike_rating}}")</script>
-                </div>
-                <p> 3km / 30min</p>
-                <div class="flex flex-row-1 space-x-3">
-                    {% if hike.hike_traffic == 3 %}
-                    <p> Heavy Traffic </p>
-                    {% endif %} 
-                    {% if hike.hike_traffic == 2 %}
-                    <p> Moderate Traffic </p>
-                    {% endif %}
-                    {% if hike.hike_traffic == 1 %}
-                    <p> Light Traffic </p>
-                    {% endif %}
-                    <ul class="flex justify-center">                        
-                        <li class="flex justify-center space-x-2" id="{{hike.id}}-traffic">                
-                        </li>
-                    </ul>
-                    <script>add_cars("{{hike.id}}-traffic","{{hike.hike_traffic}}")</script>
+    {% for hike in hike_list %}
+    <button onclick="open_menu('{{hike.id}}');" class=" transition-all duration-200 ease-in-out w-full h-auto bg-white border-4 border-white rounded-md px-3 hover:border-white-100 shadow hover:border-blue-500 text-left">
+        <div class="flex flex-row-1 space-x-3 justify-right">
+            <h><b> {{ hike.hike_name }} </b></h>
+        </div> 
+        <div class="flex flex-row-1 space-x-3">
+            <p> Average Rating </p>
+            <ul class="flex justify-center">                        
+                <li class="flex justify-center space-x-2" id="{{hike.id}}-rating">                
+                </li>
+            </ul>
+            <script>add_stars("{{hike.id}}-rating","{{hike.hike_rating}}")</script>
+        </div>
+        <div class="flex flex-row-1 space-x-2">
+            <i class="fas fa-hiking justify-center py-1"></i> 
+            <p class="bg-gray-100 px-2 rounded-md"> 3km / 30min</p>   
+            <h class="rounded-md border border-gray-100 bg-gray-100 px-2">Difficulty: {{hike.hike_difficulty}} / 5 </h>
+        </div>
+        <div class="flex flex-row-1 space-x-3">
+            {% if hike.hike_traffic == 5 %}
+            <p> Heavy Traffic </p>
+            {% endif %} 
+            {% if hike.hike_traffic == 4 %}
+            <p> Heavy-to-Moderate Traffic </p>
+            {% endif %}
+            {% if hike.hike_traffic == 3 %}
+            <p> Moderate Traffic </p>
+            {% endif %}
+            {% if hike.hike_traffic == 2 %}
+            <p> Moderate-to-Light Traffic </p>
+            {% endif %} 
+            {% if hike.hike_traffic == 1 %}
+            <p> Light Traffic </p>
+            {% endif %}
+            
+            <ul class="flex justify-center">                        
+                <li class="flex justify-center space-x-2" id="{{hike.id}}-traffic">                
+                </li>
+            </ul>
+            <script>add_cars("{{hike.id}}-traffic","{{hike.hike_traffic}}")</script>
+        </div>
+    </button>
+    {% endfor %}
+    </div>    
+            
+    <div id='hike-popout' class="transition-transform flex flex-col w-1/3 hidden border-4 border-white px-3">
+        <div class="flex flex-col-auto w-full gap-1">
+            <button onclick="open_list()" class="hover:border-3 rounded-md w-10 h-10" >
+                <i class="fas fa-chevron-circle-left fa-lg"></i>
             </button>
+            <p class="py-2"><b>Return</b> </p>
 
-        {% endfor %}
+        </div>
+        <div id="hike-popout-info" class="flex flex-col flex-row-1 w-full h-full">
+            <div class="flex flex-col justify-center">
+                <div class="flex justify-center">
+                    <p><b>Hike Info</b></p>
+                </div>
+            </div>
+            <div class="">
+                <p></p>
+            </div>
+        </div>            
+    </div>
 
-    </div> 
-     
-    <div class="p-4 flex-auto w-full h-full border border-blue">
+    
+    <div class="p-4 flex-auto w-full h-full">
         <div id="map" class="h-full w-full"></div>
     </div>
 </div>
 
 <script>
-
 
 var mymap = L.map('map').setView([51.505, -0.09], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
