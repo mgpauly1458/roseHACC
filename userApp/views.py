@@ -4,6 +4,7 @@ from .models import CustomUser
 from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic import DetailView
+
 def loginPage(request):
     form = AuthenticationForm()
     if request.method == "POST":
@@ -27,4 +28,3 @@ class ProfilePage(DetailView):
     model = CustomUser
     context_object_name = 'user'
     template_name = "profilePage.html"
-

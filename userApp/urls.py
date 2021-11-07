@@ -1,7 +1,9 @@
-from django.urls import path
-from .views import loginPage, signupPage
+from django.urls import path, include
+from .views import loginPage, signupPage, ProfilePage
 
 urlpatterns = [
-    path("login/", loginPage, name="login"),
+    path("", include('django.contrib.auth.urls')),
     path("signup/", signupPage, name="signup"),
+    path("<int:pk>/", ProfilePage.as_view(), name="profile"),
+
 ]

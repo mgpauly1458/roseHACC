@@ -140,7 +140,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # User Model
 AUTH_USER_MODEL = 'userApp.CustomUser'
-
+LOGIN_REDIRECT_URL = '/'
 
 
 #Static Files
@@ -165,5 +165,3 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 #Media
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'roseHACC.custom_storages.MediaStorage'
-
-
