@@ -16,3 +16,4 @@ class Hike(models.Model):
 
     def __str__(self):
         return self.hike_name
+
