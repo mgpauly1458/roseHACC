@@ -35,7 +35,7 @@ class CustomUserCreationForm(forms.Form):
     email = forms.EmailField()
     password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
     password2 = forms.CharField(label="Confirm Password", widget=forms.PasswordInput)
-    profile_picture = forms.ImageField(label="Optional Profile Picture")
+    profile_picture = forms.ImageField(label="Optional Profile Picture", required=False)
 
 
 
@@ -44,3 +44,7 @@ class CustomUserChangeForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ('email', 'password', 'is_active',)
+
+class CustomAuthenticationForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(label="Password", widget=forms.PasswordInput)

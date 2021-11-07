@@ -1,40 +1,76 @@
 from django.shortcuts import render
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, CustomAuthenticationForm
 from .models import CustomUser
 from django.shortcuts import redirect
-from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic import DetailView
 from reservations.models import Reservation
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from django.urls import reverse
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.hashers import make_password
 
 def loginPage(request):
-    form = AuthenticationForm()
-    if request.method == "POST":
-        form = AuthenticationForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            email = data['email']
-    return render(request, 'loginPage.html', {'form':form})
+
+    #redirect if logged in
+    if request.user.is_authenticated:
+        print(request.user)
+        url = "/users/profile/"+str(request.user.pk)
+        return redirect(url)
+
+    # check for errors
+    error = None
+    if request.GET.get('error') == "invalid_credentials":
+        error = "Your username or password is incorrect."
+    form = CustomAuthenticationForm()
+
+    if request.method == 'POST':
+        form = CustomAuthenticationForm(request.POST)
+        data = form.data
+        user = authenticate(email=data['email'], password=data['password'])
+        if user is not None:
+            login(request, user)
+            url = "/users/profile/"+str(user.pk)
+            return redirect(url)
+        else:
+            url = reverse('loginPage') + "?error=invalid_credentials"
+            return redirect(url)
+
+    return render(request, 'registration/loginPage.html', {'form':form, 'error':error})
 
 def signupPage(request):
+    # Error checks
+    error = None
+    if request.GET.get('error') == 'email_exists':
+        error = 'An account with this email already exists, try to login or recover your password'
+
     form = CustomUserCreationForm()
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST, request.FILES)
-        print(request.POST)
-        print(request.FILES)
-        print(form.is_valid())
         if form.is_valid():
-            data = form.cleaned_data
-            user = CustomUser(
-                email=data['email'],
-                password=data['password2'],
-                profile_picture=data['profile_picture']
-            )
-            user.save()
-    return render(request, "signupPage.html", {'form':form})
+                data = form.cleaned_data
+                #if email already exists, redirect to login
+                print(CustomUser.objects.filter(email=data['email']))
+                if CustomUser.objects.filter(email=data['email']):
+                    url = reverse('signup') + '?error=email_exists'
+                    return redirect(url)
+                else:
+                    user = CustomUser(
+                        email=data['email'],
+                        password=make_password(data['password2']),
+                        profile_picture=data['profile_picture']
+                    )
+                    user.save()
+                    login(request, user)
+                    url = "/users/profile/"+str(user.pk)
+                    return redirect(url)
+    return render(request, "signupPage.html", {'form':form, 'error':error})
 
-
+@login_required(redirect_field_name="home")
 def profilePage(request, pk):
+    if request.user.pk != pk:
+        raise PermissionDenied
     user = CustomUser.objects.get(pk=pk)
     res_list = Reservation.objects.filter(user=user)
     return render(request, 'profilePage.html', {'user':user, 'res_list':res_list})
