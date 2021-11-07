@@ -14,8 +14,10 @@ def reservationsPage(request):
             newRes.time = form.cleaned_data['time']
             newRes.date = form.cleaned_data['date']
             newRes.number_of_people = form.cleaned_data['number_of_people']
+            newRes.emergency_contact_name = form.cleaned_data['emergency_contact_name']
+            newRes.emergency_contact_phone_number = form.cleaned_data['emergency_contact_phone_number']
             newRes.save()
-            print(newRes)
+            
 
     else:
         form = CreateReservationForm()
