@@ -64,21 +64,28 @@ crossorigin=""></script>
         </div>
         <div class="flex flex-row-1 space-x-2">
             <i class="fas fa-hiking justify-center py-1"></i> 
-            <p class="bg-gray-100 px-2 rounded-md"> 3km / 30min</p>   
+            <div class="flex flex-row bg-gray-100 px-2 rounded-md">
+                <p class=""> {{hike.hike_length}} km / </p>   
+                <p class="px-2" id="hike_duration_inline_{{hike.id}}" class=""></p>
+            </div>
+
             <h class="rounded-md border border-gray-100 bg-gray-100 px-2">Difficulty: {{hike.hike_difficulty}} / 5 </h>
+            <script>
+                add_duration('hike_duration_inline_{{hike.id}}', '{{hike.hike_duration}}')
+            </script>
         </div>
         <div class="flex flex-row-1 space-x-3">
             {% if hike.hike_traffic == 5 %}
             <p> Heavy Traffic </p>
             {% endif %} 
             {% if hike.hike_traffic == 4 %}
-            <p> Heavy-to-Moderate Traffic </p>
+            <p> Moderate  Traffic </p>
             {% endif %}
             {% if hike.hike_traffic == 3 %}
             <p> Moderate Traffic </p>
             {% endif %}
             {% if hike.hike_traffic == 2 %}
-            <p> Moderate-to-Light Traffic </p>
+            <p> Light Traffic </p>
             {% endif %} 
             {% if hike.hike_traffic == 1 %}
             <p> Light Traffic </p>
