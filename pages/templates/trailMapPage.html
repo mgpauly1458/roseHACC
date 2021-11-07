@@ -92,7 +92,7 @@ crossorigin=""></script>
             
     <div id='hike-popout' class="transition-transform flex flex-col w-1/3 hidden border-4 border-white px-3 overflow-y-auto scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100">
         <div class="flex flex-col-auto w-full">
-            <button onclick="open_list()" class="hover:border-3 rounded-md w-10 h-10 flex flex-row " >
+            <button onclick="open_list()" class="transform transition duration-200 hover:scale-110 rounded-md w-10 h-10 flex flex-row " >
                 <i class="py-2 fas fa-arrow-left fa-lg"></i>
             </button>
         </div>
@@ -124,7 +124,9 @@ crossorigin=""></script>
                     </div>
                 </div>     
                 <div class="px-4 grid grid-cols-3 divide-x divide-indigo-500">
-                    <div class="text-center text-xl"> Elevation Gain 170m </div>
+                    <div class="text-center text-xl"> 
+                        Elevation Gain 170m 
+                    </div>
                     <div class="text-center text-xl"> Distance 2.6km </div>
                     <div class="text-center text-xl"> Time 1 hr 30 min</div>
                   </div>
@@ -172,7 +174,7 @@ crossorigin=""></script>
 
         //
         var mymap = L.map('map', {
-            renderer: L.canvas({ tolerance: 15 })
+            renderer: L.canvas({ tolerance: 14 })
         }).setView([21.31526, -157.82861], 15);
         
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -191,11 +193,30 @@ crossorigin=""></script>
                 'className' : 'popupCustom'
             }
 
+        var greenIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+            });
+
+
         function onEachFeature(feature, layer) {
             // does this feature have a property named popupContent?
             if (feature.properties && feature.properties.Trailname && feature.properties.TRAFFIC) {
                 layer.bindPopup(feature.properties.Trailname, customOptions);
             }
+            if (feature.properties && feature.geometry.type == "LineString"){
+                var startCoords = feature.geometry.coordinates[0];
+            }
+            if (feature.properties && feature.geometry.type == "MultiLineString"){
+                var startCoords = feature.geometry.coordinates[0][0];
+            }
+            console.log(startCoords)
+            var trailhead = L.marker([startCoords[1],startCoords[0]], {icon: greenIcon}).addTo(mymap);
+            trailhead.bindPopup(feature.properties.Trailname + "<br><center>Trailhead", customOptions);
         }
 
         L.geoJSON(Trails, {

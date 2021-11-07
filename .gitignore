@@ -1,7 +1,5 @@
-.env
-media
 
-# # Django #
+# Django #
 *.log
 *.pot
 *.pyc
