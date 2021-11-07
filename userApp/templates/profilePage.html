@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{ user.email }}</h1>
-    <img src="{{ user.profile_picture }}" alt="Profile Picture" />
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile - {{ user.email }}{% endblock title %}
+
+{% block content %}
+<h1>{{ user.email }}</h1>
+<h2>{{ user.hikes_completed }}</h2>
+<h3>{{ user.points }}</h3>
+<br/>
+{% if user.profile_picture == None %}
+<img src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture/>
+{% else %}
+<img src="{{ user.profile_picture }}" alt="Profile Picture"/>
+{% endif %}
+<a href="{% url 'logout' %}">Logout</a>
+{% endblock content %}
