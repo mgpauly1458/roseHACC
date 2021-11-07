@@ -44,7 +44,11 @@ crossorigin=""></script>
         </div>
 
     {% for hike in hike_list %}
-    <button onclick="open_menu('{{hike.id}}', '{{hike.hike_name}}', '{{hike.hike_difficulty}}', '{{hike.hike_rating}}', '{{hike.hike_traffic}}', '{{hike.hike_description}}', '{{hike.hike_route}}','{{ hike.hike_images }}');" class="transition-all duration-200 ease-in-out w-full h-auto bg-white border-4 border-white rounded-md px-3 hover:border-white-100 shadow hover:border-indigo-500 text-left">
+    <button onclick="open_menu(
+        '{{hike.id}}', '{{hike.hike_name}}', '{{hike.hike_difficulty}}', '{{hike.hike_rating}}', '{{hike.hike_traffic}}', 
+        '{{hike.hike_description}}', '{{hike.hike_route}}','{{ hike.hike_images }}', '{{ hike.hike_duration }}',  
+        '{{ hike.hike_length }}', '{{ hike.hike_elevation }}');" 
+    class="transition-all duration-200 ease-in-out w-full h-auto bg-white border-4 border-white rounded-md px-3 hover:border-white-100 shadow hover:border-indigo-500 text-left">
         <div class="flex flex-row-1 space-x-3 justify-right">
             <h><b> {{ hike.hike_name }} </b></h>
         </div> 
@@ -124,11 +128,12 @@ crossorigin=""></script>
                     </div>
                 </div>     
                 <div class="px-4 grid grid-cols-3 divide-x divide-indigo-500">
-                    <div class="text-center text-xl"> 
-                        Elevation Gain 170m 
+                    <div id='hike_elevation' class="text-center text-xl">
                     </div>
-                    <div class="text-center text-xl"> Distance 2.6km </div>
-                    <div class="text-center text-xl"> Time 1 hr 30 min</div>
+                    <div id='hike_length' class="text-center text-xl"> 
+                    </div>
+                    <div id='hike_duration' class="text-center text-xl"> 
+                    </div>
                   </div>
                 <div class='flex flex-row justify-center gap-1'>   
                     <h class="px-1"> Beginner, </h>
