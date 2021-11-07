@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import homePage, discoverPage, contactPage, aboutPage, trailMapPage, pointsVerification
 
+
 urlpatterns = [
     path('', homePage, name="home"),
     path('discover/', discoverPage, name="discover"),
