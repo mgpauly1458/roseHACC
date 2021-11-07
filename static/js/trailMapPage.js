@@ -48,6 +48,11 @@ function populate_hike_popout(hike_name, hike_difficulty, hike_rating, hike_traf
 
 }
 
+function add_duration(element_id, duration) {
+    var duration_elem = document.getElementById(element_id);
+    duration_elem.innerHTML =  minutes_to_time(duration);
+}
+
 function minutes_to_time(minutes){
     var hours = Math.floor(minutes / 60);
     var minutes = minutes % 60;
