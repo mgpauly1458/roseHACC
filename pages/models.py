@@ -13,7 +13,8 @@ class Hike(models.Model):
     hike_length = models.FloatField(default= 2)
     hike_elevation = models.IntegerField(default =100)
     hike_duration = models.IntegerField()
-
+    hike_attributes = models.CharField(max_length=500, default="")
+    
     def __str__(self):
         return self.hike_name
 

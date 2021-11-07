@@ -1,5 +1,5 @@
 
-function open_menu(id, name, difficulty, rating, traffic, description, hike_route, image, hike_duration, hike_length, hike_elevation){
+function open_menu(id, name, difficulty, rating, traffic, description, hike_route, image, hike_duration, hike_length, hike_elevation, hike_attributes){
     var menu = document.getElementById('hike-popout');
     menu.classList.remove('hidden');
     menu.classList.add('block')
@@ -8,10 +8,10 @@ function open_menu(id, name, difficulty, rating, traffic, description, hike_rout
     list.classList.remove('block');
     list.classList.add('hidden');
 
-    populate_hike_popout(name, difficulty, rating, traffic, description, hike_route, image, hike_duration, hike_length, hike_elevation);
+    populate_hike_popout(name, difficulty, rating, traffic, description, hike_route, image, hike_duration, hike_length, hike_elevation, hike_attributes);
 }
 
-function populate_hike_popout(hike_name, hike_difficulty, hike_rating, hike_traffic, hike_description, hike_route, hike_image, hike_duration, hike_length, hike_elevation){
+function populate_hike_popout(hike_name, hike_difficulty, hike_rating, hike_traffic, hike_description, hike_route, hike_image, hike_duration, hike_length, hike_elevation, hike_attributes){
     
     var name = document.getElementById('hike_title');
     name.innerHTML = hike_name;
@@ -45,6 +45,9 @@ function populate_hike_popout(hike_name, hike_difficulty, hike_rating, hike_traf
 
     var length = document.getElementById('hike_length');
     length.innerHTML = "Distance " + hike_length + "km";
+
+    var hike_attributes_elem = document.getElementById('hike_attributes');
+    hike_attributes_elem.innerHTML = "Additional: " + hike_attributes;
 
 }
 
