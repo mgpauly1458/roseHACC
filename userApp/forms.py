@@ -14,15 +14,7 @@ class CustomUserCreationForm(ModelForm):
 
     class Meta:
         model = CustomUser
-<<<<<<< HEAD
         fields = ['email', 'profile_picture']
-=======
-<<<<<<< HEAD
-        fields = ['email', 'profile_picture']
-=======
-        fields = ['email',]
->>>>>>> 44dd2cd44c5e54f38b7a3c636fb7a42fe09fc1a9
->>>>>>> db003cedbbe4df223febf45f3dbd52078401b5eb
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
