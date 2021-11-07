@@ -13,3 +13,13 @@ class Hike(models.Model):
 
     def __str__(self):
         return self.hike_name
+
+class Traffic(models.Model):
+    hikeID = models.IntegerField(default = 0    )
+    date = models.IntegerField(default = 0)
+    num_people_1 = models.IntegerField(default = 0)
+    num_people_2 = models.IntegerField(default = 0)
+    num_people_3 = models.IntegerField(default = 0)
+    num_people_4 = models.IntegerField(default = 0)
+    num_people_5 = models.IntegerField(default = 0)
+    num_people_6 = models.IntegerField(default = 0)
