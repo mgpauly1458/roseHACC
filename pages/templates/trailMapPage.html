@@ -168,8 +168,11 @@ crossorigin=""></script>
     }
 </style>
 <script src="{% static 'js/trails.js' %}"></script>
-<script src="{% static 'js/daytraffic.js' %}"></script>
-
+<script src="{% static 'js/trafficmap.js' %}"></script>
+<script src="{% static 'js/trafficdataparse.js' %}"></script>
+<script>
+    
+</script>
 <script> 
         var trafficdatastring = '{{ traffic_data|safe }}';
         var trafficdata = JSON.parse(trafficdatastring);
