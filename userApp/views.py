@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic import DetailView
 from reservations.models import Reservation
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 def loginPage(request):
     form = AuthenticationForm()
@@ -13,16 +14,23 @@ def loginPage(request):
         if form.is_valid():
             data = form.cleaned_data
             email = data['email']
-            p
     return render(request, 'loginPage.html', {'form':form})
 
 def signupPage(request):
     form = CustomUserCreationForm()
     if request.method == "POST":
-        form = CustomUserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST, request.FILES)
+        print(request.POST)
+        print(request.FILES)
+        print(form.is_valid())
         if form.is_valid():
-            form.save()
-            return redirect("home")
+            data = form.cleaned_data
+            user = CustomUser(
+                email=data['email'],
+                password=data['password2'],
+                profile_picture=data['profile_picture']
+            )
+            user.save()
     return render(request, "signupPage.html", {'form':form})
 
 

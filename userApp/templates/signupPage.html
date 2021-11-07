@@ -4,10 +4,12 @@
 {% block title %}Oahu Hiking Directory Signup{% endblock title %}
 
 {% block content %}
-<h1>Signup Test</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
+<div class="content-container">
+    <h1>Signup Test</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
 {% endblock content %}

@@ -7,35 +7,40 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField, AuthenticationForm
 from django.core.exceptions import ValidationError
 
-class CustomUserCreationForm(ModelForm):
+# class CustomUserCreationForm(ModelForm):
 
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+#     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+#     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
-    class Meta:
-        model = CustomUser
-        fields = ['email', 'profile_picture']
+#     class Meta:
+#         model = CustomUser
+#         fields = ['email', 'profile_picture']
 
-    def clean_password2(self):
-        password1 = self.cleaned_data.get("password1")
-        password2 = self.cleaned_data.get("password2")
-        if password1 and password2 and password1 != password2:
-            raise ValidationError("Passwords don't match")
-        return password2
+#     def clean_password2(self):
+#         password1 = self.cleaned_data.get("password1")
+#         password2 = self.cleaned_data.get("password2")
+#         if password1 and password2 and password1 != password2:
+#             raise ValidationError("Passwords don't match")
+#         return password2
 
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.set_password(self.cleaned_data["password1"])
-        if commit:
-            user.save()
-        return user
+#     def save(self, commit=True):
+#         user = super().save(commit=False)
+#         user.set_password(self.cleaned_data["password1"])
+#         user.profile_picture = self.cleaned_data['']
+#         if commit:
+#             user.save()
+#         return user
+
+class CustomUserCreationForm(forms.Form):
+    email = forms.EmailField()
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Confirm Password", widget=forms.PasswordInput)
+    profile_picture = forms.ImageField(label="Optional Profile Picture")
+
+
 
 class CustomUserChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
     class Meta:
         model = CustomUser
         fields = ('email', 'password', 'is_active',)
-
-
-# class CustomAuthenticationForm(AuthenticationForm):
-#     def confirm_login_allowed(self, user):
