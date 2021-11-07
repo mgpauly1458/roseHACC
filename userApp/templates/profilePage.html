@@ -4,14 +4,24 @@
 {% block title %}Profile - {{ user.email }}{% endblock title %}
 
 {% block content %}
-<h1>{{ user.email }}</h1>
-<h2>{{ user.hikes_completed }}</h2>
-<h3>{{ user.points }}</h3>
-<br/>
-{% if user.profile_picture == None %}
-<img src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture/>
-{% else %}
-<img src="{{ user.profile_picture }}" alt="Profile Picture"/>
-{% endif %}
-<a href="{% url 'logout' %}">Logout</a>
+<div class="content-container">
+    <h1>{{ user.email }}</h1>
+    <h2>{{ user.hikes_completed }}</h2>
+    <h3>{{ user.points }}</h3>
+    <br/>
+    {% if not user.profile_picture %}
+    <img src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture"/>
+    {% else %}
+    <img src="{{ user.profile_picture.url }}" alt="Profile Picture"/>
+    {% endif %}
+    <a href="{% url 'logout' %}">Logout</a>
+    <h3>Reservations</h3>
+    {% for res in res_list %}
+    <p>{{ res.hike }}</p>
+    <p>{{res.time }}</p>
+    <p>{{ res.date }}</p>
+    <p>{{ res.user }}</p>
+    <p>{{ res.number_of_people }}</p>
+    {% endfor %}
+</div>
 {% endblock content %}

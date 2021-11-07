@@ -8,6 +8,7 @@ class Reservation(models.Model):
     time = models.TimeField()
     date = models.DateField()
     number_of_people = models.IntegerField()
+    
 
     def __sts__(self):
         return self.hike

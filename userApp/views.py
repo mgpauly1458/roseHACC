@@ -4,6 +4,7 @@ from .models import CustomUser
 from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic import DetailView
+from reservations.models import Reservation
 
 def loginPage(request):
     form = AuthenticationForm()
@@ -24,7 +25,8 @@ def signupPage(request):
             return redirect("home")
     return render(request, "signupPage.html", {'form':form})
 
-class ProfilePage(DetailView):
-    model = CustomUser
-    context_object_name = 'user'
-    template_name = "profilePage.html"
+
+def profilePage(request, pk):
+    user = CustomUser.objects.get(pk=pk)
+    res_list = Reservation.objects.filter(user=user)
+    return render(request, 'profilePage.html', {'user':user, 'res_list':res_list})
