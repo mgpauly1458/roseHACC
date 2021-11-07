@@ -31,3 +31,13 @@ def trailMapPage(request):
 
 def pointsVerification(request):
     return render(request, 'pointsVerification.html', {})
+
+
+
+
+
+
+
+# Testing React
+def testReactPage(request):
+    return render(request,'testReact.html', {})
