@@ -25,7 +25,7 @@ def signupPage(request):
     return render(request, 'signUpPage.html', {})
 
 def trailMapPage(request):
-    dateTrafficData = serializers.serialize("json", Traffic.objects.filter(date = 110721))
+    dateTrafficData = serializers.serialize("json", Traffic.objects.filter(date = 110521))
     return render(request, 'trailMapPage.html', {'hike_list': Hike.objects.all(), 'traffic_data': dateTrafficData})
 
 def pointsVerification(request):

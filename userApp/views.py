@@ -10,6 +10,8 @@ from django.core.exceptions import PermissionDenied
 from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
+import jwt, json
+
 
 def loginPage(request):
 
@@ -75,7 +77,9 @@ def profilePage(request, pk):
     res_list = Reservation.objects.filter(user=user)
     return render(request, 'profilePage.html', {'user':user, 'res_list':res_list})
 
-
+def confirmEmailPage(request, token):
+    print(request.GET.get("jwt"))
+    return HttpResponse
 
 
 # email example

@@ -180,18 +180,17 @@ crossorigin=""></script>
         font-size: 15px;
     }
 </style>
+<script src="{% static 'js/trafficdataparse.js' %}"></script>
+<script src="{% static 'js/trails.js' %}"></script>
 
-<script type="module">
-    import { getTraffic } from '../../static/js/trafficdataparse.js'
-    import { showMap } from '../../static/js/trafficmap.js'   
-
+<script>  
     var trafficDataString = '{{ traffic_data|safe }}'
 
     var trafficdata = getTraffic(trafficDataString)
 
     var origin = [21.31526, -157.82861];
     var zoom = 15;
-    var timeSlot = "num_people_4";
+    var timeSlot = "num_people_2";
 
     showMap(origin, zoom, trafficdata, timeSlot)
 </script>
