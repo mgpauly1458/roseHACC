@@ -34,9 +34,7 @@ crossorigin=""></script>
             <p> Filters </p>
             <select name="filter" id="filter"></select>
             <p> Traffic Time</p>
-            <div>
-                <div id="root"></div>
-            </div>
+            <div id="root"></div>
         </div>
         
     {% for hike in hike_list %}
@@ -167,7 +165,6 @@ crossorigin=""></script>
     </div>
 </div>
 
-<script src="{% static 'js/index-bundle.js' %}"></script>
 <!--<script src="{% static 'js/index-bundle.js.map' %}"></script> -->
 
 <style>
@@ -183,6 +180,7 @@ crossorigin=""></script>
 </style>
 <script src="{% static 'js/trafficdataparse.js' %}"></script>
 <script src="{% static 'js/trails.js' %}"></script>
+<script src="{% static 'js/index-bundle.js' %}"></script>
 
 <script>  
     var trafficDataString = '{{ traffic_data|safe }}'

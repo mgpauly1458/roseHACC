@@ -5,5 +5,5 @@ import TrafficDateTimePicker from './components/TrafficDateTimePicker.jsx';
 
 import "../node_modules/react-datetime/css/react-datetime.css";
 
-const root = document.getElementById("root")
-ReactDOM.render(<TrafficDateTimePicker/>, root)
+const cal = document.querySelector("#root");
+ReactDOM.render(<TrafficDateTimePicker/>, cal)
