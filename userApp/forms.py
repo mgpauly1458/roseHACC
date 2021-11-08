@@ -38,11 +38,11 @@ class CustomUserCreationForm(forms.Form):
     E = "Experienced"
     VE = "Very Experienced"
     EXPERIENCE_CHOICES = [
-        ('VI', VI),
-        ("I", I),
-        ("M", M),
-        ("E", E),
-        ("VE", VE)
+        (0, VI),
+        (1, I),
+        (2, M),
+        (3, E),
+        (4, VE)
     ]
 
     first_name = forms.CharField(label="First Name")

@@ -14,7 +14,6 @@ import jwt, json
 
 
 def loginPage(request):
-
     #redirect if logged in
     if request.user.is_authenticated:
         print(request.user)
@@ -59,7 +58,13 @@ def signupPage(request):
                     return redirect(url)
                 else:
                     user = CustomUser(
-                        email=data['email'],
+                        first_name = data['first_name'],
+                        last_name = data['last_name'],
+                        age = data['age'],
+                        sex = data['sex'],
+                        email = data['email'],
+                        fitness_level = data['fitness_level'],
+                        hiking_experience = data['hiking_experience'],
                         password=make_password(data['password2']),
                         profile_picture=data['profile_picture']
                     )
