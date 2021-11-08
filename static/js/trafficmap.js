@@ -1,49 +1,51 @@
-src="{% static 'js/trails.js' %}"
-src="{% static 'js/trafficdataparse.js' %}"
+import { Trails } from './trails.js'
 
-function onEachFeature(feature, layer) {
-    var greenIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-        });
+function showMap(coordinate, zoom, trafficdata, timeSlot){
+
+    var traffic = "NULL"
     
-    var customOptions =
-        {
-            'maxWidth': '400',
-            'width': '200',
-            'className' : 'popupCustom'
-        }
+    function onEachFeature(feature, layer) {
 
-    if (feature.properties && feature.properties.Trailname && feature.properties.TRAFFIC) {
-        layer.bindPopup(feature.properties.Trailname, customOptions);
-    }
-    if (feature.properties && feature.geometry.type == "LineString"){
-        var startCoords = feature.geometry.coordinates[0];
-    }
-    if (feature.properties && feature.geometry.type == "MultiLineString"){
-        var startCoords = feature.geometry.coordinates[0][0];
-    }
-    var trailhead = L.marker([startCoords[1],startCoords[0]], {icon: greenIcon}).addTo(mymap);
-    trailhead.bindPopup(feature.properties.Trailname + "<br><center>Trailhead", customOptions);
+        var greenIcon = new L.Icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+            });
+        
+        var customOptions =
+            {
+                'maxWidth': '400',
+                'width': '200',
+                'className' : 'popupCustom'
+            }
+
+        if (feature.properties && feature.properties.Trailname && feature.properties.TRAFFIC) {
+            layer.bindPopup(feature.properties.Trailname, customOptions);
+        }
+        if (feature.properties && feature.geometry.type == "LineString"){
+            var startCoords = feature.geometry.coordinates[0];
+        }
+        if (feature.properties && feature.geometry.type == "MultiLineString"){
+            var startCoords = feature.geometry.coordinates[0][0];
+        }
     
-    var hikeID = feature.properties.HIKEID;
-    var trafficobject = getTraffic(hikeID, date);
-    var numpeople = trafficobject[0].fields[timeSlot];
+        var trailhead = L.marker([startCoords[1],startCoords[0]], {icon: greenIcon}).addTo(mymap);
 
-    if(numpeople < 20){
-            traffic = "LIGHT"
-        } else if (numpeople < 50) {
-            traffic = "MEDIUM"
-        } else {
-            traffic = "HEAVY"
-        }
-}
+        trailhead.bindPopup(feature.properties.Trailname + "<br><center>Trailhead", customOptions);
 
-function showMap(coordinate, zoom){
+        var numpeople = trafficdata.find(t=>t.fields.hikeID === feature.properties.HIKEID).fields[timeSlot];
+
+        if(numpeople < 20){
+                traffic = "LIGHT"
+            } else if (numpeople < 50) {
+                traffic = "MEDIUM"
+            } else {
+                traffic = "HEAVY"
+            }
+    }
 
     var mymap = L.map('map', {
             renderer: L.canvas({ tolerance: 14 })
@@ -66,9 +68,9 @@ function showMap(coordinate, zoom){
                 case 'MEDIUM': return {color: "#FFC300", weight: 5, opacity: 0.8};
                 case 'LIGHT':   return {color: "#008000", weight: 5, opacity: 0.8};
                 }
-            }
+            },
         }).addTo(mymap);
         
 }
 
-
+export { showMap }
