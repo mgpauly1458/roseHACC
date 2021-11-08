@@ -21,4 +21,5 @@ urlpatterns = [
     path("", include('pages.urls')),
     path("reservations/", include("reservations.urls")),
     path("users/", include("userApp.urls")),
+    path("donations/", include("donations.urls")),
 ]
