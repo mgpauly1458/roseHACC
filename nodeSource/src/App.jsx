@@ -1,5 +1,7 @@
 const React = require("react")
 const ReactDOM = require("react-dom")
-const root = document.getElementById("root")
+import Datetime from 'react-datetime';
+import "../node_modules/react-datetime/css/react-datetime.css";
 
-ReactDOM.render(<h1>Hello World</h1>, root)
+const root = document.getElementById("root")
+ReactDOM.render(<Datetime/>, root)
