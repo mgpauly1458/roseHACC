@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import homePage, discoverPage, contactPage, aboutPage, trailMapPage, pointsVerification
+from .views import homePage, discoverPage, contactPage, aboutPage, trailMapPage, pointsVerification, trailMapPageWithDate
 
 #test react
 from .views import testReactPage
@@ -10,11 +10,7 @@ urlpatterns = [
     path('contact/', contactPage, name="contact"),
     path('about/', aboutPage, name="about"),
     path('trailmap/', trailMapPage, name="trailmap"),
+    path('trailmap/<int:date>', trailMapPageWithDate, name="trailmapWithDate"),
     path('pointsVerification/', pointsVerification, name="pointsVerification"),
-
-
-
-
-    #test react
-    path("testReact/", testReactPage)
+    path('testReact/', testReactPage, name="testReact"),
 ]
