@@ -1,6 +1,104 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/TrafficDateTimePicker.jsx":
+/*!**************************************************!*\
+  !*** ./src/components/TrafficDateTimePicker.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-datetime */ "./node_modules/react-datetime/dist/react-datetime.cjs.js");
+/* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_datetime__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var divStyle = {
+  zIndex: 1001
+};
+
+var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
+  _inherits(TrafficDateTimePicker, _React$Component);
+
+  var _super = _createSuper(TrafficDateTimePicker);
+
+  function TrafficDateTimePicker() {
+    _classCallCheck(this, TrafficDateTimePicker);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(TrafficDateTimePicker, [{
+    key: "render",
+    value: function render() {
+      var _this = this;
+
+      return /*#__PURE__*/React.createElement((react_datetime__WEBPACK_IMPORTED_MODULE_0___default()), {
+        style: divStyle,
+        placeHolderText: "Select Date",
+        onChange: function onChange(date) {
+          _this.onChanged(date);
+        }
+      });
+    }
+  }, {
+    key: "onChanged",
+    value: function onChanged(data) {
+      var date_string = this.format_date_mmddyy(data);
+      document.location.href = date_string;
+    }
+  }, {
+    key: "format_date_mmddyy",
+    value: function format_date_mmddyy(date) {
+      var date = new Date(date);
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear() + "";
+      var year_trimmed = this.trim_first_two(year);
+      var date_string = month + "" + "" + day + "" + year_trimmed;
+      return date_string;
+    }
+  }, {
+    key: "trim_first_two",
+    value: function trim_first_two(string) {
+      return string.substring(2);
+    }
+  }]);
+
+  return TrafficDateTimePicker;
+}(React.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TrafficDateTimePicker);
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/react-datetime/css/react-datetime.css":
 /*!**************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/react-datetime/css/react-datetime.css ***!
@@ -51877,15 +51975,17 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-datetime */ "./node_modules/react-datetime/dist/react-datetime.cjs.js");
 /* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_datetime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_react_datetime_css_react_datetime_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/react-datetime/css/react-datetime.css */ "./node_modules/react-datetime/css/react-datetime.css");
+/* harmony import */ var _components_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/TrafficDateTimePicker.jsx */ "./src/components/TrafficDateTimePicker.jsx");
+/* harmony import */ var _node_modules_react_datetime_css_react_datetime_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/react-datetime/css/react-datetime.css */ "./node_modules/react-datetime/css/react-datetime.css");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 
 
 
+
 var root = document.getElementById("root");
-ReactDOM.render( /*#__PURE__*/React.createElement((react_datetime__WEBPACK_IMPORTED_MODULE_0___default()), null), root);
+ReactDOM.render( /*#__PURE__*/React.createElement(_components_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), root);
 })();
 
 /******/ })()
