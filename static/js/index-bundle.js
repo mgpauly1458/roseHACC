@@ -62,7 +62,6 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/React.createElement((react_datetime__WEBPACK_IMPORTED_MODULE_0___default()), {
         style: divStyle,
-        placeHolderText: "Select Date",
         onChange: function onChange(date) {
           _this.onChanged(date);
         }
@@ -70,25 +69,35 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "onChanged",
-    value: function onChanged(data) {
-      var date_string = this.format_date_mmddyy(data);
+    value: function onChanged(date) {
+      var date_string = this.format_date_mmddyy(date);
       document.location.href = date_string;
     }
   }, {
     key: "format_date_mmddyy",
     value: function format_date_mmddyy(date) {
       var date = new Date(date);
-      var day = date.getDate();
-      var month = date.getMonth() + 1;
+      var day = date.getDate() + "";
+      var month = date.getMonth() + 1 + "";
       var year = date.getFullYear() + "";
-      var year_trimmed = this.trim_first_two(year);
-      var date_string = month + "" + "" + day + "" + year_trimmed;
+      var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year);
       return date_string;
     }
   }, {
+    key: "pad_string",
+    value: function pad_string(the_string) {
+      console.log(the_string);
+
+      if (the_string.length == 1) {
+        return "0" + the_string;
+      }
+
+      return the_string;
+    }
+  }, {
     key: "trim_first_two",
-    value: function trim_first_two(string) {
-      return string.substring(2);
+    value: function trim_first_two(the_string) {
+      return the_string.substring(2);
     }
   }]);
 
@@ -51984,8 +51993,8 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 
 
-var root = document.getElementById("root");
-ReactDOM.render( /*#__PURE__*/React.createElement(_components_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), root);
+var cal = document.querySelector("#root");
+ReactDOM.render( /*#__PURE__*/React.createElement(_components_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), cal);
 })();
 
 /******/ })()
