@@ -889,3 +889,4 @@ var Trails = {
     ]
     };
     
+    export { Trails }

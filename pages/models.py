@@ -20,7 +20,7 @@ class Hike(models.Model):
 
 
 class Traffic(models.Model):
-    hikeID = models.IntegerField(default = 0    )
+    hikeID = models.IntegerField(default = 0)
     date = models.IntegerField(default = 0)
     num_people_1 = models.IntegerField(default = 0)
     num_people_2 = models.IntegerField(default = 0)

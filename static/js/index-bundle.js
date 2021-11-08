@@ -1,4 +1,9 @@
 /******/ (() => { // webpackBootstrap
+<<<<<<< HEAD
+/******/ 	"use strict";
+/******/ 	
+/******/ 	
+=======
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/object-assign/index.js":
@@ -29862,5 +29867,6 @@ var root = document.getElementById("root");
 ReactDOM.render( /*#__PURE__*/React.createElement("h1", null, "Hello World"), root);
 })();
 
+>>>>>>> main
 /******/ })()
 ;
