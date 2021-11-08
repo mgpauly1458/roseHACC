@@ -23,14 +23,21 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    email = models.CharField(max_length=100, unique=True)
-    password = models.CharField(max_length=150)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+
+
     profile_picture = models.ImageField(null=True, blank=True)
-    hikes_finishes = models.IntegerField(default=0)
     points = models.IntegerField(default=0)
-    
+    email = models.CharField(max_length=100, unique=True)
+    password = models.CharField(max_length=150)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    sex = models.CharField(max_length=1)
+    fitness_level = models.IntegerField()
+    hiking_experience = models.IntegerField()
+
     objects = CustomUserManager()
 
     REQUIRED_FIELDS = ['password',]
