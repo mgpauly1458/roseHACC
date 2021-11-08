@@ -3,7 +3,6 @@ from pages.models import Hike
 from pages.models import Traffic
 from django.http import HttpResponse
 from django.http import JsonResponse
-import json
 from django.core import serializers
 
 
@@ -26,8 +25,8 @@ def signupPage(request):
     return render(request, 'signUpPage.html', {})
 
 def trailMapPage(request):
-    trafficdata = serializers.serialize("json", Traffic.objects.all())
-    return render(request, 'trailMapPage.html', {'hike_list': Hike.objects.all(), 'traffic_data':trafficdata})
+    dateTrafficData = serializers.serialize("json", Traffic.objects.filter(date = 110721))
+    return render(request, 'trailMapPage.html', {'hike_list': Hike.objects.all(), 'traffic_data': dateTrafficData})
 
 def pointsVerification(request):
     return render(request, 'pointsVerification.html', {})
