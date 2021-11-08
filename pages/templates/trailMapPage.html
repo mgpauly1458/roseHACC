@@ -23,26 +23,22 @@ crossorigin=""></script>
 <div class="absolute flex h-full w-full bg-white">
     <div id='hike-list' class="p-4 flex-auto flex-col-1 flex-row-auto w-1/3 h-full overflow-y-auto space-y-4 bg-gray-50">  
         <div class = "flex w-full h-auto flex-row-1 space-x-3 bg-gray-50 justify-left">
-            <div class = "flex w-auto h-auto flex-row-1 justify-left">
-                <div class = "flex w-full h-auto flex-col-1 space-x-2">
-                    <ul class="flex justify-left">
-                        <i class="fas fa-grip-vertical py-1"></i>
-                    </ul>
-                    <p> Sort By </p>
-                    <select name="sort" id="sort"></select>
-                </div>
-            </div>
-            <div class = "flex w-1/2 h-auto flex-row-1 space-x justify-left">
-                <div class = "flex w-full h-auto flex-col-1 space-x-2">
-                    <ul class="flex justify-left">
-                        <i class="fas fa-filter py-1"></i>
-                    </ul>
-                    <p> Filters </p>
-                    <select name="filter" id="filter"></select>
-                </div>
+            <ul class="flex justify-left">
+                <i class="fas fa-grip-vertical py-1"></i>
+            </ul>
+            <p> Sort By </p>
+            <select name="sort" id="sort"></select>
+            <ul class="flex justify-left">
+                <i class="fas fa-filter py-1"></i>
+            </ul>
+            <p> Filters </p>
+            <select name="filter" id="filter"></select>
+            <p> Traffic Time</p>
+            <div>
+                <div class="" id="root"></div>
             </div>
         </div>
-
+        
     {% for hike in hike_list %}
     <button onclick="open_menu(
         '{{hike.id}}', '{{hike.hike_name}}', '{{hike.hike_difficulty}}', '{{hike.hike_rating}}', '{{hike.hike_traffic}}', 
@@ -170,6 +166,10 @@ crossorigin=""></script>
         <div id="map" class="h-full w-full"></div>
     </div>
 </div>
+
+<script src="{% static 'js/index-bundle.js' %}"></script>
+<!--<script src="{% static 'js/index-bundle.js.map' %}"></script> -->
+
 <style>
     /* css to customize Leaflet default styles  */
     .popupCustom .leaflet-popup-tip,
