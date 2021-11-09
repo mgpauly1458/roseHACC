@@ -183,22 +183,28 @@ crossorigin=""></script>
 
 <script>  
     var origin = [21.31526, -157.82861];
-
     var zoom = 15;
-    
-    var timeSlot = "num_people_3";
 
-    var date = 102621;
+    var mymap = L.map('map', {
+        renderer: L.canvas({ tolerance: 14 })
+        }).setView(origin, zoom);
 
-    showMap(origin, zoom, date, timeSlot)
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/outdoors-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiYWFrZW1vdG8iLCJhIjoiY2t2bHF1eGVhOWZtdDJwcGdwZWtoMmQ3bCJ9.l2t-FRs7-6a6G3MPgTfowg'
+        }).addTo(mymap);
 
     function showMapFromDateTime(date, time) {
-        var origin = [21.31526, -157.82861];
-        var zoom = 15;
-        var slot = Math.floor(time / 4) + 1;
+        var parseTime = time/100
+        var slot = Math.floor(parseTime / 4) + 1;
         var num_people_n = 'num_people_' + slot;
-        showMap(origin, zoom, date, time)
+        updateMap(map, date, num_people_n)
     }
+
 </script>
 
 {% endblock content %}

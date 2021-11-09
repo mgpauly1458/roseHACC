@@ -30,7 +30,8 @@ class TrafficDateTimePicker extends React.Component {
 
   onExit(date) {
     var date_string = this.format_date_mmddyy(date);
-    showMapFromDateTime(date_string.split(":")[0], date_string.split(":")[1]);
+    var map = mymap
+    showMapFromDateTime(map, date_string.split(":")[0], date_string.split(":")[1]);
   }    
 
   format_date_mmddyy(date) {
