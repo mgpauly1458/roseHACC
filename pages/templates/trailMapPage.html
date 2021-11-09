@@ -177,13 +177,20 @@ crossorigin=""></script>
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{% static 'js/trafficdataparse.js' %}"></script>
 <script src="{% static 'js/trails.js' %}"></script>
 <script src="{% static 'js/index-bundle.js' %}"></script>
 
 <script>  
-    var origin = [21.31526, -157.82861];
-    var zoom = 15;
+    var origin = [21.481056406745278, -157.95845361227276];
+    var zoom = 11;
+
+    var currentdate = new Date();
+    var datearray = getFormattedDateTime(currentdate)
+
+    var date = datearray[0];
+    var time = datearray[1];
+
+    var num_people_n = timeParse(time);
 
     var mymap = L.map('map', {
         renderer: L.canvas({ tolerance: 14 })
@@ -197,6 +204,9 @@ crossorigin=""></script>
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoiYWFrZW1vdG8iLCJhIjoiY2t2bHF1eGVhOWZtdDJwcGdwZWtoMmQ3bCJ9.l2t-FRs7-6a6G3MPgTfowg'
         }).addTo(mymap);
+
+
+    updateMap(mymap, date, num_people_n)
 
     function showMapFromDateTime(date, time) {
         var parseTime = time/100
