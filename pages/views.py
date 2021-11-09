@@ -28,11 +28,7 @@ def signupPage(request):
     return render(request, 'signUpPage.html', {})
 
 def trailMapPage(request):
-    return render(request, 'trailMapPage.html', {})
-
-# def trailMapPageWithDate(request, date):
-#     dateTrafficData = serializers.serialize("json", Traffic.objects.filter(date=date))
-#     return render(request, 'trailMapPage.html', {'hike_list': Hike.objects.all(), 'traffic_data': dateTrafficData})
+    return render(request, 'trailMapPage.html', {}) 
 
 def pointsVerification(request):
     return render(request, 'pointsVerification.html', {})
@@ -42,8 +38,7 @@ def pointsVerification(request):
 
 #api
 @api_view(['GET'])
-def getTrafficData(request):
-    date = request.GET.get("__WHAT")
+def getTrafficData(request, date):
     dateTrafficData = Traffic.objects.filter(date=date)
     serializer = TrafficSerializer(dateTrafficData, many=True)
     return Response(serializer.data)

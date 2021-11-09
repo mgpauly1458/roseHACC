@@ -892,11 +892,19 @@ var Trails = {
 
 
 
-    function showMap(coordinate, zoom, trafficdata, timeSlot){
+    async function showMap(coordinate, zoom, date, timeSlot){
+        
+        var trafficdata;
 
-      var traffic = "NULL"
+        var url = '/getTrafficData/' + String(date)
+
+        trafficdata = await fetch(url).then(response => response.json()).then(data => data)
+
+        console.log(trafficdata)
+
+        var traffic = "NULL"
       
-      function onEachFeature(feature, layer) {
+    function onEachFeature(feature, layer) {
   
           var greenIcon = new L.Icon({
               iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
@@ -928,7 +936,7 @@ var Trails = {
   
           trailhead.bindPopup(feature.properties.Trailname + "<br><center>Trailhead", customOptions);
   
-          var numpeople = trafficdata.find(t=>t.fields.hike_id === feature.properties.HIKEID).fields[timeSlot];
+          var numpeople = trafficdata.find(t=>t.hike_id === feature.properties.HIKEID)[timeSlot];
   
           if(numpeople < 20){
                   traffic = "LIGHT"

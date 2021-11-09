@@ -176,24 +176,21 @@ crossorigin=""></script>
     }
 
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'js/trafficdataparse.js' %}"></script>
 <script src="{% static 'js/trails.js' %}"></script>
 <script src="{% static 'js/index-bundle.js' %}"></script>
 
 <script>  
-    var trafficDataString = '{{ traffic_data|safe }}'
-
-    var trafficdata = getTraffic(trafficDataString)
-
     var origin = [21.31526, -157.82861];
-    var zoom = 15;
 
-    var time = '{{ time }}';
+    var zoom = 15;
     
     var timeSlot = "num_people_2";
 
-    showMap(origin, zoom, trafficdata, timeSlot)
-    
+    var date = 110921;
+
+    showMap(origin, zoom, date, timeSlot)
 </script>
 
 {% endblock content %}
