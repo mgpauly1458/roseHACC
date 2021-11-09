@@ -10,7 +10,7 @@ urlpatterns = [
     path('contact/', contactPage, name="contact"),
     path('about/', aboutPage, name="about"),
     path('trailmap/', trailMapPage, name="trailmap"),
-    path('trailmap/<int:date>', trailMapPageWithDate, name="trailmapWithDate"),
+    path('trailmap/<str:date>', trailMapPageWithDate, name="trailmapWithDate"),
     path('pointsVerification/', pointsVerification, name="pointsVerification"),
     path('testReact/', testReactPage, name="testReact"),
 ]

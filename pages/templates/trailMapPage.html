@@ -22,7 +22,7 @@ crossorigin=""></script>
 
 <div class="absolute flex h-full w-full bg-white">
     <div id='hike-list' class="p-4 flex-auto flex-col-1 flex-row-auto w-1/3 h-full overflow-y-auto space-y-4 bg-gray-50">  
-        <div class = "flex w-full h-auto flex-row-1 space-x-3 bg-gray-50 justify-left">
+        <div class = "flex w-full h-auto flex-row-1 space-x-3 bg-gray-50 justify-left sm:flex-row md:flex-col-1 md:flex-row">
             <ul class="flex justify-left">
                 <i class="fas fa-grip-vertical py-1"></i>
             </ul>
@@ -34,7 +34,7 @@ crossorigin=""></script>
             <p> Filters </p>
             <select name="filter" id="filter"></select>
             <p> Traffic Time</p>
-            <div id="root"></div>
+            <div id="root" class="{{date}} {{time}}"></div>
         </div>
         
     {% for hike in hike_list %}
@@ -161,11 +161,9 @@ crossorigin=""></script>
 
     
     <div class="p-4 flex-auto w-full h-full">
-        <div id="map" class="h-full w-full"></div>
+        <div id="map" style="z-index: 0;" class="h-full w-full"></div>
     </div>
 </div>
-
-<!--<script src="{% static 'js/index-bundle.js.map' %}"></script> -->
 
 <style>
     /* css to customize Leaflet default styles  */
@@ -189,6 +187,9 @@ crossorigin=""></script>
 
     var origin = [21.31526, -157.82861];
     var zoom = 15;
+
+    var time = '{{ time }}';
+    
     var timeSlot = "num_people_2";
 
     showMap(origin, zoom, trafficdata, timeSlot)

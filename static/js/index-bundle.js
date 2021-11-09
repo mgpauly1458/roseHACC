@@ -41,7 +41,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var divStyle = {
-  zIndex: 1001
+  zIndex: 1
 };
 
 var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
@@ -49,27 +49,47 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(TrafficDateTimePicker);
 
-  function TrafficDateTimePicker() {
+  function TrafficDateTimePicker(props) {
+    var _this;
+
     _classCallCheck(this, TrafficDateTimePicker);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+
+    var date_obj = _this.date_string_to_date(_this.props.date_str);
+
+    var hrs = _this.time_string_to_hours(_this.props.time_str);
+
+    var mins = _this.time_string_to_minutes(_this.props.time_str);
+
+    var new_date = new Date(date_obj.getFullYear(), date_obj.getMonth(), date_obj.getDate(), hrs, mins);
+    /*(var date_compact_str = new_date.getMonth() + "/" + new_date.getDay() + "/" + new_date.getFullYear() + " " + new_date.getHours() + ":" + new_date.getMinutes();*/
+
+    console.log(_this.props.date_string);
+    _this.state = {
+      date: new_date
+    };
+    return _this;
   }
 
   _createClass(TrafficDateTimePicker, [{
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       return /*#__PURE__*/React.createElement((react_datetime__WEBPACK_IMPORTED_MODULE_0___default()), {
         style: divStyle,
-        onChange: function onChange(date) {
-          _this.onChanged(date);
+        inputProps: {
+          placeholder: "Select date..."
+        },
+        onClose: function onClose(new_date) {
+          _this2.onExit(new_date);
         }
       });
     }
   }, {
-    key: "onChanged",
-    value: function onChanged(date) {
+    key: "onExit",
+    value: function onExit(date) {
       var date_string = this.format_date_mmddyy(date);
       document.location.href = date_string;
     }
@@ -80,14 +100,14 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
       var day = date.getDate() + "";
       var month = date.getMonth() + 1 + "";
       var year = date.getFullYear() + "";
-      var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year);
+      var hours = date.getHours() + "";
+      var minutes = date.getMinutes() + "";
+      var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year) + this.pad_string(hours) + this.pad_string(minutes);
       return date_string;
     }
   }, {
     key: "pad_string",
     value: function pad_string(the_string) {
-      console.log(the_string);
-
       if (the_string.length == 1) {
         return "0" + the_string;
       }
@@ -98,6 +118,27 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
     key: "trim_first_two",
     value: function trim_first_two(the_string) {
       return the_string.substring(2);
+    }
+  }, {
+    key: "date_string_to_date",
+    value: function date_string_to_date(date_string) {
+      var month = date_string.substring(0, 1);
+      var day = date_string.substring(2, 3);
+      var year = date_string.substring(4, 5);
+      var date = new Date(year, month, day);
+      return date;
+    }
+  }, {
+    key: "time_string_to_hours",
+    value: function time_string_to_hours(time_string) {
+      var hours = time_string.substring(6, 7);
+      return hours;
+    }
+  }, {
+    key: "time_string_to_minutes",
+    value: function time_string_to_minutes(time_string) {
+      var minutes = time_string.substring(8, 9);
+      return minutes;
     }
   }]);
 
@@ -51994,7 +52035,13 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 
 var cal = document.querySelector("#root");
-ReactDOM.render( /*#__PURE__*/React.createElement(_components_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), cal);
+var a_date = cal.classList[0];
+var a_time = cal.classList[1];
+console.log(a_time);
+ReactDOM.render( /*#__PURE__*/React.createElement(_components_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  date_str: a_date,
+  time_str: a_time
+}), cal);
 })();
 
 /******/ })()
