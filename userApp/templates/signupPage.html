@@ -4,15 +4,17 @@
 {% block title %}Oahu Hiking Directory Signup{% endblock title %}
 
 {% block content %}
-<div class="content-container">
-    <h1>Signup</h1>
-    {% if error %}
-    <p>{{ error }}</p>
-    {% endif %}
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+<div class="relative flex h-screen justify-center items-center w-full ">
+    <div class="flex flex-col p-6 rounded-lg bg-gray-50 border border-10 border-white-100">
+        <h1 class="text-center rounded-md ">Signup</h1>
+            {% if error %}
+            <p>{{ error }}</p>
+            {% endif %}
+            <form class="flex flex-col justify-right py-3 gap-3" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="border border-3 bg-white hover:bg-gray-100" type="submit">Submit</button>
+            </form>
+    </div>
 </div>
 {% endblock content %}

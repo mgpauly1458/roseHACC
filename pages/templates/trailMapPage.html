@@ -191,6 +191,14 @@ crossorigin=""></script>
     var date = 102621;
 
     showMap(origin, zoom, date, timeSlot)
+
+    function showMapFromDateTime(date, time) {
+        var origin = [21.31526, -157.82861];
+        var zoom = 15;
+        var slot = Math.floor(time / 4) + 1;
+        var num_people_n = 'num_people_' + slot;
+        showMap(origin, zoom, date, time)
+    }
 </script>
 
 {% endblock content %}
