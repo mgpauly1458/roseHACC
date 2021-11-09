@@ -21,6 +21,9 @@ crossorigin=""></script>
 <script src="{% static 'js/trailMapPage.js' %}"></script>
 
 <div class="absolute flex h-full w-full bg-white">
+
+    <div id="hike_list"></div>
+    <!--
     <div id='hike-list' class="p-4 flex-auto flex-col-1 flex-row-auto w-1/3 h-full overflow-y-auto space-y-4 bg-gray-50">  
         <div class = "flex w-full h-auto flex-row-1 space-x-3 bg-gray-50 justify-left sm:flex-row md:flex-col-1 md:flex-row">
             <ul class="flex justify-left">
@@ -37,8 +40,8 @@ crossorigin=""></script>
             <div id="root" class="{{date}} {{time}}"></div>
         </div>
      <div id="card"></div>
-        <!--
-     
+    -->
+<!--
     {% for hike in hike_list %}
     <button onclick="open_menu(
         '{{hike.id}}', '{{hike.hike_name}}', '{{hike.hike_difficulty}}', '{{hike.hike_rating}}', '{{hike.hike_traffic}}', 
@@ -98,8 +101,7 @@ crossorigin=""></script>
     </button>
     {% endfor %}
 -->
-
-    </div>    
+        
             
     <div id='hike-popout' class="transition-transform flex flex-col w-1/3 hidden border-4 border-white px-3 overflow-y-auto scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100">
         <div class="flex flex-col-auto w-full">

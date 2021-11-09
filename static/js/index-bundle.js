@@ -43,46 +43,62 @@ var HikeCard = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(HikeCard);
 
-  function HikeCard() {
+  function HikeCard(props) {
+    var _this;
+
     _classCallCheck(this, HikeCard);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      hike_id: _this.props.hike_id,
+      hike_name: _this.props.hike_name,
+      hike_rating: _this.props.hike_rating,
+      hike_distance: _this.props.hike_distance,
+      hike_duration: _this.props.hike_duration,
+      hike_difficulty: _this.props.hike_difficulty,
+      hike_traffic: _this.props.hike_traffic,
+      hike_description: _this.props.hike_description,
+      hike_route: _this.props.hike_route
+    };
+    return _this;
   }
 
   _createClass(HikeCard, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/React.createElement("button", {
-        onclick: "",
-        "class": "transition-all duration-200 ease-in-out w-full h-auto bg-white border-4 border-white rounded-md px-3 hover:border-white-100 shadow hover:border-indigo-500 text-left"
+        className: "transition-all duration-200 ease-in-out w-full h-auto bg-white border-4 border-white rounded-md px-3 hover:border-white-100 shadow hover:border-indigo-500 text-left"
       }, /*#__PURE__*/React.createElement("div", {
-        "class": "flex flex-row-1 space-x-3 justify-right"
-      }, /*#__PURE__*/React.createElement("h", null, /*#__PURE__*/React.createElement("b", null, " HIKE NAME "))), /*#__PURE__*/React.createElement("div", {
-        "class": "flex flex-row-1 space-x-3"
+        className: "flex flex-row-1 space-x-3 justify-right"
+      }, /*#__PURE__*/React.createElement("h", null, /*#__PURE__*/React.createElement("b", null, " ", this.props.hike_name, " "))), /*#__PURE__*/React.createElement("div", {
+        className: "flex flex-row-1 space-x-3"
       }, /*#__PURE__*/React.createElement("p", null, " Average Rating "), /*#__PURE__*/React.createElement("ul", {
-        "class": "flex justify-center"
+        className: "flex justify-center"
       }, /*#__PURE__*/React.createElement("li", {
-        "class": "flex justify-center space-x-2",
+        className: "flex justify-center space-x-2",
         id: "hike-rating"
       }))), /*#__PURE__*/React.createElement("div", {
-        "class": "flex flex-row-1 space-x-2"
+        className: "flex flex-row-1 space-x-2"
       }, /*#__PURE__*/React.createElement("i", {
-        "class": "fas fa-hiking justify-center py-1"
+        className: "fas fa-hiking justify-center py-1"
       }), /*#__PURE__*/React.createElement("div", {
-        "class": "flex flex-row bg-gray-100 px-2 rounded-md"
+        className: "flex flex-row bg-gray-100 px-2 rounded-md"
       }, /*#__PURE__*/React.createElement("p", {
-        "class": ""
-      }, " Distance km / Duration hr min "), /*#__PURE__*/React.createElement("p", _defineProperty({
-        "class": "px-2",
+        className: ""
+      }, " ", this.props.hike_length, " km / ", this.props.hike_duration, " min "), /*#__PURE__*/React.createElement("p", _defineProperty({
+        className: "px-2",
         id: "hike_duration_inline_hikeid"
-      }, "class", ""))), /*#__PURE__*/React.createElement("h", {
-        "class": "rounded-md border border-gray-100 bg-gray-100 px-2"
-      }, "Difficulty: difficulty / 5 ")), /*#__PURE__*/React.createElement("div", {
-        "class": "flex flex-row-1 space-x-3"
+      }, "className", ""))), /*#__PURE__*/React.createElement("div", {
+        className: "rounded-md border border-gray-100 bg-gray-100 px-2"
+      }, " Difficulty: ", this.props.hike_difficulty, " / 5 "), console.log(this.props.hike_difficulty)), /*#__PURE__*/React.createElement("div", {
+        className: "flex flex-row-1 space-x-3"
       }, "Traffic Level", /*#__PURE__*/React.createElement("ul", {
-        "class": "flex justify-center"
+        className: "flex justify-center"
       }, /*#__PURE__*/React.createElement("li", {
-        "class": "flex justify-center space-x-2",
+        className: "flex justify-center space-x-2",
         id: "hike-traffic"
       }))));
     }
@@ -92,6 +108,124 @@ var HikeCard = /*#__PURE__*/function (_React$Component) {
 }(React.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HikeCard);
+
+/***/ }),
+
+/***/ "./src/components/trailmap/HikeList.jsx":
+/*!**********************************************!*\
+  !*** ./src/components/trailmap/HikeList.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _HikeCard_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HikeCard.jsx */ "./src/components/trailmap/HikeCard.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+
+var HikeList = /*#__PURE__*/function (_React$Component) {
+  _inherits(HikeList, _React$Component);
+
+  var _super = _createSuper(HikeList);
+
+  function HikeList(props) {
+    var _this;
+
+    _classCallCheck(this, HikeList);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      hikes: []
+    };
+    return _this;
+  }
+
+  _createClass(HikeList, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("div", {
+        id: "hike_list",
+        className: "p-4 flex-auto flex-col-1 flex-row-auto w-full h-full overflow-y-auto space-y-4 bg-gray-50"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "flex w-full h-auto flex-row-1 space-x-3 bg-gray-50 justify-left sm:flex-row md:flex-col-1 md:flex-row"
+      }, /*#__PURE__*/React.createElement("ul", {
+        className: "flex justify-left"
+      }, /*#__PURE__*/React.createElement("i", {
+        className: "fas fa-grip-vertical py-1"
+      })), /*#__PURE__*/React.createElement("p", null, " Sort By "), /*#__PURE__*/React.createElement("select", {
+        name: "sort",
+        id: "sort"
+      }), /*#__PURE__*/React.createElement("ul", {
+        className: "flex justify-left"
+      }, /*#__PURE__*/React.createElement("i", {
+        className: "fas fa-filter py-1"
+      })), /*#__PURE__*/React.createElement("p", null, " Filters "), /*#__PURE__*/React.createElement("select", {
+        name: "filter",
+        id: "filter"
+      }), /*#__PURE__*/React.createElement("p", null, " Traffic Time"), /*#__PURE__*/React.createElement("div", {
+        id: "calendar",
+        className: ""
+      })), this.state.hikes.map(function (hike) {
+        console.log(hike.hike_difficulty);
+        return /*#__PURE__*/React.createElement(_HikeCard_jsx__WEBPACK_IMPORTED_MODULE_0__["default"], {
+          key: hike.hike_id,
+          hike_name: hike.hike_name,
+          hike_length: hike.hike_length,
+          hike_duration: hike.hike_duration,
+          hike_difficulty: hike.hike_difficulty,
+          hike_rating: hike.hike_rating
+        });
+      }));
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.get_hike_data();
+    }
+  }, {
+    key: "get_hike_data",
+    value: function get_hike_data() {
+      var _this2 = this;
+
+      fetch('/getHikeData').then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this2.setState({
+          hikes: data
+        });
+      });
+    }
+  }]);
+
+  return HikeList;
+}(React.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HikeList);
 
 /***/ }),
 
@@ -30493,7 +30627,7 @@ var __webpack_exports__ = {};
   \*********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_react_datetime_css_react_datetime_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/react-datetime/css/react-datetime.css */ "./node_modules/react-datetime/css/react-datetime.css");
-/* harmony import */ var _components_trailmap_HikeCard_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/trailmap/HikeCard.jsx */ "./src/components/trailmap/HikeCard.jsx");
+/* harmony import */ var _components_trailmap_HikeList_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/trailmap/HikeList.jsx */ "./src/components/trailmap/HikeList.jsx");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -30508,8 +30642,8 @@ var a_time = cal.classList[1];
 ReactDOM.render(<TrafficDateTimePicker date_str={a_date} time_str={a_time} />, cal)
 */
 
-var card = document.getElementById("card");
-ReactDOM.render( /*#__PURE__*/React.createElement(_components_trailmap_HikeCard_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), card);
+var card = document.getElementById("hike_list");
+ReactDOM.render( /*#__PURE__*/React.createElement(_components_trailmap_HikeList_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), card);
 })();
 
 /******/ })()
