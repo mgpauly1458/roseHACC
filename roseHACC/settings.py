@@ -192,6 +192,11 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASSWORD")
 #Rest Framework
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ),
 }
+
+#Stripe
+STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+
