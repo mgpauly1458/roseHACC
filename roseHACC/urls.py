@@ -22,4 +22,6 @@ urlpatterns = [
     path("reservations/", include("reservations.urls")),
     path("users/", include("userApp.urls")),
     path("donations/", include("donations.urls")),
+    #testing auth urls
+    path("api-auth/", include('rest_framework.urls')),
 ]

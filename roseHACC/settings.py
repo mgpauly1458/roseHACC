@@ -47,8 +47,10 @@ INSTALLED_APPS = [
     'reservations',
     'userApp',
     'donations',
+
     #3rd party apps
     # 'storages',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -185,3 +187,11 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'rosehacc@gmail.com'
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASSWORD")
+
+
+#Rest Framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
