@@ -68,6 +68,7 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/React.createElement((react_datetime__WEBPACK_IMPORTED_MODULE_0___default()), {
         style: divStyle,
+        date: true,
         inputProps: {
           placeholder: "Select date and time."
         },
@@ -80,7 +81,7 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
     key: "onExit",
     value: function onExit(date) {
       var date_string = this.format_date_mmddyy(date);
-      showMap([21.31526, -157.82861], 15, date_string.split(":")[0], 'num_people_3');
+      showMapFromDateTime(date_string.split(":")[0], date_string.split(":")[1]);
     }
   }, {
     key: "format_date_mmddyy",
