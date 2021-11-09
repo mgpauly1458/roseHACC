@@ -29,7 +29,7 @@ class TrafficDateTimePicker extends React.Component {
 
   onExit(date) {
     var date_string = this.format_date_mmddyy(date);
-
+    showMap( [21.31526, -157.82861], 15, date_string.split(":")[0], 'num_people_3');
   }    
 
   format_date_mmddyy(date) {
