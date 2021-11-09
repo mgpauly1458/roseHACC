@@ -19,7 +19,7 @@ class TrafficDateTimePicker extends React.Component {
       this.state = {
         date: new_date,
       };
-    }
+  }
   render() {  
     return (<Datetime 
       style={divStyle}
