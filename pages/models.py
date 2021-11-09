@@ -4,7 +4,8 @@ from django.db import models
 class Hike(models.Model):
     hike_name = models.CharField(max_length=50)
     hike_difficulty = models.IntegerField(default=3)
-
+    hike_id = models.IntegerField(default=0)
+    hike_tags = models.CharField(default="", max_length=200)
     hike_rating = models.IntegerField(default=4)
     hike_images = models.CharField(max_length=50, default="")
     hike_description = models.CharField(max_length=500, default="")
@@ -20,7 +21,7 @@ class Hike(models.Model):
 
 
 class Traffic(models.Model):
-    hikeID = models.IntegerField(default = 0)
+    hike_id = models.IntegerField(default = 0)
     date = models.IntegerField(default = 0)
     num_people_1 = models.IntegerField(default = 0)
     num_people_2 = models.IntegerField(default = 0)

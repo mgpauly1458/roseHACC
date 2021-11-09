@@ -39,13 +39,14 @@ def pointsVerification(request):
 
 
 
+
 #api
 @api_view(['GET'])
 def getTrafficData(request):
     date = request.GET.get("__WHAT")
     dateTrafficData = Traffic.objects.filter(date=date)
     serializer = TrafficSerializer(dateTrafficData, many=True)
-    return Response(serializer)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def getHikeData(request):

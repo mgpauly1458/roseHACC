@@ -17,7 +17,7 @@ class HikeSerializer(serializers.Serializer):
     hike_description = serializers.CharField()
     hike_route = serializers.CharField()
     hike_tags = serializers.CharField()
-    hike_img = serializers.CharField()
+    hike_images = serializers.CharField()
 
 
 

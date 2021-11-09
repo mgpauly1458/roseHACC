@@ -13,4 +13,5 @@ urlpatterns = [
     path('pointsVerification/', pointsVerification, name="pointsVerification"),
     path('testReact/', testReactPage, name="testReact"),
     path("getTrafficData/", getTrafficData),
+    path("getHikeData/", getHikeData),
 ]
