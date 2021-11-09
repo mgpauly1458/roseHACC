@@ -890,7 +890,7 @@ var Trails = {
     };
     
 
-
+    
 
     async function showMap(coordinate, zoom, date, timeSlot){
         
