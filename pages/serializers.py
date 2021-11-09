@@ -25,4 +25,3 @@ class HikeSerializer(serializers.Serializer):
 
 
 
-
