@@ -192,6 +192,6 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASSWORD")
 #Rest Framework
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ),
 }
