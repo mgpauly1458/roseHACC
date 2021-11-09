@@ -26,6 +26,7 @@ function populate_hike_popout(hike_name, hike_difficulty, hike_rating, hike_traf
     traffic.replaceChildren();
     add_cars('hike_traffic', hike_traffic);
     
+    
     var rating = document.getElementById('hike_rating');
     rating.replaceChildren();
     add_stars('hike_rating', hike_rating);
