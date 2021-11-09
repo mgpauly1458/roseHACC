@@ -9,31 +9,27 @@ class TrafficDateTimePicker extends React.Component {
 
   constructor(props) {
       super(props); 
-      var date_obj = this.date_string_to_date(this.props.date_str);
-      var hrs = this.time_string_to_hours(this.props.time_str);
-      var mins = this.time_string_to_minutes(this.props.time_str);
-      var new_date = new Date(date_obj.getFullYear(), date_obj.getMonth(), date_obj.getDate(), hrs, mins);
-      /*(var date_compact_str = new_date.getMonth() + "/" + new_date.getDay() + "/" + new_date.getFullYear() + " " + new_date.getHours() + ":" + new_date.getMinutes();*/
-      console.log(this.props.date_string);
 
       this.state = {
-        date: new_date,
+        date: new Date(),
       };
-    }
+  }
+
   render() {  
-    return (<Datetime 
+    return (
+    <Datetime 
       style={divStyle}
-      inputProps={{ placeholder: "Select date..." }}
+      inputProps={{ placeholder: "Select date and time." }}
       onClose = {new_date => { 
         this.onExit(new_date);       
       }}
-      />
+    />
     );
   }
 
   onExit(date) {
     var date_string = this.format_date_mmddyy(date);
-    document.location.href = date_string;
+
   }    
 
   format_date_mmddyy(date) {
@@ -46,7 +42,7 @@ class TrafficDateTimePicker extends React.Component {
     var hours = date.getHours() + "";
     var minutes = date.getMinutes() + "";
 
-    var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year) + this.pad_string(hours) + this.pad_string(minutes); 
+    var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year) + ":" + this.pad_string(hours) + this.pad_string(minutes); 
     return date_string;
   }
 
