@@ -19,6 +19,7 @@ class TrafficDateTimePicker extends React.Component {
     return (
     <Datetime 
       style={divStyle}
+      date
       inputProps={{ placeholder: "Select date and time." }}
       onClose = {new_date => { 
         this.onExit(new_date);       
@@ -29,7 +30,7 @@ class TrafficDateTimePicker extends React.Component {
 
   onExit(date) {
     var date_string = this.format_date_mmddyy(date);
-    showMap( [21.31526, -157.82861], 15, date_string.split(":")[0], 'num_people_3');
+    showMapFromDateTime(date_string.split(":")[0], date_string.split(":")[1]);
   }    
 
   format_date_mmddyy(date) {
