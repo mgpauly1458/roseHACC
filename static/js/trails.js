@@ -928,7 +928,7 @@ var Trails = {
   
           trailhead.bindPopup(feature.properties.Trailname + "<br><center>Trailhead", customOptions);
   
-          var numpeople = trafficdata.find(t=>t.fields.hikeID === feature.properties.HIKEID).fields[timeSlot];
+          var numpeople = trafficdata.find(t=>t.fields.hike_id === feature.properties.HIKEID).fields[timeSlot];
   
           if(numpeople < 20){
                   traffic = "LIGHT"
