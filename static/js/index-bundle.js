@@ -55,19 +55,8 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, TrafficDateTimePicker);
 
     _this = _super.call(this, props);
-
-    var date_obj = _this.date_string_to_date(_this.props.date_str);
-
-    var hrs = _this.time_string_to_hours(_this.props.time_str);
-
-    var mins = _this.time_string_to_minutes(_this.props.time_str);
-
-    var new_date = new Date(date_obj.getFullYear(), date_obj.getMonth(), date_obj.getDate(), hrs, mins);
-    /*(var date_compact_str = new_date.getMonth() + "/" + new_date.getDay() + "/" + new_date.getFullYear() + " " + new_date.getHours() + ":" + new_date.getMinutes();*/
-
-    console.log(_this.props.date_string);
     _this.state = {
-      date: new_date
+      date: new Date()
     };
     return _this;
   }
@@ -80,7 +69,7 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/React.createElement((react_datetime__WEBPACK_IMPORTED_MODULE_0___default()), {
         style: divStyle,
         inputProps: {
-          placeholder: "Select date..."
+          placeholder: "Select date and time."
         },
         onClose: function onClose(new_date) {
           _this2.onExit(new_date);
@@ -91,7 +80,6 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
     key: "onExit",
     value: function onExit(date) {
       var date_string = this.format_date_mmddyy(date);
-      document.location.href = date_string;
     }
   }, {
     key: "format_date_mmddyy",
@@ -102,7 +90,7 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
       var year = date.getFullYear() + "";
       var hours = date.getHours() + "";
       var minutes = date.getMinutes() + "";
-      var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year) + this.pad_string(hours) + this.pad_string(minutes);
+      var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year) + ":" + this.pad_string(hours) + this.pad_string(minutes);
       return date_string;
     }
   }, {
@@ -52034,14 +52022,12 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 
 
-var cal = document.querySelector("#root");
-var a_date = cal.classList[0];
-var a_time = cal.classList[1];
-console.log(a_time);
-ReactDOM.render( /*#__PURE__*/React.createElement(_components_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
-  date_str: a_date,
-  time_str: a_time
-}), cal);
+var cal = document.getElementById("root");
+/*
+var a_date = cal.innerText.split(" ")[0];
+var a_time = cal.innerText.split(" ")[1];*/
+
+ReactDOM.render( /*#__PURE__*/React.createElement(_components_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null), cal);
 })();
 
 /******/ })()
