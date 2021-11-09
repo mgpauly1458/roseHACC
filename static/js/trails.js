@@ -889,18 +889,19 @@ var Trails = {
     ]
     };
     
+async function updateMap(mymap, date, timeSlot){
 
-    
-
-    async function showMap(coordinate, zoom, date, timeSlot){
+        window.mymap.eachLayer(function(layer) {
+            if (!!layer.toGeoJSON) {
+                window.mymap.removeLayer(layer);
+            }
+        });
         
         var trafficdata;
 
         var url = '/getTrafficData/' + String(date)
 
         trafficdata = await fetch(url).then(response => response.json()).then(data => data)
-
-        console.log(trafficdata)
 
         var traffic = "NULL"
       
@@ -932,7 +933,7 @@ var Trails = {
               var startCoords = feature.geometry.coordinates[0][0];
           }
       
-          var trailhead = L.marker([startCoords[1],startCoords[0]], {icon: greenIcon}).addTo(mymap);
+          var trailhead = L.marker([startCoords[1],startCoords[0]], {icon: greenIcon}).addTo(window.mymap);
   
           trailhead.bindPopup(feature.properties.Trailname + "<br><center>Trailhead", customOptions);
   
@@ -947,19 +948,6 @@ var Trails = {
               }
       }
   
-      var mymap = L.map('map', {
-              renderer: L.canvas({ tolerance: 14 })
-          }).setView(coordinate, zoom);
-  
-      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-              attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-              maxZoom: 18,
-              id: 'mapbox/outdoors-v11',
-              tileSize: 512,
-              zoomOffset: -1,
-              accessToken: 'pk.eyJ1IjoiYWFrZW1vdG8iLCJhIjoiY2t2bHF1eGVhOWZtdDJwcGdwZWtoMmQ3bCJ9.l2t-FRs7-6a6G3MPgTfowg'
-          }).addTo(mymap);
-  
       L.geoJSON(Trails, {
           onEachFeature: onEachFeature,
           style: function(features){
@@ -969,7 +957,7 @@ var Trails = {
                   case 'LIGHT':   return {color: "#008000", weight: 5, opacity: 0.8};
                   }
               },
-          }).addTo(mymap);
+          }).addTo(window.mymap);
           
   }
-  
+
