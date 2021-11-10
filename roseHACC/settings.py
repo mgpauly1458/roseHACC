@@ -33,8 +33,8 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
-INSTALLED_APPS = [
+if os.getenv("DEPENDENCIES_INSTALLED") == "True":
+    INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,9 +49,26 @@ INSTALLED_APPS = [
     'donations',
 
     #3rd party apps
-    # 'storages',
-    #'rest_framework',
+    'rest_framework',
 ]
+else:
+    INSTALLED_APPS = [
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+
+        #my Apps
+        'pages',
+        'reservations',
+        'userApp',
+        'donations',
+
+        #3rd party apps
+        #'rest_framework',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
