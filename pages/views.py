@@ -35,7 +35,6 @@ def pointsVerification(request):
 
 
 
-
 #api
 # @api_view(['GET'])
 def getTrafficData(request, date):
