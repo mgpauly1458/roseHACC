@@ -3,12 +3,13 @@ from .forms import DonationForm
 from .models import Donation
 import stripe
 from roseHACC.settings import STRIPE_SECRET_KEY, STRIPE_PUBLIC_KEY
+from django.contrib.auth.decorators import login_required
 
 stripe.api_key = STRIPE_SECRET_KEY
 
 
 
-
+@login_required
 def donationsPage(request):
     form = DonationForm()
     if request.method == 'POST':
