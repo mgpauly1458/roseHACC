@@ -29,4 +29,3 @@ class Traffic(models.Model):
     num_people_4 = models.IntegerField(default = 0)
     num_people_5 = models.IntegerField(default = 0)
     num_people_6 = models.IntegerField(default = 0)
-
