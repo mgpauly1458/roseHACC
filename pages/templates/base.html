@@ -42,8 +42,14 @@
     </div>
 
     {% if user.is_authenticated %}
-    <div class="flex items-center">
-      <a href="{% url 'loginPage' %}" class="px-3">
+    <div class="flex items-center space-x-2">
+      {% if not user.profile_picture %}
+      <img src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture"/>
+      {% else %}
+      <img class="rounded-full w-10 h-10" src="{{ user.profile_picture.url }}" alt="Profile Picture"/>
+      {% endif %}
+
+      <a href="{% url 'loginPage' %}" class="">
         <button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
         Profile
         </button></a>
