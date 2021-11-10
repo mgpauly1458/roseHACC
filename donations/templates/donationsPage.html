@@ -105,20 +105,10 @@ function stripeTokenHandler(token) {
 }
 
 // Create a token or display an error when the form is submitted.
-function makePayment(){
+async function makePayment(){
 var form = document.getElementById('payment-form');
-
-  stripe.createToken(card).then(function(result) {
-    if (result.error) {
-        console.log("error")
-      console.log(result.error)
-      var errorElement = document.getElementById('card-errors');
-      errorElement.textContent = result.error.message;
-    } else {
-      console.log('success')
-      console.log(result.token)
-    }
-  });
+var result = await stripe.createToken(card);
+console.log(result);
 }
 </script>
 {% endblock content %}
