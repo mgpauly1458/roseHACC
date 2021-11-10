@@ -2,16 +2,21 @@
 {% load static %}
 
 {% block content %}
-<div class="content-container">
-  <h2>Log In</h2>
-  {% if error %}
-  <p>{{ error }}</p>
-  {% endif %}
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log In</button>
-  </form>
-  <a href="{% url 'passwordReset' %}">Forgot your password?</a>
+<div class="flex container flex-col h-full w-screen m-auto items-center justify-center p-6">
+  <div class="flex flex-col bg-white justify-center rounded-xl p-3 space-y-4">
+    <h2 class="text-center text-3xl">Sign in to your account</h2>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    <form class="text-3xl" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="flex w-full justify-center">
+        <button class="border border-4" type="submit"><p class="w-full h-full text-3xl">Log In</p></button>
+      </div>
+    </form>
+    <a href="{% url 'passwordReset' %}"><p class="text-right text-xs">Forgot your password?</p></a>
+  </div>
+
 </div>
 {% endblock content %}

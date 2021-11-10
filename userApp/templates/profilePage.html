@@ -4,24 +4,32 @@
 {% block title %}Profile - {{ user.email }}{% endblock title %}
 
 {% block content %}
-<div class="content-container">
-    <h1>{{ user.email }}</h1>
-    <h2>{{ user.hikes_completed }}</h2>
-    <h3>{{ user.points }}</h3>
-    <br/>
-    {% if not user.profile_picture %}
-    <img src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture"/>
-    {% else %}
-    <img src="{{ user.profile_picture.url }}" alt="Profile Picture"/>
-    {% endif %}
-    <a href="{% url 'logout' %}">Logout</a>
-    <h3>Reservations</h3>
-    {% for res in res_list %}
-    <p>{{ res.hike }}</p>
-    <p>{{res.time }}</p>
-    <p>{{ res.date }}</p>
-    <p>{{ res.user }}</p>
-    <p>{{ res.number_of_people }}</p>
-    {% endfor %}
+<div class="flex justify-center items-center h-full w-full">
+    <div class="bg-white flex flex-col p-6 rounded-lg gap-3 h-full w-full ">
+        <div class="rounded-full justify-right">
+        </div>
+
+        <div class="grid grid-cols justify-center gaps-4">
+            <h1 class="text-xl text-center"> Welcome back, {{ user.email }}!</h1>
+            <h3 class="text-xl text-center"> Points: {{ user.points }}</h3>
+        </div>
+        <br/>
+        <div class="grid grid-cols justify-center" >
+            <h3 class="text-center text-3xl">Upcoming Reservations</h3>
+            <div class="grid grid-col overflow-y-auto p-4 gaps-4">
+                {% for res in res_list %}
+                <div class="grid bg-gray-100 rounded-lg space-y-2">
+                    <p class="text-center"> <b> {{ res.hike }} </b></p>
+                    <p class="text-center"> Time {{res.time }}</p>
+                    <p class="text-center"> Date {{ res.date }}</p>
+                    <p class="text-center"> Number of People {{ res.number_of_people }}</p>
+                </div>
+                {% endfor %}
+                {% if res_list.count == 0 %}
+                <p class="text-center"> No upcoming reservations. Hope to see you soon!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}

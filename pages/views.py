@@ -28,7 +28,7 @@ def signupPage(request):
     return render(request, 'signUpPage.html', {})
 
 def trailMapPage(request):
-    return render(request, 'trailMapPage.html', {}) 
+    return render(request, 'trailMapPage.html', {'hike_list' : Hike.objects.all()})
 
 def pointsVerification(request):
     return render(request, 'pointsVerification.html', {})

@@ -888,19 +888,34 @@ var Trails = {
     { "type": "Feature", "properties": { "HIKEID": 152, "TRAIL_NUM": "HA 99 001", "TRAFFIC": "HEAVY", "NAH": "O", "ISLAND": "Hawaii", "QUAD": "63", "DISTRICT": "South Hilo", "YRCREATED": " ", "LENGTH_MI": 0.0, "ELEV_RANGE": 0, "ST_ACCESS": " ", "START_PT": " ", "END_PT": " ", "STANDARD": " ", "CLIMATE": " ", "TSPT_TYPE": " ", "FEATURES": " ", "AMENITIES": " ", "USE_REST": " ", "HAZARDS": " ", "Trailname": "Upper Waiakea ATV/Dirt Bike Park (perimeter)", "Shape_Length": 13441.938674401237 }, "geometry": { "type": "LineString", "coordinates": [ [ -155.1503972489391, 19.597020873652831 ], [ -155.162240419324775, 19.586663024528551 ], [ -155.165594290864306, 19.585125520594207 ], [ -155.16964046127066, 19.58350847607991 ], [ -155.170885687378501, 19.583035213635828 ], [ -155.175202326744426, 19.580750456486975 ], [ -155.176742149000432, 19.580420401815591 ], [ -155.178074878465395, 19.580199088953858 ], [ -155.186419046027169, 19.576624178858335 ], [ -155.187647874854349, 19.576519353040606 ], [ -155.18966675534972, 19.576348910026677 ], [ -155.192780809155806, 19.576262882501865 ], [ -155.198491736841163, 19.581719115895769 ], [ -155.194100643609204, 19.588413948059685 ], [ -155.191604340637042, 19.592376615085779 ], [ -155.185765423554329, 19.596922261999346 ], [ -155.18243822938399, 19.599182539161905 ], [ -155.1635833810424, 19.611174848811679 ], [ -155.160362769684383, 19.612813976889058 ], [ -155.157387284716975, 19.610206046891321 ], [ -155.153613645529134, 19.603496673672119 ], [ -155.1503972489391, 19.597020873652831 ] ] } }
     ]
     };
+
+function changeMapOrigin(map, hike_id){
+
+    var selectedHike = Trails.features.filter(t=>t.properties.HIKEID === parseInt(hike_id));
+
+    if(selectedHike[0].geometry.type == "LineString"){
+        var originCoords = selectedHike[0].geometry.coordinates[0];
+    }
+    if(selectedHike[0].geometry.type == "MultiLineString"){
+        var originCoords = selectedHike[0].geometry.coordinates[0][0];
+    }
+
+    map.flyTo([originCoords[1],originCoords[0]], 14);  
+}
     
+async function updateMap(mymap, date, timeSlot){
 
-
-
-    async function showMap(coordinate, zoom, date, timeSlot){
+        window.mymap.eachLayer(function(layer) {
+            if (!!layer.toGeoJSON) {
+                window.mymap.removeLayer(layer);
+            }
+        });
         
         var trafficdata;
 
         var url = '/getTrafficData/' + String(date)
 
         trafficdata = await fetch(url).then(response => response.json()).then(data => data)
-
-        console.log(trafficdata)
 
         var traffic = "NULL"
       
@@ -932,10 +947,10 @@ var Trails = {
               var startCoords = feature.geometry.coordinates[0][0];
           }
       
-          var trailhead = L.marker([startCoords[1],startCoords[0]], {icon: greenIcon}).addTo(mymap);
+          var trailhead = L.marker([startCoords[1],startCoords[0]], {icon: greenIcon}).addTo(window.mymap);
   
           trailhead.bindPopup(feature.properties.Trailname + "<br><center>Trailhead", customOptions);
-  
+
           var numpeople = trafficdata.find(t=>t.hike_id === feature.properties.HIKEID)[timeSlot];
   
           if(numpeople < 20){
@@ -947,19 +962,6 @@ var Trails = {
               }
       }
   
-      var mymap = L.map('map', {
-              renderer: L.canvas({ tolerance: 14 })
-          }).setView(coordinate, zoom);
-  
-      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-              attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-              maxZoom: 18,
-              id: 'mapbox/outdoors-v11',
-              tileSize: 512,
-              zoomOffset: -1,
-              accessToken: 'pk.eyJ1IjoiYWFrZW1vdG8iLCJhIjoiY2t2bHF1eGVhOWZtdDJwcGdwZWtoMmQ3bCJ9.l2t-FRs7-6a6G3MPgTfowg'
-          }).addTo(mymap);
-  
       L.geoJSON(Trails, {
           onEachFeature: onEachFeature,
           style: function(features){
@@ -969,7 +971,58 @@ var Trails = {
                   case 'LIGHT':   return {color: "#008000", weight: 5, opacity: 0.8};
                   }
               },
-          }).addTo(mymap);
+          }).addTo(window.mymap);
           
   }
+
+  function format_date_mmddyy(date) {
+    var day = date.getDate()+"";
+    var month = date.getMonth() + 1 + "";
+    var year = date.getFullYear()+"";
+
+    var hours = date.getHours() + "";
+    var minutes = date.getMinutes() + "";
+
+    var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year) + ":" + this.pad_string(hours) + this.pad_string(minutes); 
+    return date_string;
+  }
+
+  function pad_string(the_string) {
+    if (the_string.length == 1) {
+      return "0" + the_string;
+    }
+    return the_string;
+  }
+
+  function trim_first_two(the_string) {
+    return the_string.substring(2);
+  }
+
+  function getFormattedDateTime(date) {
+    var year = date.getFullYear() % 100;
   
+    var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+  
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+
+    hours = date.getHours()
+
+    if(date.getMinutes() != 0){
+        if(hours != 24){
+            hours = date.getHours() + 1
+        } else {
+            hours = 1
+        }
+    }
+    
+    return [month + day + year, hours*100];
+  }
+
+function timeParse(time){
+    var parseTime = time/100
+    var slot = Math.floor(parseTime / 4) + 1;
+    var num_people_n = 'num_people_' + slot;
+    return num_people_n
+}

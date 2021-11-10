@@ -3,7 +3,112 @@
 
 {% block title %}Oahu Hiking Directory{% endblock title %}
 {% block content %}
-<!-- all other homepage content here -->
-<h1 class="text-base sm:text-3xl md:text-5xl lg:text-9x1">Donations Page test</h1>
+<script src="https://js.stripe.com/v3/"></script>
+<style>
+  .content-container {
+    background-color: transparent;
+  }
+  .donation-card {
+    background: rgb(153, 226, 175);
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border:5px solid rgb(153, 226, 175);
+    border-radius: 10px;
+    
+  }
+  form {
+    padding: 15px;
+  }
+  h2 {
+    text-align: center;
+    padding: 5px;
+  }
+  input {
+    padding: 5px;
+    background:rgb(154, 194, 166)
+  }
+  label {
+    font-size: 1.5rem;
+  }
+  #donate-submit {
+    background: rgb(112, 221, 112);
+    padding: 10px;
+    font-size: 1.7rem;
+    border: 3px solid rgb(112, 221, 112);
+    border-radius: 7px;
+    margin-top: 10px;
+  }
+  #donate-title {
+    background: rgb(112, 221, 112);
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1.7rem;
+    border: 3px solid rgb(112, 221, 112);
+    border-radius: 7px;
+  }
+</style>
+<div class="content-container">
 
+  <div class="donation-card">
+    <h2 id="donate-title">Donation</h2>
+    <form method="POST" id="payment-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label for="card-element">
+            Credit or Debit Card:
+          </label>
+        <div id="card-element"></div>
+        <div id="card-errors" role="alert"></div>
+        <button id="donate-submit" class="btn-primary btn-lg" type="submit" onclick="makePayment()">Submit</button>
+    </form>
+    </div>
+</div>
+
+
+
+<script>
+    var stripe = Stripe("{{ public_key }}")
+    var elements = stripe.elements()
+
+    // Custom styling can be passed to options when creating an Element.
+var style = {
+  base: {
+    // Add your base input styles here. For example:
+    fontSize: '16px',
+    color: '#32325d',
+  },
+};
+
+// Create an instance of the card Element.
+var card = elements.create('card', {style: style});
+
+// Add an instance of the card Element into the `card-element` <div>.
+card.mount('#card-element');
+
+
+
+function stripeTokenHandler(token) {
+  // Insert the token ID into the form so it gets submitted to the server
+  var form = document.getElementById('payment-form');
+  var hiddenInput = document.createElement('input');
+  hiddenInput.setAttribute('type', 'hidden');
+  hiddenInput.setAttribute('name', 'stripeToken');
+  hiddenInput.setAttribute('value', token);
+  form.appendChild(hiddenInput);
+
+  // Submit the form
+  form.submit();
+}
+
+// Create a token or display an error when the form is submitted.
+async function makePayment(){
+var form = document.getElementById('payment-form');
+var result = await stripe.createToken(card);
+console.log(result);
+}
+</script>
 {% endblock content %}
