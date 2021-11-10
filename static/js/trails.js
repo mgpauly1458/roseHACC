@@ -961,3 +961,54 @@ async function updateMap(mymap, date, timeSlot){
           
   }
 
+  function format_date_mmddyy(date) {
+    var day = date.getDate()+"";
+    var month = date.getMonth() + 1 + "";
+    var year = date.getFullYear()+"";
+
+    var hours = date.getHours() + "";
+    var minutes = date.getMinutes() + "";
+
+    var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year) + ":" + this.pad_string(hours) + this.pad_string(minutes); 
+    return date_string;
+  }
+
+  function pad_string(the_string) {
+    if (the_string.length == 1) {
+      return "0" + the_string;
+    }
+    return the_string;
+  }
+
+  function trim_first_two(the_string) {
+    return the_string.substring(2);
+  }
+
+  function getFormattedDateTime(date) {
+    var year = date.getFullYear() % 100;
+  
+    var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+  
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+
+    hours = date.getHours()
+
+    if(date.getMinutes() != 0){
+        if(hours != 24){
+            hours = date.getHours() + 1
+        } else {
+            hours = 1
+        }
+    }
+    
+    return [month + day + year, hours*100];
+  }
+
+function timeParse(time){
+    var parseTime = time/100
+    var slot = Math.floor(parseTime / 4) + 1;
+    var num_people_n = 'num_people_' + slot;
+    return num_people_n
+}
