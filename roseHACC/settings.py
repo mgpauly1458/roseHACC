@@ -50,12 +50,11 @@ INSTALLED_APPS = [
 
     #3rd party apps
     # 'storages',
-    # 'rest_framework',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #remove whitenoise when adding boto-S3
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
