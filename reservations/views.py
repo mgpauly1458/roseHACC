@@ -25,6 +25,10 @@ def reservationsPage(request):
 
             #update corresponding traffic instance
             date = newRes.date
+            month = date.month
+            day = date.day
+            year = date.year
+            
             newDate = str(date.month) + str(date.day) + str(date.year)[2:]
             traffic = Traffic.objects.filter(date=newDate, hike_id=newRes.hike.hike_id)[0]
             hour = int(newRes.time.hour)
