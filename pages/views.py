@@ -5,7 +5,9 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.core import serializers
 from .serializers import HikeSerializer, TrafficSerializer
-import os
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+from rest_framework.decorators import api_view
 
 def homePage(request):
     return render(request, 'homePage.html', {})
@@ -32,25 +34,21 @@ def pointsVerification(request):
     return render(request, 'pointsVerification.html', {})
 
 
-if os.getenv("DEPENDENCIES_INSTALLED") == "True":
-    from rest_framework.response import Response
-    from rest_framework import authentication, permissions
-    from rest_framework.decorators import api_view
-    #api
-    @api_view(['GET'])
-    def getTrafficData(request, date):
-        dateTrafficData = Traffic.objects.filter(date=date)
-        serializer = TrafficSerializer(dateTrafficData, many=True)
-        return Response(serializer.data)
-        pass
+#api
+@api_view(['GET'])
+def getTrafficData(request, date):
+    dateTrafficData = Traffic.objects.filter(date=date)
+    serializer = TrafficSerializer(dateTrafficData, many=True)
+    return Response(serializer.data)
 
-    @api_view(['GET'])
-    def getHikeData(request):
-        hike_list = Hike.objects.all()
-        serializer = HikeSerializer(hike_list, many=True)
-        print(serializer)
-        return Response(serializer.data)
-        pass
+
+@api_view(['GET'])
+def getHikeData(request):
+    hike_list = Hike.objects.all()
+    serializer = HikeSerializer(hike_list, many=True)
+    print(serializer)
+    return Response(serializer.data)
+
 
 
 # Testing React
