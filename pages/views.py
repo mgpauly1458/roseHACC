@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.core import serializers
 from .serializers import HikeSerializer, TrafficSerializer
+import os
 
 def homePage(request):
     return render(request, 'homePage.html', {})
