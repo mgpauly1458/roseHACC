@@ -72,14 +72,14 @@ class HikePopout extends React.Component {
                         
                         </div>
                         <div className='flex flex-row justify-center gap-1'>   
-                            <p id="hike_attributes" className="px-1"></p>
+                            <p id="hike_attributes" className="px-1">{ this.props.hike_attributes}</p>
                         </div>    
                         <div className="h-full border border-l-0 border-r-0 border-t-4 border-b-0 border-gray-100 px-2 ">
                             <div className='w-full h-full justify-center px-2 gaps-4'>   
                                 <h1 className="text-2xl font-medium">Route</h1>
-                                <p id="hike_route_description" className="text-xl px-8 py-4 border border-l-4 border-r-0 border-t-0 border-b-0 border-indigo-500 shadow-md rounded-lg"></p>
+                                <p id="hike_route_description" className="text-xl px-8 py-4 border border-l-4 border-r-0 border-t-0 border-b-0 border-indigo-500 shadow-md rounded-lg">{ this.props.hike_route_description}</p>
                                 <h1 className="text-2xl font-medium  py-2">Description</h1>
-                                <p id="hike_description" className="text-xl px-8 py-4 border border-l-4 border-r-0 border-t-0 border-b-0 border-indigo-500 shadow-md rounded-lg"></p>
+                                <p id="hike_description" className="text-xl px-8 py-4 border border-l-4 border-r-0 border-t-0 border-b-0 border-indigo-500 shadow-md rounded-lg"> { this.props.hike_description}</p>
                             </div>                   
                         </div> 
                     </div>

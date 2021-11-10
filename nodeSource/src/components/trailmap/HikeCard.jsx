@@ -26,23 +26,26 @@ class HikeCard extends React.Component {
     return(
           <button onClick= { this.sendData }  class="transition-all duration-200 ease-in-out w-full h-auto bg-white border-4 border-white rounded-md px-3 hover:border-white-100 shadow hover:border-indigo-500 text-left">
             <div class="flex flex-row-1 space-x-3 justify-right">
-                <h><b> HIKE NAME </b></h>
+              <h><b> { this.props.hike_name } </b></h>
             </div> 
             <div class="flex flex-row-1 space-x-3">
                 <p> Average Rating </p>
-                <ul class="flex justify-center">                        
-                    <li class="flex justify-center space-x-2" id="{{hike.id}}-rating">                
-                    </li>
-                </ul>
+                <ul className="flex justify-center">                        
+                <li className="flex justify-center space-x-2" id="hike-rating">        
+                {
+                  this.add_stars()
+                }        
+                </li>
+            </ul> 
             </div>
             <div class="flex flex-row-1 space-x-2">
                 <i class="fas fa-hiking justify-center py-1"></i> 
                 <div class="flex flex-row bg-gray-100 px-2 rounded-md">
-                    <p class=""> km / </p>   
-                    <p class="px-2" id="hike_duration_inline_{{hike.id}}" class=""></p>
+                  <p className=""> { this.props.hike_length } km / { this.props.hike_duration } min </p>   
+                  <p className="px-2" id="hike_duration_inline_hikeid" className  =""></p>
                 </div>
     
-                <h class="rounded-md border border-gray-100 bg-gray-100 px-2">Difficulty: / 5 </h>
+                <div className="rounded-md border border-gray-100 bg-gray-100 px-2"> Difficulty: { this.props.hike_difficulty } / 5 </div>
             </div>
             <div class="flex flex-row-1 space-x-3">
                 <ul class="flex justify-center">                        

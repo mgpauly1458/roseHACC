@@ -15,7 +15,7 @@ class HikeList extends React.Component {
     }
   render() {
     return (
-        <div>
+        <div class="h-full">
             <div id='hike-list' ref={this.hikeListRef} class="flex flex-col h-full p-4 overflow-y-auto space-y-4 bg-gray-50 lg:w-full w-full">  
                 <div class = "flex w-full h-auto space-x-3 bg-gray-50 justify-left lg:flex-row flex-col ">
                     <ul class="flex justify-left">
@@ -30,12 +30,18 @@ class HikeList extends React.Component {
                     <select name="filter" id="filter"></select>
                     <p> Traffic Time</p>
                 </div>
-                <HikeCard parentCallback={this.popoutCallback} />
-                <HikeCard/>
-                <HikeCard/>
-                <HikeCard/>
+                <div>
+                {
+                    this.state.hikes.map((hike) => {
+                        return <HikeCard parentCallback={this.popoutCallback} key={hike.hike_id} hike_name={hike.hike_name} 
+                                            hike_length = { hike.hike_length } hike_duration = { hike.hike_duration } 
+                                            hike_difficulty={ hike.hike_difficulty } hike_rating={hike.hike_rating} />
+
+                    })
+                }
+                </div>
             </div> 
-            <div id="hike-popout" ref={this.popoutRef}>
+            <div id="hike-popout" class="h-full w-full hidden" ref={this.popoutRef}>
                 <HikePopout parentCallback={this.popoutCallback}/>
             </div>
         </div>
