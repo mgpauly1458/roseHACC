@@ -44,7 +44,7 @@
     {% if user.is_authenticated %}
     <div class="flex items-center space-x-2">
       {% if not user.profile_picture %}
-      <img src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture"/>
+      <img class="rounded-full w-10 h-10" src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture"/>
       {% else %}
       <img class="rounded-full w-10 h-10" src="{{ user.profile_picture.url }}" alt="Profile Picture"/>
       {% endif %}

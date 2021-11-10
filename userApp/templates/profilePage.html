@@ -14,20 +14,21 @@
             <h3 class="text-xl text-center"> Points: {{ user.points }}</h3>
         </div>
         <br/>
-        <div class="grid grid-cols justify-center gap-3" >
+        <div class="grid grid-cols justify-center" >
             <h3 class="text-center text-3xl">Upcoming Reservations</h3>
-            <div class="overflow-y-auto bg-gray-100 p-4 rounded-md">
+            <div class="grid grid-col overflow-y-auto p-4 gaps-4">
                 {% for res in res_list %}
-                <p class="text-center"> <b> {{ res.hike }} </b></p>
-                <p class="text-center"> Time {{res.time }}</p>
-                <p class="text-center"> Date {{ res.date }}</p>
-                <p class="text-center"> Number of People {{ res.number_of_people }}</p>
+                <div class="grid bg-gray-100 rounded-lg space-y-2">
+                    <p class="text-center"> <b> {{ res.hike }} </b></p>
+                    <p class="text-center"> Time {{res.time }}</p>
+                    <p class="text-center"> Date {{ res.date }}</p>
+                    <p class="text-center"> Number of People {{ res.number_of_people }}</p>
+                </div>
                 {% endfor %}
                 {% if res_list.count == 0 %}
                 <p class="text-center"> No upcoming reservations. Hope to see you soon!</p>
                 {% endif %}
             </div>
-    
         </div>
     </div>
 </div>
