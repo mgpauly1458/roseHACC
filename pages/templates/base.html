@@ -11,8 +11,7 @@
   <script src="{% static 'js/index-bundle.js' %}"></script>
   <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 </head>
-<body>
-
+  
   <nav class="flex items-center justify-between flex-wrap bg-gray-100 p-6 w-full h-full">
     <div class="flex items-center flex-shrink-0 text-black mr-6">
       <a href="{% url 'home' %}"><svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg></a>
@@ -29,17 +28,8 @@
 
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
-        <a href="{% url 'discover' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
-          Discover
-        </a>
         <a href="{% url 'trailmap' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
           Trail Map
-        </a>
-        <a href="{% url 'about' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
-          About
-        </a>
-        <a href="{% url 'contact' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
-          Contact Us
         </a>
         <a href="{% url 'reservations' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
           Reservations
@@ -75,12 +65,13 @@
     {% endif %}
   </nav>
 
+  
+  <div class="relative h-screen w-full bg-cover bg-center bg-no-repeat" style="background-image: url('/static/images/kokohead.jpg');">  
+    {% block content %}
 
-  <div class="relative min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('/static/images/kokohead.jpg');">  
-      {% block content %}
-
-      {% endblock content %}
+    {% endblock content %}
   </div>
+
 
 </body>
 </html>
