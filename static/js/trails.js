@@ -951,7 +951,7 @@ async function updateMap(mymap, date, timeSlot){
   
           trailhead.bindPopup(feature.properties.Trailname + "<br><center>Trailhead", customOptions);
 
-          var numpeople = trafficdata.find(t=>t.hike_id === feature.properties.HIKEID)[timeSlot];
+          var numpeople = trafficdata.find(t=>t.hike_id-1 === feature.properties.HIKEID)[timeSlot];
   
           if(numpeople < 20){
                   traffic = "LIGHT"
