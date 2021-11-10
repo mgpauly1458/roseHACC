@@ -51,6 +51,7 @@ def getHikeData(request):
     # return Response(serializer.data)
     pass
 
+
 # Testing React
 def testReactPage(request):
     return render(request,'testReact.html', {})
