@@ -4,24 +4,18 @@
 {% block title %}Profile - {{ user.email }}{% endblock title %}
 
 {% block content %}
-<div class="flex h-screen justify-center items-center">
-    <div class="bg-white flex flex-col p-6 rounded-lg gap-3 ">
-        <a class="" href="{% url 'logout' %}">Logout</a>
+<div class="flex justify-center items-center h-full w-full">
+    <div class="bg-white flex flex-col p-6 rounded-lg gap-3 h-full w-full ">
+        <div class="rounded-full justify-right">
+        </div>
 
         <div class="grid grid-cols justify-center gaps-4">
-            <h1 class="text-center"> Welcome back, {{ user.email }}!</h1>
-            <h3 class="text-center"> Points: {{ user.points }}</h3>
+            <h1 class="text-xl text-center"> Welcome back, {{ user.email }}!</h1>
+            <h3 class="text-xl text-center"> Points: {{ user.points }}</h3>
         </div>
         <br/>
-        <div class="flex flex-cols justify-center">
-            {% if not user.profile_picture %}
-            <img src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture"/>
-            {% else %}
-            <img class="flex h-3/4 w-3/4 rounded-full" src="{{ user.profile_picture.url }}" alt="Profile Picture"/>
-            {% endif %}
-        </div>
-        <div class="grid grid-cols justify-center gap-3 h-1/4" >
-            <h3 class="text-center">Upcoming Reservations</h3>
+        <div class="grid grid-cols justify-center gap-3" >
+            <h3 class="text-center text-3xl">Upcoming Reservations</h3>
             <div class="overflow-y-auto bg-gray-100 p-4 rounded-md">
                 {% for res in res_list %}
                 <p class="text-center"> <b> {{ res.hike }} </b></p>
