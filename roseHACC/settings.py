@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 'donations',
 
 #3rd party apps
-#'rest_framework',
+'rest_framework',
 ]
 
 MIDDLEWARE = [
