@@ -21,7 +21,7 @@
             <img class="flex h-3/4 w-3/4 rounded-full" src="{{ user.profile_picture.url }}" alt="Profile Picture"/>
             {% endif %}
         </div>
-        <div class="grid grid-cols justify-center gap-3">
+        <div class="grid grid-cols justify-center gap-3 h-1/4" >
             <h3 class="text-center">Upcoming Reservations</h3>
             <div class="overflow-y-auto bg-gray-100 p-4 rounded-md">
                 {% for res in res_list %}
