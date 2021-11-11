@@ -1,4 +1,5 @@
 const React = require('react');
+import TrafficDateTimePicker from '../TrafficDateTimePicker.jsx';
 import HikeCard from './HikeCard.jsx';
 import HikePopout from "./HikePopout.jsx";
 
@@ -8,7 +9,8 @@ class HikeList extends React.Component {
         super(props)
         this.state = {
             hikes: [],
-            popoutOpen: false
+            popoutOpen: false,
+            hikeOpened: {}
         }
         this.hikeListRef = React.createRef();
         this.popoutRef = React.createRef();
@@ -21,28 +23,30 @@ class HikeList extends React.Component {
                     <ul class="flex justify-left">
                         <i class="fas fa-grip-vertical py-1"></i>
                     </ul>
+                    
                     <p> Sort By </p>
                     <select name="sort" id="sort"></select>
                     <ul class="flex justify-left">
-                        <i class="fas fa-filter py-1"></i>
+                        <i class="fas fa-calendar-alt py-1"></i>
                     </ul>
-                    <p> Filters </p>
-                    <select name="filter" id="filter"></select>
                     <p> Traffic Time</p>
+                    <TrafficDateTimePicker/>
                 </div>
                 <div>
                 {
                     this.state.hikes.map((hike) => {
-                        return <HikeCard parentCallback={this.popoutCallback} key={hike.hike_id} hike_name={hike.hike_name} 
-                                            hike_length = { hike.hike_length } hike_duration = { hike.hike_duration } 
-                                            hike_difficulty={ hike.hike_difficulty } hike_rating={hike.hike_rating} />
+                        var a_hike = { ...hike };
+                        return <HikeCard parentCallback={this.openPopoutCallback } 
+                                    key= { hike.hike_id } 
+                                    hike =  { a_hike }
+                                />
 
                     })
                 }
                 </div>
             </div> 
             <div id="hike-popout" class="h-full w-full hidden" ref={this.popoutRef}>
-                <HikePopout parentCallback={this.popoutCallback}/>
+                <HikePopout parentCallback= {this.closePopoutCallback} hike= { this.state.hikeOpened }/>
             </div>
         </div>
         
@@ -50,19 +54,30 @@ class HikeList extends React.Component {
    } 
             
 
-    popoutCallback = (childData) => {
+    openPopoutCallback = (hikeData) => {
         this.setState({
-            popoutOpen: childData
+            popoutOpen: true,
+            hikeOpened: hikeData
         })
+        this.openPopout();
+    }
 
-        if(!childData) {
-            this.hikeListRef.current.classList.remove('hidden');
-            this.popoutRef.current.classList.add('hidden');
-        } else {           
-            this.popoutRef.current.classList.remove('hidden');
-            this.hikeListRef.current.classList.add('hidden');
-        }
+    closePopoutCallback = () => {
+        this.setState({
+            popoutOpen: false,
+            hikeOpened: {}
+        })
+        this.closePopout();
+    }
 
+    openPopout() {
+        this.popoutRef.current.classList.remove('hidden');
+        this.hikeListRef.current.classList.add('hidden');
+    }
+
+    closePopout() {
+        this.hikeListRef.current.classList.remove('hidden');
+        this.popoutRef.current.classList.add('hidden');
     }
 
     componentDidMount() {

@@ -24,7 +24,7 @@
       </div>
   
   
-      <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <div class="w-full block flex-grow hidden lg:visible lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
           <a href="{% url 'trailmap' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
             Trail Map
@@ -42,7 +42,7 @@
       </div>
   
       {% if user.is_authenticated %}
-      <div class="flex items-center space-x-2">
+      <div class="flex items-center space-x-2 invisible lg:visible ">
         {% if not user.profile_picture %}
         <img class="rounded-full w-10 h-10" src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture"/>
         {% else %}
