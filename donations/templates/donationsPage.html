@@ -51,6 +51,7 @@
     border-radius: 7px;
   }
 </style>
+
 <div class="content-container">
 
   <div class="donation-card">
@@ -63,52 +64,49 @@
           </label>
         <div id="card-element"></div>
         <div id="card-errors" role="alert"></div>
-        <button id="donate-submit" class="btn-primary btn-lg" type="submit" onclick="makePayment()">Submit</button>
     </form>
+    <button id="donate-submit" class="btn-primary btn-lg" onclick="makePayment()">Submit</button>
     </div>
 </div>
 
 
-
 <script>
-    var stripe = Stripe("{{ public_key }}")
-    var elements = stripe.elements()
+  var stripe = Stripe("{{ public_key }}")
+  var elements = stripe.elements()
 
-    // Custom styling can be passed to options when creating an Element.
 var style = {
-  base: {
-    // Add your base input styles here. For example:
-    fontSize: '16px',
-    color: '#32325d',
-  },
+base: {
+  fontSize: '16px',
+  color: '#32325d',
+},
 };
-
-// Create an instance of the card Element.
 var card = elements.create('card', {style: style});
 
-// Add an instance of the card Element into the `card-element` <div>.
 card.mount('#card-element');
 
-
-
-function stripeTokenHandler(token) {
-  // Insert the token ID into the form so it gets submitted to the server
-  var form = document.getElementById('payment-form');
-  var hiddenInput = document.createElement('input');
-  hiddenInput.setAttribute('type', 'hidden');
-  hiddenInput.setAttribute('name', 'stripeToken');
-  hiddenInput.setAttribute('value', token);
-  form.appendChild(hiddenInput);
-
-  // Submit the form
-  form.submit();
+function paymentHandler(token) {
+  var form = document.getElementById('payment-form')
+  var hiddenInput = document.createElement('input')
+  hiddenInput.setAttribute('type', 'hidden')
+  hiddenInput.setAttribute('name', 'stripeToken')
+  hiddenInput.setAttribute('value', token.id)
+  form.appendChild(hiddenInput)
+  form.submit()
 }
 
-// Create a token or display an error when the form is submitted.
 async function makePayment(){
 var form = document.getElementById('payment-form');
-var result = await stripe.createToken(card);
-console.log(result);
+await stripe.createToken(card)
+.then(result => {
+  if (result.token) {
+    paymentHandler(result.token)
+  } else {
+    console.log(result.error.message)
+  }
+
+})
 }
+
 </script>
+
 {% endblock content %}
