@@ -42,13 +42,14 @@ def getTrafficData(request, date):
     dateTrafficData = Traffic.objects.filter(date=date)
     serializer = TrafficSerializer(dateTrafficData, many=True)
     return Response(serializer.data)
+    pass
 
 @api_view(['GET'])
 def getHikeData(request):
     hike_list = Hike.objects.all()
     serializer = HikeSerializer(hike_list, many=True)
-    print(serializer)
     return Response(serializer.data)
+    pass
 
 # Testing React
 def testReactPage(request):

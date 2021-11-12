@@ -7,10 +7,10 @@ class Hike(models.Model):
     hike_id = models.IntegerField(default=0)
     hike_tags = models.CharField(default="", max_length=200)
     hike_rating = models.IntegerField(default=4)
-    hike_images = models.CharField(max_length=50, default="")
-    hike_description = models.CharField(max_length=500, default="")
+    hike_images = models.CharField(max_length=150, default="")
+    hike_description = models.CharField(max_length=1500, default="")
     hike_location = models.CharField(max_length=50, default="")
-    hike_route = models.CharField(max_length=500, default="")
+    hike_route = models.CharField(max_length=1500, default="")
     hike_length = models.FloatField(default= 2)
     hike_elevation = models.IntegerField(default =100)
     hike_duration = models.IntegerField()
@@ -29,4 +29,3 @@ class Traffic(models.Model):
     num_people_4 = models.IntegerField(default = 0)
     num_people_5 = models.IntegerField(default = 0)
     num_people_6 = models.IntegerField(default = 0)
-
