@@ -7,8 +7,6 @@ from django.contrib.auth.decorators import login_required
 
 stripe.api_key = STRIPE_SECRET_KEY
 
-
-
 @login_required
 def donationsPage(request):
     # save donation to db
@@ -31,7 +29,7 @@ def donationsPage(request):
                 source=request.POST.get('stripeToken')
             )
         
-        
+
     return render(request, 'donationsPage.html', {'form': form, "public_key":STRIPE_PUBLIC_KEY})
 
 

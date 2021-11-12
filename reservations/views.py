@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .forms import CreateReservationForm
-from .models import Reservation
+from .forms import CreateReservationForm, CreateEmergencyContactForm
+from .models import Reservation, EmergencyContact
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import reverse, redirect
 from django.views.generic import UpdateView
@@ -10,6 +10,7 @@ from pages.models import Traffic
 def reservationsPage(request):
     if request.method == 'POST':
         form = CreateReservationForm(request.POST)
+
         user = request.user
         if form.is_valid():
             newRes = Reservation()
@@ -18,8 +19,9 @@ def reservationsPage(request):
             newRes.time = form.cleaned_data['time']
             newRes.date = form.cleaned_data['date']
             newRes.number_of_people = form.cleaned_data['number_of_people']
-            newRes.emergency_contact_name = form.cleaned_data['emergency_contact_name']
-            newRes.emergency_contact_phone_number = form.cleaned_data['emergency_contact_phone_number']
+            if form.cleaned_data['emergency_contact']:
+                newRes.emergency_contact = EmergencyContact.objects.get(user=user, name=form.cleaned_data['emergency_contact'])
+                
             newRes.save()
             url = "/users/profile/"+str(request.user.pk)
 
@@ -33,9 +35,6 @@ def reservationsPage(request):
             traffic = Traffic.objects.filter(date=newDate, hike_id=newRes.hike.hike_id)[0]
             hour = int(newRes.time.hour)
             people = int(newRes.number_of_people)
-            print(hour)
-            print(type(hour))
-            print(type(people))
 
             if hour > 20:
                 traffic.num_people_6 += people
@@ -55,3 +54,24 @@ def reservationsPage(request):
     else:
         form = CreateReservationForm()
     return render(request, "reservationsPage.html", {'form':form})
+
+@login_required
+def emergencyContactPage(request):
+    form = CreateEmergencyContactForm()
+    if request.method == 'POST':
+        form = CreateEmergencyContactForm(request.POST)
+        print(form.is_valid())
+        if form.is_valid():
+            newEmergencyContact = EmergencyContact()
+            newEmergencyContact.user = request.user
+            newEmergencyContact.name = form.cleaned_data['name']
+            newEmergencyContact.phone_number = form.cleaned_data['phone_number']
+            newEmergencyContact.save()
+            return redirect(reverse('reservations'))
+
+    return render(request, "emergencyContactPage.html", {'form':form})
+
+
+
+def sendTwillioMessage(message, phone):
+    pass

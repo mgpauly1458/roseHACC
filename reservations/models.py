@@ -3,17 +3,23 @@ from django.contrib.auth import get_user_model
 from pages.models import Hike
 from django.core.validators import RegexValidator
 
+class EmergencyContact(models.Model):
+    name = models.CharField(max_length=100)
+    phone_number_verified = models.BooleanField(default=False)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, limit_choices_to={'user':''})
+    phone_number = models.CharField(max_length=20, validators=[RegexValidator(regex='^\d{10}$', message='Phone number must be entered in the format: "9999999999".', code='nomatch')])
+
+    def __str__(self):
+        return self.name
+
 class Reservation(models.Model):
     hike = models.ForeignKey(Hike, on_delete=models.CASCADE)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     time = models.TimeField()
     date = models.DateField()
     number_of_people = models.IntegerField()
-    emergency_contact_name = models.CharField(null=True, blank=True, max_length=100)
-    verified = models.BooleanField(default=False)
-
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-    emergency_contact_phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True, null=True)
+    emergency_contact = models.ForeignKey(EmergencyContact, on_delete=models.CASCADE, blank=True, null=True)
+    reservation_verified = models.BooleanField(default=False)
     
     def __sts__(self):
         return self.hike

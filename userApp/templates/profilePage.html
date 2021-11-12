@@ -23,6 +23,9 @@
                     <p class="text-center"> Time {{res.time }}</p>
                     <p class="text-center"> Date {{ res.date }}</p>
                     <p class="text-center"> Number of People {{ res.number_of_people }}</p>
+                    {% if res.emergency_contact %}
+                    <p class="text-center"> Emergency Contact: {{ res.emergency_contact }}</p>
+                    {% endif %}
                 </div>
                 {% endfor %}
                 {% if res_list.count == 0 %}
