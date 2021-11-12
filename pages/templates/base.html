@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head class="">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,73 +9,73 @@
   <title>{% block title %}{% endblock title %}</title>
   <link rel="stylesheet" href="{% static 'css/tailwind-output.css' %}"/>
   <script src="{% static 'js/index-bundle.js' %}"></script>
-  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-</head>
-  
-  <nav class="flex items-center justify-between flex-wrap bg-gray-100 p-6 w-full h-full">
-    <div class="flex items-center flex-shrink-0 text-black mr-6">
-      <a class="transform translate-y-1" href="{% url 'home' %}"><svg class="" id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0, 0, 400,400"><g id="svgg"><path id="path4" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path5" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path6" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path7" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path8" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path0" d="M0.000 200.000 L 0.000 400.000 200.000 400.000 L 400.000 400.000 400.000 200.000 L 400.000 0.000 200.000 0.000 L 0.000 0.000 0.000 200.000 M280.102 165.537 C 302.066 209.466,319.978 245.466,319.907 245.538 C 319.835 245.609,265.846 245.630,199.931 245.584 L 80.086 245.500 100.041 205.581 L 119.997 165.663 129.957 185.581 L 139.917 205.499 159.875 165.583 C 170.851 143.629,179.908 125.667,180.002 125.667 C 180.095 125.667,184.594 134.517,190.000 145.333 C 195.406 156.150,199.905 165.000,199.999 165.000 C 200.092 165.000,209.093 147.150,220.000 125.333 C 230.907 103.517,239.907 85.667,239.999 85.667 C 240.092 85.667,258.138 121.608,280.102 165.537 " stroke="none" fill="#f4f4f4" fill-rule="evenodd"></path><path id="path1" d="M220.000 125.667 C 209.093 147.483,200.092 165.333,199.999 165.333 C 199.905 165.333,195.406 156.483,190.000 145.667 C 184.594 134.850,180.095 126.004,180.002 126.009 C 179.686 126.026,120.036 245.258,120.241 245.463 C 120.353 245.575,165.344 245.667,220.222 245.667 L 320.000 245.667 280.084 165.833 C 258.130 121.925,240.092 86.000,239.999 86.000 C 239.907 86.000,230.907 103.850,220.000 125.667 " stroke="none" fill="#4e555e" fill-rule="evenodd"></path><path id="path2" d="M99.918 205.727 L 80.002 245.667 100.187 245.667 C 111.289 245.667,120.305 245.554,120.222 245.417 C 120.139 245.279,124.592 236.142,130.119 225.111 C 135.645 214.080,140.085 205.107,139.986 205.171 C 139.887 205.235,135.387 196.436,129.986 185.617 C 124.585 174.799,120.092 165.912,120.000 165.867 C 119.908 165.823,110.871 183.760,99.918 205.727 " stroke="none" fill="#bcbcbc" fill-rule="evenodd"></path><path id="path3" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path4" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path5" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path6" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path7" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path8" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path></g></svg>
-        <a href="{% url 'home' %}"><span class="font-semibold text-xl tracking-tight text-black-200">Alaka'i Hiking Directory</span></a>
-    </div>
-    <div class="block lg:hidden">
-      <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-      </button>
-    </div>
-
-
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-      <div class="text-sm lg:flex-grow">
-        <a href="{% url 'trailmap' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
-          Trail Map
-        </a>
-        <a href="{% url 'reservations' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
-          Reservations
-        </a>
-        <a href="{% url 'donations' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
-          Donations
-        </a>
-        <!-- <a href="{% url 'pointsVerification' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
-          <button>Points</button>
-        </a> -->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />  
+  <div class="flex flex-col ">
+    <nav class="relative flex items-center justify-between flex-wrap bg-gray-100 p-6 w-screen">
+      <div class="flex items-center flex-shrink-0 text-black mr-6">
+        <a class="transform translate-y-1" href="{% url 'home' %}"><svg class="" id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0, 0, 400,400"><g id="svgg"><path id="path4" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path5" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path6" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path7" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path8" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path0" d="M0.000 200.000 L 0.000 400.000 200.000 400.000 L 400.000 400.000 400.000 200.000 L 400.000 0.000 200.000 0.000 L 0.000 0.000 0.000 200.000 M280.102 165.537 C 302.066 209.466,319.978 245.466,319.907 245.538 C 319.835 245.609,265.846 245.630,199.931 245.584 L 80.086 245.500 100.041 205.581 L 119.997 165.663 129.957 185.581 L 139.917 205.499 159.875 165.583 C 170.851 143.629,179.908 125.667,180.002 125.667 C 180.095 125.667,184.594 134.517,190.000 145.333 C 195.406 156.150,199.905 165.000,199.999 165.000 C 200.092 165.000,209.093 147.150,220.000 125.333 C 230.907 103.517,239.907 85.667,239.999 85.667 C 240.092 85.667,258.138 121.608,280.102 165.537 " stroke="none" fill="#f4f4f4" fill-rule="evenodd"></path><path id="path1" d="M220.000 125.667 C 209.093 147.483,200.092 165.333,199.999 165.333 C 199.905 165.333,195.406 156.483,190.000 145.667 C 184.594 134.850,180.095 126.004,180.002 126.009 C 179.686 126.026,120.036 245.258,120.241 245.463 C 120.353 245.575,165.344 245.667,220.222 245.667 L 320.000 245.667 280.084 165.833 C 258.130 121.925,240.092 86.000,239.999 86.000 C 239.907 86.000,230.907 103.850,220.000 125.667 " stroke="none" fill="#4e555e" fill-rule="evenodd"></path><path id="path2" d="M99.918 205.727 L 80.002 245.667 100.187 245.667 C 111.289 245.667,120.305 245.554,120.222 245.417 C 120.139 245.279,124.592 236.142,130.119 225.111 C 135.645 214.080,140.085 205.107,139.986 205.171 C 139.887 205.235,135.387 196.436,129.986 185.617 C 124.585 174.799,120.092 165.912,120.000 165.867 C 119.908 165.823,110.871 183.760,99.918 205.727 " stroke="none" fill="#bcbcbc" fill-rule="evenodd"></path><path id="path3" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path4" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path5" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path6" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path7" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path><path id="path8" d="" stroke="none" fill="#c4dcf8" fill-rule="evenodd"></path></g></svg>
+          <a href="{% url 'home' %}"><span class="font-semibold text-xl tracking-tight text-black-200">Alaka'i Hiking Directory</span></a>
       </div>
-    </div>
-
-    {% if user.is_authenticated %}
-    <div class="flex items-center space-x-2">
-      {% if not user.profile_picture %}
-      <img class="rounded-full w-10 h-10" src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture"/>
-      {% else %}
-      <img class="rounded-full w-10 h-10" src="{{ user.profile_picture.url }}" alt="Profile Picture"/>
-      {% endif %}
-
-      <a href="{% url 'loginPage' %}" class="">
-        <button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
-        Profile
-        </button></a>
-        <a href="{% url 'logout' %}"><button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
-          Logout
-        </button></a>
-    </div>
-    {% else %}
-    <div class ="flex items-center justify-right gap-4">
-      <a href="{% url 'loginPage' %}"><button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
-        Login
-      </button></a>
-      <a href="{% url 'signup' %}"><button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
-        Sign Up
-      </button></a>
-    </div>
-    {% endif %}
-  </nav>
-
+      <div class="block lg:hidden">
+        <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+        </button>
+      </div>
   
-  <div class="relative h-screen w-full bg-cover bg-center bg-no-repeat" style="background-image: url('/static/images/kokohead.jpg');">  
-    {% block content %}
-
-    {% endblock content %}
+  
+      <div class="w-full block flex-grow hidden lg:visible lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+          <a href="{% url 'trailmap' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+            Trail Map
+          </a>
+          <a href="{% url 'reservations' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+            Reservations
+          </a>
+          <a href="{% url 'donations' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+            Donations
+          </a>
+          <a href="{% url 'pointsVerification' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+            <button>Points</button>
+          </a>
+        </div>
+      </div>
+  
+      {% if user.is_authenticated %}
+      <div class="flex items-center space-x-2 invisible lg:visible ">
+        {% if not user.profile_picture %}
+        <img class="rounded-full w-10 h-10" src="{% static 'images/defaultProfilePicture.jpg' %}" alt="Default Profile Picture"/>
+        {% else %}
+        <img class="rounded-full w-10 h-10" src="{{ user.profile_picture.url }}" alt="Profile Picture"/>
+        {% endif %}
+  
+        <a href="{% url 'loginPage' %}" class="">
+          <button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+          Profile
+          </button></a>
+          <a href="{% url 'logout' %}"><button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+            Logout
+          </button></a>
+      </div>
+      {% else %}
+      <div class ="flex items-center justify-right gap-4">
+        <a href="{% url 'loginPage' %}"><button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+          Login
+        </button></a>
+        <a href="{% url 'signup' %}"><button class="transition ease-in duration-200 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full">
+          Sign Up
+        </button></a>
+      </div>
+      {% endif %}
+    </nav>
   </div>
 
+</head>
 
-</body>
+  
+<div class="flex flex-col min-h-screen w-full bg-cover bg-center bg-no-repeat">  
+  {% block content %}
+
+  {% endblock content %}
+</div>
+
 </html>
