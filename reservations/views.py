@@ -9,7 +9,7 @@ from pages.models import Traffic
 @login_required
 def reservationsPage(request):
     if request.method == 'POST':
-        form = CreateReservationForm(request.POST)
+        form = CreateReservationForm(request.user, request.POST)
 
         user = request.user
         if form.is_valid():
@@ -51,7 +51,7 @@ def reservationsPage(request):
 
             return redirect(url)
     else:
-        form = CreateReservationForm()
+        form = CreateReservationForm(request.user)
     return render(request, "reservationsPage.html", {'form':form})
 
 @login_required

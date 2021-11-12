@@ -5,6 +5,9 @@ from django.core.validators import RegexValidator
 
 class CreateReservationForm(forms.ModelForm):
 
+    def __init__(self, user, *args, **kwargs):
+        super(CreateReservationForm, self).__init__(*args, **kwargs)
+        self.fields['emergency_contact'].queryset = EmergencyContact.objects.filter(user=user)
     class Meta:
         model = Reservation
         fields = ['hike', 'time', 'date', 'number_of_people', 'emergency_contact', ]
