@@ -19,9 +19,8 @@ def reservationsPage(request):
             newRes.time = form.cleaned_data['time']
             newRes.date = form.cleaned_data['date']
             newRes.number_of_people = form.cleaned_data['number_of_people']
-            if form.cleaned_data['emergency_contact']:
-                newRes.emergency_contact = EmergencyContact.objects.get(user=user, name=form.cleaned_data['emergency_contact'])
-                
+            newRes.emergency_contact = form.cleaned_data['emergency_contact']
+
             newRes.save()
             url = "/users/profile/"+str(request.user.pk)
 
@@ -64,7 +63,8 @@ def emergencyContactPage(request):
         if form.is_valid():
             newEmergencyContact = EmergencyContact()
             newEmergencyContact.user = request.user
-            newEmergencyContact.name = form.cleaned_data['name']
+            newEmergencyContact.first_name = form.cleaned_data['first_name']
+            newEmergencyContact.last_name = form.cleaned_data['last_name']
             newEmergencyContact.phone_number = form.cleaned_data['phone_number']
             newEmergencyContact.save()
             return redirect(reverse('reservations'))

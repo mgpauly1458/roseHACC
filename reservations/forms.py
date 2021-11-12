@@ -14,5 +14,6 @@ class CreateReservationForm(forms.ModelForm):
         }
 
 class CreateEmergencyContactForm(forms.Form):
-    name=forms.CharField(max_length=100)
+    first_name=forms.CharField(max_length=100)
+    last_name=forms.CharField(max_length=100)
     phone_number=forms.CharField(max_length=10, validators=[RegexValidator(r'^\d{10}$')])
