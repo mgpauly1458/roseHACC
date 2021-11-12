@@ -48,7 +48,6 @@ def reservationsPage(request):
             else:
                 traffic.num_people_1 += people
             traffic.save()
-
             return redirect(url)
     else:
         form = CreateReservationForm(request.user)

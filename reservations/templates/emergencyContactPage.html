@@ -8,6 +8,7 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
+        <label>Phone ex: 808753xxxx</label> <br>
         <button type="submit">Submit</button>
     </form>
 </div>
