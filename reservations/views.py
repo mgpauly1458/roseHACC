@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import reverse, redirect
 from django.views.generic import UpdateView
 from pages.models import Traffic
+from .utils import send_sms
 
 @login_required
 def reservationsPage(request):
@@ -51,6 +52,9 @@ def reservationsPage(request):
             return redirect(url)
     else:
         form = CreateReservationForm(request.user)
+        m = send_sms("+18083726757", "test")
+        print(m)
+
     return render(request, "reservationsPage.html", {'form':form})
 
 @login_required
@@ -69,8 +73,3 @@ def emergencyContactPage(request):
             return redirect(reverse('reservations'))
 
     return render(request, "emergencyContactPage.html", {'form':form})
-
-
-
-def sendTwillioMessage(message, phone):
-    pass
