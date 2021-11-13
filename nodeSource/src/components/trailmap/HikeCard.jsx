@@ -20,9 +20,9 @@ class HikeCard extends React.Component {
             <div class="flex flex-row-1 space-x-3 justify-right">
               <h><b> { this.props.hike.hike_name } </b></h>
             </div> 
-            <div class="flex flex-row-1 space-x-3">
-                <p> Average Rating </p>
-                <ul className="flex justify-center">                        
+            <div class="flex flex-row-1">
+                <ul className="flex justify-center space-x-2">  
+                <p >  Rating   </p>                      
                 <li className="flex justify-center space-x-2" id="hike-rating">        
                 {
                   this.add_stars()
@@ -56,11 +56,11 @@ class HikeCard extends React.Component {
 
   add_stars() {
     let stars = [];
-    for (let i = 0; i < this.props.hike_rating; i++) {
-      stars.push(<i className="fas fa-star text-yellow-300 fa-xs py-1"></i>);
+    for (let i = 0; i < this.props.hike.hike_rating; i++) {
+      stars.push(<i className="fas fa-star text-yellow-300 fa-xs py-2 inline-block"></i>);
     }
-    for (let i = 0; i < 5 - this.props.hike_rating; i++) {
-      stars.push(<i className="far fa-star text-yellow-300 fa-xs py-1"></i>);
+    for (let i = 0; i < 5 - this.props.hike.hike_rating; i++) {
+      stars.push(<i className="far fa-star text-yellow-300 fa-xs py-2 inline-block"></i>);
     }
     return stars;
   }

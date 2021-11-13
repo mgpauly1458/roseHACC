@@ -65,7 +65,7 @@ class HikePopout extends React.Component {
                                 { this.props.hike.hike_length }
                             </div>
                             <div id='hike_duration' className="text-center text-xl"> 
-                                <p> ETA </p>
+                                <p> Time </p>
                                 { 
                                     this.convert_time(this.props.hike.hike_duration)
                                 }
@@ -75,7 +75,7 @@ class HikePopout extends React.Component {
                         <div className='flex flex-row justify-center gap-1'>   
                             <p id="hike_attributes" className="px-1">{ this.props.hike.hike_attributes}</p>
                         </div>    
-                        <div className="h-full border border-l-0 border-r-0 border-t-4 border-b-0 border-gray-100 px-2 ">
+                        <div className="h-full border border-l-0 border-r-0 border-t-4 border-b-0 border-gray-100 p-2 ">
                             <div className='w-full h-full justify-center px-2 gaps-4'>   
                                 <h1 className="text-2xl font-medium">Route</h1>
                                 <p id="hike_route_description" className="text-xl px-8 py-4 border border-l-4 border-r-0 border-t-0 border-b-0 border-indigo-500 shadow-md rounded-lg">{ this.props.hike.hike_route}</p>

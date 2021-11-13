@@ -1,5 +1,5 @@
 const React = require('react');
-import TrafficDateTimePicker from '../TrafficDateTimePicker.jsx';
+import TrafficDateTimePicker from './TrafficDateTimePicker.jsx';
 import HikeCard from './HikeCard.jsx';
 import HikePopout from "./HikePopout.jsx";
 
@@ -15,7 +15,7 @@ class HikeList extends React.Component {
         this.hikeListRef = React.createRef();
         this.popoutRef = React.createRef();
     }
-  render() {
+    render() {
     return (
         <div class="h-full">
             <div id='hike-list' ref={this.hikeListRef} class="flex flex-col h-full p-4 overflow-y-auto space-y-4 bg-gray-50 lg:w-full w-full">  
@@ -23,6 +23,7 @@ class HikeList extends React.Component {
                     <ul class="flex justify-left">
                         <i class="fas fa-grip-vertical py-1"></i>
                     </ul>
+
                     
                     <p> Sort By </p>
                     <select name="sort" id="sort"></select>
@@ -40,7 +41,6 @@ class HikeList extends React.Component {
                                     key= { hike.hike_id } 
                                     hike =  { a_hike }
                                 />
-
                     })
                 }
                 </div>
@@ -93,6 +93,8 @@ class HikeList extends React.Component {
             })
         })
     }
+
+    
 
 }
 export default HikeList;

@@ -1,145 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/components/TrafficDateTimePicker.jsx":
-/*!**************************************************!*\
-  !*** ./src/components/TrafficDateTimePicker.jsx ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-datetime */ "./node_modules/react-datetime/dist/react-datetime.cjs.js");
-/* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_datetime__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var divStyle = {
-  zIndex: 1
-};
-
-var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
-  _inherits(TrafficDateTimePicker, _React$Component);
-
-  var _super = _createSuper(TrafficDateTimePicker);
-
-  function TrafficDateTimePicker(props) {
-    var _this;
-
-    _classCallCheck(this, TrafficDateTimePicker);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      date: new Date()
-    };
-    return _this;
-  }
-
-  _createClass(TrafficDateTimePicker, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      return /*#__PURE__*/React.createElement((react_datetime__WEBPACK_IMPORTED_MODULE_0___default()), {
-        style: divStyle,
-        date: true,
-        inputProps: {
-          placeholder: "Select date and time."
-        },
-        onClose: function onClose(new_date) {
-          _this2.onExit(new_date);
-        }
-      });
-    }
-  }, {
-    key: "onExit",
-    value: function onExit(date) {
-      var date_string = this.format_date_mmddyy(date);
-      var map = mymap;
-      showMapFromDateTime(map, date_string.split(":")[0], date_string.split(":")[1]);
-    }
-  }, {
-    key: "format_date_mmddyy",
-    value: function format_date_mmddyy(date) {
-      var date = new Date(date);
-      var day = date.getDate() + "";
-      var month = date.getMonth() + 1 + "";
-      var year = date.getFullYear() + "";
-      var hours = date.getHours() + "";
-      var minutes = date.getMinutes() + "";
-      var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year) + ":" + this.pad_string(hours) + this.pad_string(minutes);
-      return date_string;
-    }
-  }, {
-    key: "pad_string",
-    value: function pad_string(the_string) {
-      if (the_string.length == 1) {
-        return "0" + the_string;
-      }
-
-      return the_string;
-    }
-  }, {
-    key: "trim_first_two",
-    value: function trim_first_two(the_string) {
-      return the_string.substring(2);
-    }
-  }, {
-    key: "date_string_to_date",
-    value: function date_string_to_date(date_string) {
-      var month = date_string.substring(0, 1);
-      var day = date_string.substring(2, 3);
-      var year = date_string.substring(4, 5);
-      var date = new Date(year, month, day);
-      return date;
-    }
-  }, {
-    key: "time_string_to_hours",
-    value: function time_string_to_hours(time_string) {
-      var hours = time_string.substring(6, 7);
-      return hours;
-    }
-  }, {
-    key: "time_string_to_minutes",
-    value: function time_string_to_minutes(time_string) {
-      var minutes = time_string.substring(8, 9);
-      return minutes;
-    }
-  }]);
-
-  return TrafficDateTimePicker;
-}(React.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TrafficDateTimePicker);
-
-/***/ }),
-
 /***/ "./src/components/trailmap/HikeCard.jsx":
 /*!**********************************************!*\
   !*** ./src/components/trailmap/HikeCard.jsx ***!
@@ -211,10 +72,10 @@ var HikeCard = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("div", {
         "class": "flex flex-row-1 space-x-3 justify-right"
       }, /*#__PURE__*/React.createElement("h", null, /*#__PURE__*/React.createElement("b", null, " ", this.props.hike.hike_name, " "))), /*#__PURE__*/React.createElement("div", {
-        "class": "flex flex-row-1 space-x-3"
-      }, /*#__PURE__*/React.createElement("p", null, " Average Rating "), /*#__PURE__*/React.createElement("ul", {
-        className: "flex justify-center"
-      }, /*#__PURE__*/React.createElement("li", {
+        "class": "flex flex-row-1"
+      }, /*#__PURE__*/React.createElement("ul", {
+        className: "flex justify-center space-x-2"
+      }, /*#__PURE__*/React.createElement("p", null, "  Rating   "), /*#__PURE__*/React.createElement("li", {
         className: "flex justify-center space-x-2",
         id: "hike-rating"
       }, this.add_stars()))), /*#__PURE__*/React.createElement("div", {
@@ -244,15 +105,15 @@ var HikeCard = /*#__PURE__*/function (_React$Component) {
     value: function add_stars() {
       var stars = [];
 
-      for (var i = 0; i < this.props.hike_rating; i++) {
+      for (var i = 0; i < this.props.hike.hike_rating; i++) {
         stars.push( /*#__PURE__*/React.createElement("i", {
-          className: "fas fa-star text-yellow-300 fa-xs py-1"
+          className: "fas fa-star text-yellow-300 fa-xs py-2 inline-block"
         }));
       }
 
-      for (var _i = 0; _i < 5 - this.props.hike_rating; _i++) {
+      for (var _i = 0; _i < 5 - this.props.hike.hike_rating; _i++) {
         stars.push( /*#__PURE__*/React.createElement("i", {
-          className: "far fa-star text-yellow-300 fa-xs py-1"
+          className: "far fa-star text-yellow-300 fa-xs py-2 inline-block"
         }));
       }
 
@@ -278,7 +139,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../TrafficDateTimePicker.jsx */ "./src/components/TrafficDateTimePicker.jsx");
+/* harmony import */ var _TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TrafficDateTimePicker.jsx */ "./src/components/trailmap/TrafficDateTimePicker.jsx");
 /* harmony import */ var _HikeCard_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HikeCard.jsx */ "./src/components/trailmap/HikeCard.jsx");
 /* harmony import */ var _HikePopout_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HikePopout.jsx */ "./src/components/trailmap/HikePopout.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -562,13 +423,13 @@ var HikePopout = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("p", null, " Hike Length "), this.props.hike.hike_length), /*#__PURE__*/React.createElement("div", {
         id: "hike_duration",
         className: "text-center text-xl"
-      }, /*#__PURE__*/React.createElement("p", null, " ETA "), this.convert_time(this.props.hike.hike_duration))), /*#__PURE__*/React.createElement("div", {
+      }, /*#__PURE__*/React.createElement("p", null, " Time "), this.convert_time(this.props.hike.hike_duration))), /*#__PURE__*/React.createElement("div", {
         className: "flex flex-row justify-center gap-1"
       }, /*#__PURE__*/React.createElement("p", {
         id: "hike_attributes",
         className: "px-1"
       }, this.props.hike.hike_attributes)), /*#__PURE__*/React.createElement("div", {
-        className: "h-full border border-l-0 border-r-0 border-t-4 border-b-0 border-gray-100 px-2 "
+        className: "h-full border border-l-0 border-r-0 border-t-4 border-b-0 border-gray-100 p-2 "
       }, /*#__PURE__*/React.createElement("div", {
         className: "w-full h-full justify-center px-2 gaps-4"
       }, /*#__PURE__*/React.createElement("h1", {
@@ -616,6 +477,324 @@ var HikePopout = /*#__PURE__*/function (_React$Component) {
 }(React.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HikePopout);
+
+/***/ }),
+
+/***/ "./src/components/trailmap/TrafficDateTimePicker.jsx":
+/*!***********************************************************!*\
+  !*** ./src/components/trailmap/TrafficDateTimePicker.jsx ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-datetime */ "./node_modules/react-datetime/dist/react-datetime.cjs.js");
+/* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_datetime__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var divStyle = {
+  zIndex: 1
+};
+
+var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
+  _inherits(TrafficDateTimePicker, _React$Component);
+
+  var _super = _createSuper(TrafficDateTimePicker);
+
+  function TrafficDateTimePicker(props) {
+    var _this;
+
+    _classCallCheck(this, TrafficDateTimePicker);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      date: new Date()
+    };
+    return _this;
+  }
+
+  _createClass(TrafficDateTimePicker, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return /*#__PURE__*/React.createElement((react_datetime__WEBPACK_IMPORTED_MODULE_0___default()), {
+        style: divStyle,
+        date: true,
+        inputProps: {
+          placeholder: "Select date and time."
+        },
+        onClose: function onClose(new_date) {
+          _this2.onExit(new_date);
+        }
+      });
+    }
+  }, {
+    key: "onExit",
+    value: function onExit(date) {
+      var date_string = this.format_date_mmddyy(date);
+      showMapFromDateTime(date_string.split(":")[0], date_string.split(":")[1]);
+    }
+  }, {
+    key: "format_date_mmddyy",
+    value: function format_date_mmddyy(date) {
+      var date = new Date(date);
+      var day = date.getDate() + "";
+      var month = date.getMonth() + 1 + "";
+      var year = date.getFullYear() + "";
+      var hours = date.getHours() + "";
+      var minutes = date.getMinutes() + "";
+      var date_string = this.pad_string(month) + this.pad_string(day) + this.trim_first_two(year) + ":" + this.pad_string(hours) + this.pad_string(minutes);
+      return date_string;
+    }
+  }, {
+    key: "pad_string",
+    value: function pad_string(the_string) {
+      if (the_string.length == 1) {
+        return "0" + the_string;
+      }
+
+      return the_string;
+    }
+  }, {
+    key: "trim_first_two",
+    value: function trim_first_two(the_string) {
+      return the_string.substring(2);
+    }
+  }, {
+    key: "date_string_to_date",
+    value: function date_string_to_date(date_string) {
+      var month = date_string.substring(0, 1);
+      var day = date_string.substring(2, 3);
+      var year = date_string.substring(4, 5);
+      var date = new Date(year, month, day);
+      return date;
+    }
+  }, {
+    key: "time_string_to_hours",
+    value: function time_string_to_hours(time_string) {
+      var hours = time_string.substring(6, 7);
+      return hours;
+    }
+  }, {
+    key: "time_string_to_minutes",
+    value: function time_string_to_minutes(time_string) {
+      var minutes = time_string.substring(8, 9);
+      return minutes;
+    }
+  }]);
+
+  return TrafficDateTimePicker;
+}(React.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TrafficDateTimePicker);
+
+/***/ }),
+
+/***/ "./src/components/trailmap/TrailLeafletMap.jsx":
+/*!*****************************************************!*\
+  !*** ./src/components/trailmap/TrailLeafletMap.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var TrailLeafletMap = /*#__PURE__*/function (_React$Component) {
+  _inherits(TrailLeafletMap, _React$Component);
+
+  var _super = _createSuper(TrailLeafletMap);
+
+  function TrailLeafletMap(props) {
+    _classCallCheck(this, TrailLeafletMap);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(TrailLeafletMap, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        id: "map",
+        "class": "flex h-full w-full"
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setupLeafletMap();
+    }
+  }, {
+    key: "setupLeafletMap",
+    value: function setupLeafletMap() {
+      var origin = [21.481056406745278, -157.95845361227276];
+      var zoom = 11;
+      var currentdate = new Date();
+      var datearray = getFormattedDateTime(currentdate);
+      var date = datearray[0];
+      var time = datearray[1];
+      var num_people_n = timeParse(time);
+      var mymap = L.map('map', {
+        renderer: L.canvas({
+          tolerance: 14
+        })
+      }).setView(origin, zoom);
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/outdoors-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoiYWFrZW1vdG8iLCJhIjoiY2t2bHF1eGVhOWZtdDJwcGdwZWtoMmQ3bCJ9.l2t-FRs7-6a6G3MPgTfowg'
+      }).addTo(mymap);
+      updateMap(mymap, date, num_people_n);
+    }
+  }, {
+    key: "showMapFromDateTime",
+    value: function showMapFromDateTime(date, time) {
+      var parseTime = time / 100;
+      var slot = Math.floor(parseTime / 4) + 1;
+      var num_people_n = 'num_people_' + slot;
+      updateMap(map, date, num_people_n);
+    }
+  }, {
+    key: "updateMapFocus",
+    value: function updateMapFocus(map, hike_id) {
+      changeMapOrigin(map, hike_id);
+    }
+  }]);
+
+  return TrailLeafletMap;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TrailLeafletMap);
+
+/***/ }),
+
+/***/ "./src/components/trailmap/TrailMap.jsx":
+/*!**********************************************!*\
+  !*** ./src/components/trailmap/TrailMap.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _TrailLeafletMap_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TrailLeafletMap.jsx */ "./src/components/trailmap/TrailLeafletMap.jsx");
+/* harmony import */ var _HikeList_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HikeList.jsx */ "./src/components/trailmap/HikeList.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var TrailMap = /*#__PURE__*/function (_React$Component) {
+  _inherits(TrailMap, _React$Component);
+
+  var _super = _createSuper(TrailMap);
+
+  function TrailMap(props) {
+    _classCallCheck(this, TrailMap);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(TrailMap, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "trail-map absolute flex flex-col h-full w-full bg-white lg:flex-row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        "class": "w-full lg:w-1/4 h-full",
+        id: "hike-list-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_HikeList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        "class": "w-full lg:w-3/4 h-full",
+        id: "map-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_TrailLeafletMap_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
+    }
+  }]);
+
+  return TrailMap;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TrailMap);
 
 /***/ }),
 
@@ -52493,16 +52672,11 @@ var __webpack_exports__ = {};
   !*** ./src/App.jsx ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-datetime */ "./node_modules/react-datetime/dist/react-datetime.cjs.js");
-/* harmony import */ var react_datetime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_datetime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/TrafficDateTimePicker.jsx */ "./src/components/TrafficDateTimePicker.jsx");
-/* harmony import */ var _components_trailmap_HikeList_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/trailmap/HikeList.jsx */ "./src/components/trailmap/HikeList.jsx");
-/* harmony import */ var _node_modules_react_datetime_css_react_datetime_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../node_modules/react-datetime/css/react-datetime.css */ "./node_modules/react-datetime/css/react-datetime.css");
+/* harmony import */ var _components_trailmap_TrailMap_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/trailmap/TrailMap.jsx */ "./src/components/trailmap/TrailMap.jsx");
+/* harmony import */ var _node_modules_react_datetime_css_react_datetime_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/react-datetime/css/react-datetime.css */ "./node_modules/react-datetime/css/react-datetime.css");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-
-
 
 
 
@@ -52511,8 +52685,7 @@ var root = document.getElementById("root");
 var a_date = cal.innerText.split(" ")[0];
 var a_time = cal.innerText.split(" ")[1];*/
 
-ReactDOM.render( /*#__PURE__*/React.createElement(_components_trailmap_HikeList_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null), root);
-console.log("hello");
+ReactDOM.render( /*#__PURE__*/React.createElement(_components_trailmap_TrailMap_jsx__WEBPACK_IMPORTED_MODULE_0__["default"], null), root);
 })();
 
 /******/ })()
