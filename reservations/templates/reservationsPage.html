@@ -5,15 +5,16 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/reservations.css' %}" />
 
-<div class="flex h-screen justify-center items-center">
-    <div class="bg-white flex flex-col p-6 rounded-lg gap-3">
+<div class="flex py-12 h-full w-full items-center justify-center bg-gray-50">
+    <div class="bg-white flex flex-col p-6 rounded-xl gap-3 shadow-lg border-l-2 border-indigo-500">
         <p class='text-center'>Make Reservation</p>
-        <form style="background:white" class="w-full" method="post">
+        <form class="w-full" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <div class="flex justify-center w-full">
                 <button class="border border-3 bg-white hover:bg-gray-100 rounded-md p-1" type="submit">Submit</button>
-                        
+            </div>
+        </form>
     </div>
 </div>
 <p>If you would like to add an emergency contact for this hike go here: <br> <b style="font-size: 2rem;"><a href="{% url 'emergencyContact' %}">Create Emergency Contact</a></b></p>
