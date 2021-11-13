@@ -6,6 +6,8 @@ from django.shortcuts import reverse, redirect
 from django.views.generic import UpdateView
 from pages.models import Traffic
 from .utils import send_sms
+from .tasks import email_test
+import dramatiq
 
 @login_required
 def reservationsPage(request):
@@ -52,8 +54,6 @@ def reservationsPage(request):
             return redirect(url)
     else:
         form = CreateReservationForm(request.user)
-        m = send_sms("+18083726757", "test")
-        print(m)
 
     return render(request, "reservationsPage.html", {'form':form})
 
@@ -62,7 +62,6 @@ def emergencyContactPage(request):
     form = CreateEmergencyContactForm()
     if request.method == 'POST':
         form = CreateEmergencyContactForm(request.POST)
-        print(form.is_valid())
         if form.is_valid():
             newEmergencyContact = EmergencyContact()
             newEmergencyContact.user = request.user
@@ -73,3 +72,13 @@ def emergencyContactPage(request):
             return redirect(reverse('reservations'))
 
     return render(request, "emergencyContactPage.html", {'form':form})
+
+#test
+def schedulerTestPage(request):
+    result = email_test.send()
+    print(result)
+    
+    if request.method == 'POST':
+        print(request.POST)
+    
+    return render(request, "schedulerTest.html", {})

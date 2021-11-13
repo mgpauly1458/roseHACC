@@ -24,3 +24,4 @@ class Reservation(models.Model):
     
     def __sts__(self):
         return self.hike
+
