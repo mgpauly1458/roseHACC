@@ -559,8 +559,7 @@ var TrafficDateTimePicker = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "onExit",
     value: function onExit(date) {
-      var date_string = this.format_date_mmddyy(date);
-      showMapFromDateTime(date_string.split(":")[0], date_string.split(":")[1]);
+      var date_string = this.format_date_mmddyy(date); //showMapFromDateTime(date_string.split(":")[0], date_string.split(":")[1]);
     }
   }, {
     key: "format_date_mmddyy",
