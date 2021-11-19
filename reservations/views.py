@@ -3,13 +3,11 @@ from .forms import CreateReservationForm, CreateEmergencyContactForm
 from .models import Reservation, EmergencyContact
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import reverse, redirect
-from django.views.generic import UpdateView
 from pages.models import Traffic
-from .utils import send_sms
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from django.http import HttpResponse
-from .tasks import hello
+from .utils import queText
+
 
 @login_required
 def reservationsPage(request):
@@ -53,10 +51,13 @@ def reservationsPage(request):
             else:
                 traffic.num_people_1 += people
             traffic.save()
+
+            #que a text to send
+            if newRes.emergency_contact:
+                queText(newRes)
             return redirect(url)
     else:
         form = CreateReservationForm(request.user)
-
     return render(request, "reservationsPage.html", {'form':form})
 
 @login_required
@@ -74,23 +75,3 @@ def emergencyContactPage(request):
             return redirect(reverse('reservations'))
 
     return render(request, "emergencyContactPage.html", {'form':form})
-
-
-@api_view(['POST'])
-def send_sms_api(request):
-    message = "test message"
-    send_sms(request.POST.get('phone_number'), message)
-    return HttpResponse("success")
-
-def schedulerTest(request):
-    hello.send()
-    return render(request, "schedulerTest.html", {})
-
-
-# add to db:
-# makemigrations
-# migrate
-# create a super user
-#     will have to grab the superuser in the shell
-# token = Token.objects.create(user='<insert super user>')
-#     add the auth token to the aws setup.. test it
