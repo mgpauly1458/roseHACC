@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 #3rd party apps
 'rest_framework',
+'django_dramatiq',
 
 #my Apps
 'pages',
@@ -197,3 +198,23 @@ REST_FRAMEWORK = {
 #Stripe
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+
+
+# DRAMATIQ_BROKER
+DRAMATIQ_BROKER = {
+    "BROKER": "dramatiq.brokers.rabbitmq.RabbitmqBroker",
+    "OPTIONS": {
+        "url": "amqps://agqoracp:uVqOuJHaBl5X8F1erQfVAnQpEmQ-nes3@beaver.rmq.cloudamqp.com/agqoracp",
+    },
+    "MIDDLEWARE": [
+        "dramatiq.middleware.Prometheus",
+        "dramatiq.middleware.AgeLimit",
+        "dramatiq.middleware.TimeLimit",
+        "dramatiq.middleware.Callbacks",
+        "dramatiq.middleware.Retries",
+        "django_dramatiq.middleware.DbConnectionsMiddleware",
+        "django_dramatiq.middleware.AdminMiddleware",
+    ]
+}
+
+DRAMATIQ_TASKS_DATABASE = "default"

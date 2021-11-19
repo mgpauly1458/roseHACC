@@ -9,6 +9,7 @@ from .utils import send_sms
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.http import HttpResponse
+from .tasks import hello
 
 @login_required
 def reservationsPage(request):
@@ -80,8 +81,10 @@ def send_sms_api(request):
     message = "test message"
     send_sms(request.POST.get('phone_number'), message)
     return HttpResponse("success")
-    
 
+def schedulerTest(request):
+    hello.send()
+    return render(request, "schedulerTest.html", {})
 
 
 # add to db:
