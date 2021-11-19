@@ -519,6 +519,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
+var Traillist = Trails;
 var divStyle = {
   zIndex: 1
 };
