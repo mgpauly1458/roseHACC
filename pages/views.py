@@ -1,25 +1,10 @@
 from django.shortcuts import render
-from pages.models import Hike
-from pages.models import Traffic
-from django.http import HttpResponse
-from django.http import JsonResponse
-from django.core import serializers
+from pages.models import Hike, Traffic
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
 from rest_framework.decorators import api_view
 from .serializers import HikeSerializer, TrafficSerializer
 
-def homePage(request):
-    return render(request, 'homePage.html', {})
-
-def discoverPage(request):
-    return render(request, 'discoverPage.html', {})
-    
-def contactPage(request):
-    return render(request, 'contactPage.html', {})
-
-def aboutPage(request):
-    return render(request, 'aboutPage.html', {})
 
 def loginPage(request):
     return render(request, 'loginPage.html', {})
@@ -30,11 +15,8 @@ def signupPage(request):
 def trailMapPage(request):
     return render(request, 'trailMapPage.html', {'hike_list' : Hike.objects.all()})
 
-def pointsVerification(request):
-    return render(request, 'pointsVerification.html', {})
-
-
-
+def hikingSafetyPage(request):
+    return render(request, 'hikingSafetyPage.html', {})
 
 #api
 @api_view(['GET'])

@@ -1,0 +1,12 @@
+header {
+  height: 60vh;
+  width: 100vw;
+  background: url("/static/images/kokohead-53o.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+  opacity: 1 !important;
+}
+
