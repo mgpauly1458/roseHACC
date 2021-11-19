@@ -1,6 +1,6 @@
 import Datetime from 'react-datetime';
 const React = require("react")
-
+var Traillist = Trails;
 const divStyle = {
   zIndex: 1
 };
@@ -15,7 +15,7 @@ class TrafficDateTimePicker extends React.Component {
       };
   }
 
-  render() {  
+  render() {   
     return (
     <Datetime 
       style={divStyle}

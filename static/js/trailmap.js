@@ -1,3 +1,5 @@
+var mymap;
+
 function setupLeafletMap() {
     var origin = [21.481056406745278, -157.95845361227276];
     var zoom = 11;
@@ -10,7 +12,7 @@ function setupLeafletMap() {
 
     var num_people_n = timeParse(time);
 
-    var mymap = L.map('map', {
+    mymap = L.map('map', {
         renderer: L.canvas({ tolerance: 14 })
         }).setView(origin, zoom);
 
@@ -30,7 +32,7 @@ function showMapFromDateTime(date, time) {
     var parseTime = time/100
     var slot = Math.floor(parseTime / 4) + 1;
     var num_people_n = 'num_people_' + slot;
-    updateMap(map, date, num_people_n)
+    updateMap(mymap, date, num_people_n)
 }
 
 function updateMapFocus(map, hike_id) {
@@ -52,7 +54,7 @@ function changeMapOrigin(map, hike_id){
 }
     
 async function updateMap(mymap, date, timeSlot){
-
+    
         window.mymap.eachLayer(function(layer) {
             if (!!layer.toGeoJSON) {
                 window.mymap.removeLayer(layer);
@@ -66,6 +68,19 @@ async function updateMap(mymap, date, timeSlot){
         trafficdata = await fetch(url).then(response => response.json()).then(data => data)
 
         var traffic = "NULL"
+
+        //console.log(Trails)
+    
+        L.geoJSON(Trails, {
+            onEachFeature: onEachFeature,
+            style: function(features){
+                switch (traffic) {
+                    case 'HEAVY': return {color: "#ff0000", weight: 5, opacity: 0.8};
+                    case 'MEDIUM': return {color: "#FFC300", weight: 5, opacity: 0.8};
+                    case 'LIGHT':   return {color: "#008000", weight: 5, opacity: 0.8};
+                    }
+                },
+            }).addTo(window.mymap);
       
     function onEachFeature(feature, layer) {
   
@@ -109,17 +124,6 @@ async function updateMap(mymap, date, timeSlot){
                   traffic = "HEAVY"
               }
       }
-  
-      L.geoJSON(Trails, {
-          onEachFeature: onEachFeature,
-          style: function(features){
-              switch (traffic) {
-                  case 'HEAVY': return {color: "#ff0000", weight: 5, opacity: 0.8};
-                  case 'MEDIUM': return {color: "#FFC300", weight: 5, opacity: 0.8};
-                  case 'LIGHT':   return {color: "#008000", weight: 5, opacity: 0.8};
-                  }
-              },
-          }).addTo(window.mymap);
           
   }
 
