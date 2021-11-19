@@ -6,8 +6,9 @@ from django.shortcuts import reverse, redirect
 from django.views.generic import UpdateView
 from pages.models import Traffic
 from .utils import send_sms
-from .tasks import email_test
-import dramatiq
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from django.http import HttpResponse
 
 @login_required
 def reservationsPage(request):
@@ -73,12 +74,20 @@ def emergencyContactPage(request):
 
     return render(request, "emergencyContactPage.html", {'form':form})
 
-#test
-def schedulerTestPage(request):
-    result = email_test.send()
-    print(result)
+
+@api_view(['POST'])
+def send_sms_api(request):
+    message = "test message"
+    send_sms(request.POST.get('phone_number'), message)
+    return HttpResponse("success")
     
-    if request.method == 'POST':
-        print(request.POST)
-    
-    return render(request, "schedulerTest.html", {})
+
+
+
+# add to db:
+# makemigrations
+# migrate
+# create a super user
+#     will have to grab the superuser in the shell
+# token = Token.objects.create(user='<insert super user>')
+#     add the auth token to the aws setup.. test it

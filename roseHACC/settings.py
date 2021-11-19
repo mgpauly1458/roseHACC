@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-import dramatiq
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,7 +43,6 @@ INSTALLED_APPS = [
 
 #3rd party apps
 'rest_framework',
-'django_dramatiq',
 
 #my Apps
 'pages',
@@ -199,23 +197,3 @@ REST_FRAMEWORK = {
 #Stripe
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
-
-# Dramatiq
-DRAMATIQ_BROKER = {
-    "BROKER": "dramatiq.brokers.rabbitmq.RabbitmqBroker",
-    "OPTIONS": {
-        "url": os.getenv("AMQP_URL"),
-    },
-    "MIDDLEWARE": [
-        "dramatiq.middleware.Prometheus",
-        "dramatiq.middleware.AgeLimit",
-        "dramatiq.middleware.TimeLimit",
-        "dramatiq.middleware.Callbacks",
-        "dramatiq.middleware.Retries",
-        "django_dramatiq.middleware.DbConnectionsMiddleware",
-        "django_dramatiq.middleware.AdminMiddleware",
-    ]
-}
-
-
-DRAMATIQ_TASKS_DATABASE = "default"

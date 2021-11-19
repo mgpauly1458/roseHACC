@@ -1,6 +1,8 @@
+
 import os
 from twilio.rest import Client
-import dramatiq
+from django.core.mail import send_mail
+import requests
 
 account_sid = os.environ.get('TWILIO_SID')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
