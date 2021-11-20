@@ -206,6 +206,8 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
       });
 
       _this.openPopout();
+
+      updateMapFocus(hikeData.hike_id);
     });
 
     _defineProperty(_assertThisInitialized(_this), "closePopoutCallback", function () {

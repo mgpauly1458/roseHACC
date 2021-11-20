@@ -69,8 +69,10 @@ async function updateMap(mymap, date, timeSlot){
 
         var traffic = "NULL"
 
+        console.log(trafficdata)
+
         //console.log(Trails)
-    
+
         L.geoJSON(Trails, {
             onEachFeature: onEachFeature,
             style: function(features){

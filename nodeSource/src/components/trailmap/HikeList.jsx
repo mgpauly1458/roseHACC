@@ -100,6 +100,7 @@ class HikeList extends React.Component {
             hikeOpened: hikeData
         })
         this.openPopout();
+        updateMapFocus(hikeData.hike_id);
     }
 
     closePopoutCallback = () => {
