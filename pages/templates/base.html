@@ -11,7 +11,6 @@
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/tailwind-output.css' %}"/>
     <script src="{% static 'js/index-bundle.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />  
   
     <div class="flex flex-col ">
       <nav class="relative flex items-center justify-between flex-wrap bg-gray-100 p-6 w-full">
@@ -22,7 +21,7 @@
   
         <div class="w-full block items-center lg:flex-grow lg:visible lg:flex lg:items-center lg:w-auto">
           <div class="text-sm lg:flex-grow">
-            <a href="{% url 'trailmap' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+            <a href="{% url 'home' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
               Trail Map
             </a>
             <a href="{% url 'reservations' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
@@ -31,8 +30,8 @@
             <a href="{% url 'donations' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
               Donations
             </a>
-            <a href="{% url 'pointsVerification' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
-              <button>Points</button>
+            <a href="{% url 'hikingSafety' %}" class=" transition ease-in duration-200 hover:border-blue-500 border-transparent border-opacity-5 border-2 box-border p-2 rounded-full block mt-4 lg:inline-block lg:mt-0 text-black-200 hover:text-blue-700 mr-4">
+              <button>Hiking Safety</button>
             </a>
           </div>
         </div>

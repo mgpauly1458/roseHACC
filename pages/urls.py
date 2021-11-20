@@ -1,17 +1,13 @@
 from django.urls import path
-from .views import homePage, discoverPage, contactPage, aboutPage, pointsVerification, getTrafficData, getHikeData, trailMapPage
+from .views import getTrafficData, getHikeData, trailMapPage, hikingSafetyPage
 
 #test react
 from .views import testReactPage
 
 urlpatterns = [
-    path('', homePage, name="home"),
-    path('discover/', discoverPage, name="discover"),
-    path('contact/', contactPage, name="contact"),
-    path('about/', aboutPage, name="about"),
-    path('trailmap/', trailMapPage, name="trailmap"),
-    path('pointsVerification/', pointsVerification, name="pointsVerification"),
+    path('', trailMapPage, name="home"),
     path('testReact/', testReactPage, name="testReact"),
     path("getTrafficData/<int:date>", getTrafficData),
     path("getHikeData/", getHikeData),
+    path("hikingSafety/", hikingSafetyPage, name="hikingSafety"),
 ]
