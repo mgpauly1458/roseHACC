@@ -58,11 +58,11 @@ class HikePopout extends React.Component {
         
                             <div id='hike_elevation' className="text-center text-xl">
                                  <p>Elevation Gain</p>
-                                {this.props.hike.hike_elevation}
+                                {this.props.hike.hike_elevation} m
                             </div>
                             <div id='hike_length' className="text-center text-xl"> 
                                 <p> Hike Length </p>    
-                                { this.props.hike.hike_length }
+                                { this.props.hike.hike_length } km 
                             </div>
                             <div id='hike_duration' className="text-center text-xl"> 
                                 <p> Time </p>
