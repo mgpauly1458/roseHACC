@@ -20,11 +20,11 @@ class CustomUserCreationForm(forms.Form):
         (FEMALE, "Female"),
         (OTHER, "Other")
     ]
-    VERYLOW = "Very Unfit"
-    LOW = "Unfit"
-    MODERATE = "Moderate"
-    HIGH = "Athletic"
-    VERYHIGH = "Very Athletic"
+    VERYLOW = "1"
+    LOW = "2"
+    MODERATE = "3"
+    HIGH = "4"
+    VERYHIGH = "5"
     FITNESS_CHOICES = [
         (0, VERYLOW),
         (1, LOW),
