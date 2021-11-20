@@ -21,7 +21,7 @@ class HikeList extends React.Component {
     return (
         <div class="h-full">
             <div id='hike-list' ref={this.hikeListRef} class="flex flex-col h-full p-4 overflow-y-auto space-y-4 bg-gray-50 lg:w-full w-full">  
-                <div class = "flex w-full h-auto space-x-3 bg-gray-50 justify-left lg:flex-row flex-col ">
+                <div class = "flex w-full h-auto bg-gray-50 justify-left lg:flex-row flex-col space-y-3 lg:space-y-0 lg:space-x-3">
                     <div class="flex flex-row gap-4">
                         <ul class="flex justify-left">
                             <i class="fas fa-map-marker-alt py-1"></i>

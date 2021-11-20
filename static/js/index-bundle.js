@@ -231,7 +231,7 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
         ref: this.hikeListRef,
         "class": "flex flex-col h-full p-4 overflow-y-auto space-y-4 bg-gray-50 lg:w-full w-full"
       }, /*#__PURE__*/React.createElement("div", {
-        "class": "flex w-full h-auto space-x-3 bg-gray-50 justify-left lg:flex-row flex-col "
+        "class": "flex w-full h-auto bg-gray-50 justify-left lg:flex-row flex-col space-y-3 lg:space-y-0 lg:space-x-3"
       }, /*#__PURE__*/React.createElement("div", {
         "class": "flex flex-row gap-4"
       }, /*#__PURE__*/React.createElement("ul", {
