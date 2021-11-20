@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-import dramatiq
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,8 +50,8 @@ INSTALLED_APPS = [
 'reservations',
 'userApp',
 'donations',
-
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Pacific/Honolulu'
 
 USE_I18N = True
 
@@ -200,11 +199,12 @@ REST_FRAMEWORK = {
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
 
-# Dramatiq
+
+# DRAMATIQ_BROKER
 DRAMATIQ_BROKER = {
     "BROKER": "dramatiq.brokers.rabbitmq.RabbitmqBroker",
     "OPTIONS": {
-        "url": os.getenv("AMQP_URL"),
+        "url": "amqps://qruuunhk:bKDie57-YOvfg81yLIt7edoAM-607Zpf@beaver.rmq.cloudamqp.com/qruuunhk",
     },
     "MIDDLEWARE": [
         "dramatiq.middleware.Prometheus",
@@ -216,6 +216,5 @@ DRAMATIQ_BROKER = {
         "django_dramatiq.middleware.AdminMiddleware",
     ]
 }
-
 
 DRAMATIQ_TASKS_DATABASE = "default"

@@ -3,11 +3,11 @@ from .forms import CreateReservationForm, CreateEmergencyContactForm
 from .models import Reservation, EmergencyContact
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import reverse, redirect
-from django.views.generic import UpdateView
 from pages.models import Traffic
-from .utils import send_sms
-from .tasks import email_test
-import dramatiq
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .utils import queText
+
 
 @login_required
 def reservationsPage(request):
@@ -51,10 +51,13 @@ def reservationsPage(request):
             else:
                 traffic.num_people_1 += people
             traffic.save()
+
+            #que a text to send
+            if newRes.emergency_contact:
+                queText(newRes)
             return redirect(url)
     else:
         form = CreateReservationForm(request.user)
-
     return render(request, "reservationsPage.html", {'form':form})
 
 @login_required
@@ -72,13 +75,3 @@ def emergencyContactPage(request):
             return redirect(reverse('reservations'))
 
     return render(request, "emergencyContactPage.html", {'form':form})
-
-#test
-def schedulerTestPage(request):
-    result = email_test.send()
-    print(result)
-    
-    if request.method == 'POST':
-        print(request.POST)
-    
-    return render(request, "schedulerTest.html", {})

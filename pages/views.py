@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from pages.models import Hike, Traffic
 from rest_framework.response import Response
-from rest_framework import authentication, permissions
 from rest_framework.decorators import api_view
 from .serializers import HikeSerializer, TrafficSerializer
 
