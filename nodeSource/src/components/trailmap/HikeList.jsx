@@ -20,18 +20,14 @@ class HikeList extends React.Component {
         <div class="h-full">
             <div id='hike-list' ref={this.hikeListRef} class="flex flex-col h-full p-4 overflow-y-auto space-y-4 bg-gray-50 lg:w-full w-full">  
                 <div class = "flex w-full h-auto space-x-3 bg-gray-50 justify-left lg:flex-row flex-col ">
-                    <ul class="flex justify-left">
-                        <i class="fas fa-grip-vertical py-1"></i>
-                    </ul>
+                    <div class="flex flex-row gap-4">
+                        <ul class="flex justify-left">
+                                <i class="fas fa-calendar-alt py-1"></i>
+                            </ul>
+                        <p> Traffic Time</p>
+                        <TrafficDateTimePicker/>
+                    </div>
 
-                    
-                    <p> Sort By </p>
-                    <select name="sort" id="sort"></select>
-                    <ul class="flex justify-left">
-                        <i class="fas fa-calendar-alt py-1"></i>
-                    </ul>
-                    <p> Traffic Time</p>
-                    <TrafficDateTimePicker/>
                 </div>
                 <div>
                 {

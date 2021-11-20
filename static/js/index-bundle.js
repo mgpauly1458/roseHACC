@@ -229,18 +229,13 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
         "class": "flex flex-col h-full p-4 overflow-y-auto space-y-4 bg-gray-50 lg:w-full w-full"
       }, /*#__PURE__*/React.createElement("div", {
         "class": "flex w-full h-auto space-x-3 bg-gray-50 justify-left lg:flex-row flex-col "
+      }, /*#__PURE__*/React.createElement("div", {
+        "class": "flex flex-row gap-4"
       }, /*#__PURE__*/React.createElement("ul", {
         "class": "flex justify-left"
       }, /*#__PURE__*/React.createElement("i", {
-        "class": "fas fa-grip-vertical py-1"
-      })), /*#__PURE__*/React.createElement("p", null, " Sort By "), /*#__PURE__*/React.createElement("select", {
-        name: "sort",
-        id: "sort"
-      }), /*#__PURE__*/React.createElement("ul", {
-        "class": "flex justify-left"
-      }, /*#__PURE__*/React.createElement("i", {
         "class": "fas fa-calendar-alt py-1"
-      })), /*#__PURE__*/React.createElement("p", null, " Traffic Time"), /*#__PURE__*/React.createElement(_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_0__["default"], null)), /*#__PURE__*/React.createElement("div", null, this.state.hikes.map(function (hike) {
+      })), /*#__PURE__*/React.createElement("p", null, " Traffic Time"), /*#__PURE__*/React.createElement(_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_0__["default"], null))), /*#__PURE__*/React.createElement("div", null, this.state.hikes.map(function (hike) {
         var a_hike = _objectSpread({}, hike);
 
         return /*#__PURE__*/React.createElement(_HikeCard_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
