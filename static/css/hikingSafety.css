@@ -6,7 +6,68 @@ header {
   background-position: center;
 }
 
-.title {
-  opacity: 1 !important;
+.title-container {
+  background: white;
+  border: 3px solid white;
+  border-radius: 10px;
+  width: 50vw;
+  height: 17vh;
+  position: relative;
+  left: 25vw;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.title {
+background: orange;
+text-align: center;
+font-size: 3rem;
+border-top: 3px solid orange;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+.sub-title {
+  background: green;
+  text-align: center;
+  font-size: 1.5rem;
+  border-bottom: 3px solid green;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro {
+  background: rgb(184, 170, 218);
+  padding-bottom: 40px;
+}
+
+.intro-title {
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.rule-container {
+  background: green;
+  padding: 10px;
+}
+
+.rule-title {
+  font-size: 1.8rem;
+}
+
+.rule-text {
+  font-size: 1.2rem;
+}
