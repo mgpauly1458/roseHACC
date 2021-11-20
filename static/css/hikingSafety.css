@@ -48,6 +48,16 @@ header {
   background: url("/static/images/kokohead-53o.jpg");
   background-size: cover;
   background-position: center;
+  background: 
+}
+
+.header-title {
+  font-size: 3rem;
+  text-align: center;
+  background: white;
+  border-top: 3px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .title-container {
@@ -69,10 +79,10 @@ header {
 }
 
 .sub-title {
-  background: green;
+  background: rgb(192,173,231);
   text-align: center;
   font-size: 1.5rem;
-  border-bottom: 3px solid green;
+  border-bottom: 3px solid rgb(192,173,231);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -94,6 +104,9 @@ p {
   display: grid;
   grid-template-columns: 1fr 3fr;
   position: relative;
+  padding: 20px;
+  padding-bottom: 30px;
+  border: 3px solid rgb(192,173,231);
 }
 
 .episode__number {
@@ -133,4 +146,9 @@ p {
   .episode__content .story {
     font-size: 15px;
   }
+}
+
+.odd {
+  background: rgb(192,173,231);
+  color: white;
 }
