@@ -2,6 +2,7 @@ const React = require('react');
 import TrafficDateTimePicker from './TrafficDateTimePicker.jsx';
 import HikeCard from './HikeCard.jsx';
 import HikePopout from "./HikePopout.jsx";
+import SearchBar from './SearchBar.jsx';
 
 class HikeList extends React.Component {
  
@@ -10,7 +11,8 @@ class HikeList extends React.Component {
         this.state = {
             hikes: [],
             popoutOpen: false,
-            hikeOpened: {}
+            hikeOpened: {},
+            search: false
         }
         this.hikeListRef = React.createRef();
         this.popoutRef = React.createRef();
@@ -22,21 +24,39 @@ class HikeList extends React.Component {
                 <div class = "flex w-full h-auto space-x-3 bg-gray-50 justify-left lg:flex-row flex-col ">
                     <div class="flex flex-row gap-4">
                         <ul class="flex justify-left">
+                            <i class="fas fa-map-marker-alt py-1"></i>
+                        </ul>
+                        <p>Search</p>
+                        <SearchBar/>
+                    </div>
+                    <div class="flex flex-row gap-4">
+                        <ul class="flex justify-left">
                                 <i class="fas fa-calendar-alt py-1"></i>
                             </ul>
                         <p> Traffic Time</p>
                         <TrafficDateTimePicker/>
                     </div>
-
+                    
                 </div>
                 <div>
                 {
                     this.state.hikes.map((hike) => {
                         var a_hike = { ...hike };
-                        return <HikeCard parentCallback={this.openPopoutCallback } 
-                                    key= { hike.hike_id } 
-                                    hike =  { a_hike }
-                                />
+                        if(this.state.search == true) {
+                            if(!hike.name.toLowerCase().includes(search)) {
+                                return <HikeCard parentCallback={this.openPopoutCallback } 
+                                            key= { hike.hike_id } 
+                                            hike =  { a_hike }
+                                        />
+                            }
+                            this.state.search = false;
+                        } else {
+                            return <HikeCard parentCallback={this.openPopoutCallback } 
+                                        key= { hike.hike_id } 
+                                        hike =  { a_hike }
+                                    />
+                        }
+                        
                     })
                 }
                 </div>

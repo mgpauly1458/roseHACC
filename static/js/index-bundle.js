@@ -142,6 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TrafficDateTimePicker.jsx */ "./src/components/trailmap/TrafficDateTimePicker.jsx");
 /* harmony import */ var _HikeCard_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HikeCard.jsx */ "./src/components/trailmap/HikeCard.jsx");
 /* harmony import */ var _HikePopout_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HikePopout.jsx */ "./src/components/trailmap/HikePopout.jsx");
+/* harmony import */ var _SearchBar_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SearchBar.jsx */ "./src/components/trailmap/SearchBar.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
@@ -171,6 +172,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
 
 
 
@@ -209,7 +211,8 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       hikes: [],
       popoutOpen: false,
-      hikeOpened: {}
+      hikeOpened: {},
+      search: false
     };
     _this.hikeListRef = React.createRef();
     _this.popoutRef = React.createRef();
@@ -234,15 +237,33 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("ul", {
         "class": "flex justify-left"
       }, /*#__PURE__*/React.createElement("i", {
+        "class": "fas fa-map-marker-alt py-1"
+      })), /*#__PURE__*/React.createElement("p", null, "Search"), /*#__PURE__*/React.createElement(_SearchBar_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/React.createElement("div", {
+        "class": "flex flex-row gap-4"
+      }, /*#__PURE__*/React.createElement("ul", {
+        "class": "flex justify-left"
+      }, /*#__PURE__*/React.createElement("i", {
         "class": "fas fa-calendar-alt py-1"
       })), /*#__PURE__*/React.createElement("p", null, " Traffic Time"), /*#__PURE__*/React.createElement(_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_0__["default"], null))), /*#__PURE__*/React.createElement("div", null, this.state.hikes.map(function (hike) {
         var a_hike = _objectSpread({}, hike);
 
-        return /*#__PURE__*/React.createElement(_HikeCard_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          parentCallback: _this2.openPopoutCallback,
-          key: hike.hike_id,
-          hike: a_hike
-        });
+        if (_this2.state.search == true) {
+          if (!hike.name.toLowerCase().includes(search)) {
+            return /*#__PURE__*/React.createElement(_HikeCard_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              parentCallback: _this2.openPopoutCallback,
+              key: hike.hike_id,
+              hike: a_hike
+            });
+          }
+
+          _this2.state.search = false;
+        } else {
+          return /*#__PURE__*/React.createElement(_HikeCard_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            parentCallback: _this2.openPopoutCallback,
+            key: hike.hike_id,
+            hike: a_hike
+          });
+        }
       }))), /*#__PURE__*/React.createElement("div", {
         id: "hike-popout",
         "class": "h-full w-full hidden",
@@ -472,6 +493,94 @@ var HikePopout = /*#__PURE__*/function (_React$Component) {
 }(React.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HikePopout);
+
+/***/ }),
+
+/***/ "./src/components/trailmap/SearchBar.jsx":
+/*!***********************************************!*\
+  !*** ./src/components/trailmap/SearchBar.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var SearchBar = /*#__PURE__*/function (_React$Component) {
+  _inherits(SearchBar, _React$Component);
+
+  var _super = _createSuper(SearchBar);
+
+  function SearchBar(props) {
+    var _this;
+
+    _classCallCheck(this, SearchBar);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      value: ''
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(SearchBar, [{
+    key: "handleChange",
+    value: function handleChange(event) {
+      this.setState({
+        value: event.target.value
+      });
+      this.handleSubmit(event);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      alert('A name was submitted: ' + this.state.value);
+      event.preventDefault();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+        type: "text",
+        value: this.state.value,
+        onChange: this.handleChange
+      })));
+    }
+  }]);
+
+  return SearchBar;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchBar);
 
 /***/ }),
 
