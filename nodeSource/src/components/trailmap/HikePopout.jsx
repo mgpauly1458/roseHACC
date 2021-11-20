@@ -42,13 +42,6 @@ class HikePopout extends React.Component {
                                     Difficulty: { this.props.hike.hike_difficulty } / 5
                                 </h>
                             </div>
-                            <div className='flex justify-center'>
-                                <ul className="flex justify-center space-x-2">                      
-                                    <h1>Traffic </h1>  
-                                    <li className="flex justify-center space-x-2" id="hike_traffic">
-                                    </li>
-                                </ul>
-                            </div>
                         </div>     
                         <div className="px-4 grid grid-cols-3 divide-x divide-indigo-500">
         

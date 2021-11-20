@@ -29,14 +29,12 @@ class HikeList extends React.Component {
                             <ul class="flex justify-left">
                                 <i class="fas fa-map-marker-alt py-1"></i>
                             </ul>
-                            <p>Search</p>
                             <SearchBar parentCallback={this.onSearchCallback}/>
                         </div>
                         <div class="flex flex-row gap-4">
                             <ul class="flex justify-left">
-                                    <i class="fas fa-calendar-alt py-1"></i>
-                                </ul>
-                            <p> Traffic Time</p>
+                                <i class="fas fa-calendar-alt py-1"></i>
+                            </ul>
                             <TrafficDateTimePicker/>
                         </div>
                         

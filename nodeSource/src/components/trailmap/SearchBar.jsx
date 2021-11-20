@@ -23,7 +23,7 @@ class SearchBar extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            <input type="text" value={this.state.value} onChange={this.handleChange} onExit={this.handleSubmit }/>
+            <input type="text" placeholder="Search" value={this.state.value} onChange={this.handleChange} onExit={this.handleSubmit }/>
           </label>
         </form>
       );

@@ -248,7 +248,7 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
         "class": "flex justify-left"
       }, /*#__PURE__*/React.createElement("i", {
         "class": "fas fa-map-marker-alt py-1"
-      })), /*#__PURE__*/React.createElement("p", null, "Search"), /*#__PURE__*/React.createElement(_SearchBar_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      })), /*#__PURE__*/React.createElement(_SearchBar_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
         parentCallback: this.onSearchCallback
       })), /*#__PURE__*/React.createElement("div", {
         "class": "flex flex-row gap-4"
@@ -256,7 +256,7 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
         "class": "flex justify-left"
       }, /*#__PURE__*/React.createElement("i", {
         "class": "fas fa-calendar-alt py-1"
-      })), /*#__PURE__*/React.createElement("p", null, " Traffic Time"), /*#__PURE__*/React.createElement(_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_0__["default"], null))), /*#__PURE__*/React.createElement("div", {
+      })), /*#__PURE__*/React.createElement(_TrafficDateTimePicker_jsx__WEBPACK_IMPORTED_MODULE_0__["default"], null))), /*#__PURE__*/React.createElement("div", {
         className: "flex flex-col gap-3"
       }, this.state.filteredHikes.map(function (hike) {
         var a_hike = _objectSpread({}, hike);
@@ -434,14 +434,7 @@ var HikePopout = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("h", {
         id: "hike_difficulty",
         className: "rounded-md border border-gray-100 bg-gray-100 px-2"
-      }, "Difficulty: ", this.props.hike.hike_difficulty, " / 5")), /*#__PURE__*/React.createElement("div", {
-        className: "flex justify-center"
-      }, /*#__PURE__*/React.createElement("ul", {
-        className: "flex justify-center space-x-2"
-      }, /*#__PURE__*/React.createElement("h1", null, "Traffic "), /*#__PURE__*/React.createElement("li", {
-        className: "flex justify-center space-x-2",
-        id: "hike_traffic"
-      })))), /*#__PURE__*/React.createElement("div", {
+      }, "Difficulty: ", this.props.hike.hike_difficulty, " / 5"))), /*#__PURE__*/React.createElement("div", {
         className: "px-4 grid grid-cols-3 divide-x divide-indigo-500"
       }, /*#__PURE__*/React.createElement("div", {
         className: "text-center text-xl"
@@ -590,6 +583,7 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
         onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
+        placeholder: "Search",
         value: this.state.value,
         onChange: this.handleChange,
         onExit: this.handleSubmit
