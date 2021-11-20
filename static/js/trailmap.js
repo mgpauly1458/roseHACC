@@ -35,8 +35,8 @@ function showMapFromDateTime(date, time) {
     updateMap(mymap, date, num_people_n)
 }
 
-function updateMapFocus(map, hike_id) {
-    changeMapOrigin(map, hike_id)
+function updateMapFocus(hike_id) {
+    changeMapOrigin(mymap, hike_id)
 }
 
 function changeMapOrigin(map, hike_id){
