@@ -20,11 +20,11 @@ class CustomUserCreationForm(forms.Form):
         (FEMALE, "Female"),
         (OTHER, "Other")
     ]
-    VERYLOW = "Very Unfit"
-    LOW = "Unfit"
-    MODERATE = "Moderate"
-    HIGH = "Athletic"
-    VERYHIGH = "Very Athletic"
+    VERYLOW = "1"
+    LOW = "2"
+    MODERATE = "3"
+    HIGH = "4"
+    VERYHIGH = "5"
     FITNESS_CHOICES = [
         (0, VERYLOW),
         (1, LOW),
@@ -50,8 +50,8 @@ class CustomUserCreationForm(forms.Form):
     age = forms.IntegerField()
     sex = forms.ChoiceField(choices=SEX_CHOICES)
     email = forms.EmailField()
-    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Confirm Password", widget=forms.PasswordInput)
+    password1 = forms.CharField(min_length=8, label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(min_length=8, label="Confirm Password", widget=forms.PasswordInput)
     fitness_level = forms.ChoiceField(choices=FITNESS_CHOICES)
     hiking_experience = forms.ChoiceField(choices=EXPERIENCE_CHOICES)
     profile_picture = forms.ImageField(label="Optional Profile Picture", required=False)
