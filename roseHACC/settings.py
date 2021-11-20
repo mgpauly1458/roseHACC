@@ -204,7 +204,7 @@ STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
 DRAMATIQ_BROKER = {
     "BROKER": "dramatiq.brokers.rabbitmq.RabbitmqBroker",
     "OPTIONS": {
-        "url": "amqps://qruuunhk:bKDie57-YOvfg81yLIt7edoAM-607Zpf@beaver.rmq.cloudamqp.com/qruuunhk",
+        "url": os.getenv("AMQP_URL"),
     },
     "MIDDLEWARE": [
         "dramatiq.middleware.Prometheus",
