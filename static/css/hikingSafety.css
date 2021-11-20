@@ -1,42 +1,5 @@
-/* header {
-  height: 60vh;
-  width: 100vw;
-  background: url("/static/images/kokohead-53o.jpg");
-  background-size: cover;
-  background-position: center;
-}
+/* 
 
-.title-container {
-  background: white;
-  border: 3px solid white;
-  border-radius: 10px;
-  width: 50vw;
-  height: 17vh;
-  position: relative;
-  left: 25vw;
-  top: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.title {
-background: orange;
-text-align: center;
-font-size: 3rem;
-border-top: 3px solid orange;
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
-}
-
-.sub-title {
-  background: green;
-  text-align: center;
-  font-size: 1.5rem;
-  border-bottom: 3px solid green;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
 
 main {
   display: flex;
@@ -73,13 +36,56 @@ main {
 } */
 
 
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+header {
+  height: 60vh;
+  width: 100vw;
+  background: url("/static/images/kokohead-53o.jpg");
+  background-size: cover;
+  background-position: center;
+  background: 
+}
+
+.header-title {
+  font-size: 3rem;
+  text-align: center;
+  background: white;
+  border-top: 3px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.title-container {
+  background: white;
+  border: 3px solid white;
+  border-radius: 10px;
+  width: 50vw;
+  height: 17vh;
+  position: relative;
+  left: 25vw;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 1.4rem;
+}
+
+.sub-title {
+  background: rgb(192,173,231);
+  text-align: center;
+  font-size: 1.5rem;
+  border-bottom: 3px solid rgb(192,173,231);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 
 p {
   margin: 0 0 13px 0;
@@ -98,6 +104,9 @@ p {
   display: grid;
   grid-template-columns: 1fr 3fr;
   position: relative;
+  padding: 20px;
+  padding-bottom: 30px;
+  border: 3px solid rgb(192,173,231);
 }
 
 .episode__number {
@@ -137,4 +146,9 @@ p {
   .episode__content .story {
     font-size: 15px;
   }
+}
+
+.odd {
+  background: rgb(192,173,231);
+  color: white;
 }
