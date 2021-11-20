@@ -27,7 +27,7 @@ class HikeList extends React.Component {
                             <i class="fas fa-map-marker-alt py-1"></i>
                         </ul>
                         <p>Search</p>
-                        <SearchBar/>
+                        <SearchBar parentCallback={this.onSearchCallback}/>
                     </div>
                     <div class="flex flex-row gap-4">
                         <ul class="flex justify-left">
@@ -43,6 +43,7 @@ class HikeList extends React.Component {
                     this.state.hikes.map((hike) => {
                         var a_hike = { ...hike };
                         if(this.state.search == true) {
+                            console.log("Searching")
                             if(!hike.name.toLowerCase().includes(search)) {
                                 return <HikeCard parentCallback={this.openPopoutCallback } 
                                             key= { hike.hike_id } 
@@ -68,7 +69,12 @@ class HikeList extends React.Component {
         
     )
    } 
-            
+
+    onSearchCallback = (searchData) => {
+         this.setState({
+            search: true
+         })     
+    }       
 
     openPopoutCallback = (hikeData) => {
         this.setState({

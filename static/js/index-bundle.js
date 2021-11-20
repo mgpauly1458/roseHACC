@@ -190,6 +190,12 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
 
+    _defineProperty(_assertThisInitialized(_this), "onSearchCallback", function (searchData) {
+      _this.setState({
+        search: true
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "openPopoutCallback", function (hikeData) {
       _this.setState({
         popoutOpen: true,
@@ -238,7 +244,9 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
         "class": "flex justify-left"
       }, /*#__PURE__*/React.createElement("i", {
         "class": "fas fa-map-marker-alt py-1"
-      })), /*#__PURE__*/React.createElement("p", null, "Search"), /*#__PURE__*/React.createElement(_SearchBar_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/React.createElement("div", {
+      })), /*#__PURE__*/React.createElement("p", null, "Search"), /*#__PURE__*/React.createElement(_SearchBar_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        parentCallback: this.onSearchCallback
+      })), /*#__PURE__*/React.createElement("div", {
         "class": "flex flex-row gap-4"
       }, /*#__PURE__*/React.createElement("ul", {
         "class": "flex justify-left"
@@ -248,6 +256,8 @@ var HikeList = /*#__PURE__*/function (_React$Component) {
         var a_hike = _objectSpread({}, hike);
 
         if (_this2.state.search == true) {
+          console.log("Searching");
+
           if (!hike.name.toLowerCase().includes(search)) {
             return /*#__PURE__*/React.createElement(_HikeCard_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {
               parentCallback: _this2.openPopoutCallback,
@@ -547,6 +557,7 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
       value: ''
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -556,13 +567,12 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
       this.setState({
         value: event.target.value
       });
-      this.handleSubmit(event);
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
       event.preventDefault();
+      this.props.parentCallback();
     }
   }, {
     key: "render",
@@ -572,7 +582,8 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
         value: this.state.value,
-        onChange: this.handleChange
+        onChange: this.handleChange,
+        onExit: this.handleSubmit
       })));
     }
   }]);
