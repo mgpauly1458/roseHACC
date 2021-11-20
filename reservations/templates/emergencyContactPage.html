@@ -4,8 +4,10 @@
 
 {% block content %}
 
-<div class="content-container">
-    <form method="POST">
+<div class="content-container flex px-12 lg:px-0 py-12 h-full w-full items-center justify-center bg-white-100 border">
+    <form class="flex flex-col bg-white justify-center rounded-xl p-3 space-y-4 border border-3 border-t-8 border-purple-500" method="POST">
+        <h1 class="text-center rounded-md text-2xl">Create Emergency Contact</h1>
+
         {% csrf_token %}
         {{ form.as_p }}
         <label>Phone ex: 808753xxxx</label> <br>
