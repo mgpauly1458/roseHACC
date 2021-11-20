@@ -6,7 +6,7 @@ class HikePopout extends React.Component {
         super(props);
 
         this.state = {
-            hike:    this.props.hike,
+            hike: this.props.hike,
         };
     }
 
@@ -24,7 +24,7 @@ class HikePopout extends React.Component {
                             <h1 id="hike_title" className="text-2xl font-bold text-center"> { this.props.hike.hike_name } </h1>
                         </div>
                         <div className='flex justify-center rounded-full py-3 gap-3'>
-                            <img id="hike_image" className="transform w-3/4 h-full rounded-full border-8 transition ease-in-out duration-500 border-gray-100 hover:scale-105 hover:border-indigo-500" src={ this.props.hike.hike_image }></img>
+                            <img id="hike_image" className="transform w-3/4 h-full rounded-full border-8 transition ease-in-out duration-500 border-gray-100 hover:scale-105 hover:border-indigo-500" src= { this.props.hike.hike_images }></img>
                         </div>
                         <div className='flex justify-center'>
                             <ul className="flex justify-center space-x-2">      

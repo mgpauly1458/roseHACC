@@ -421,7 +421,7 @@ var HikePopout = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/React.createElement("img", {
         id: "hike_image",
         className: "transform w-3/4 h-full rounded-full border-8 transition ease-in-out duration-500 border-gray-100 hover:scale-105 hover:border-indigo-500",
-        src: this.props.hike.hike_image
+        src: this.props.hike.hike_images
       })), /*#__PURE__*/React.createElement("div", {
         className: "flex justify-center"
       }, /*#__PURE__*/React.createElement("ul", {
