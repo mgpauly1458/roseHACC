@@ -50,4 +50,8 @@ Alakai has a responsive and mobile friendly design.
 
 
 # One-Minute Demo
-https://www.youtube.com/watch?v=sjDJmY4EEVI
+<a href="https://www.youtube.com/watch?v=sjDJmY4EEVI" title="Music Caster Video Demo">
+  <p align="center">
+    <img width="75%" src="https://www.youtube.com/watch?v=sjDJmY4EEVI/maxresdefault.jpg" alt="Music Caster Video Demo Thumbnail"/>
+  </p>
+</a>
