@@ -4,7 +4,7 @@ A web application designed to promote sustainable and responsible trail use with
 <img src="https://user-images.githubusercontent.com/74911365/154952499-8de579a1-1ae2-45ea-b541-61a832515775.png" width="600">
 
 
-<img src="https://user-images.githubusercontent.com/74911365/154952499-8de579a1-1ae2-45ea-b541-61a832515775.png" width="600">
+<img src="https://user-images.githubusercontent.com/74911365/154952551-95a0dd5d-8de4-4a0d-9539-fd2e8f1870d5.png" width="600">
 ![ksnip_20220221-020315](https://user-images.githubusercontent.com/74911365/154952551-95a0dd5d-8de4-4a0d-9539-fd2e8f1870d5.png)
 Trails are overburdened by congestion, and hikers are often unaware of proper trail etiquette and information. This poses a risk to the wellbeing of trail ecosystems, and a safety risk to hikers themselves. Alaka’i offers a variety of features to provide hikers with reliable and accurate information, along with the ability to reverse trail damage through donations.
 
