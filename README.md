@@ -52,6 +52,6 @@ Alakai has a responsive and mobile friendly design.
 # One-Minute Demo
 <a href="https://www.youtube.com/watch?v=sjDJmY4EEVI" title="Music Caster Video Demo">
   <p align="center">
-    <img width="75%" src="https://www.youtube.com/watch?v=sjDJmY4EEVI/maxresdefault.jpg" alt="Music Caster Video Demo Thumbnail"/>
+    <img width="75%" src="https://i.ytimg.com/vi/7zXx1ivkXIg/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBuKyM6ZIIcflEh1ADW5FkLlKPS0Q" alt="Alakai Trail Directory Video"/>
   </p>
 </a>
