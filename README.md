@@ -1,7 +1,7 @@
 # Alaka'i Trail Directory
 A web application designed to promote sustainable and responsible trail use within Hawaii's hiking community. It also allows state officials and the general public to monitor foot-traffic density on any of Hawaii's hiking trails.
 
-![ksnip_20220221-020113](https://user-images.githubusercontent.com/74911365/154952499-8de579a1-1ae2-45ea-b541-61a832515775.png | width = 200 )
+<img src="https://user-images.githubusercontent.com/74911365/154952499-8de579a1-1ae2-45ea-b541-61a832515775.png" width="100">
 
 ![ksnip_20220221-020315](https://user-images.githubusercontent.com/74911365/154952551-95a0dd5d-8de4-4a0d-9539-fd2e8f1870d5.png)
 Trails are overburdened by congestion, and hikers are often unaware of proper trail etiquette and information. This poses a risk to the wellbeing of trail ecosystems, and a safety risk to hikers themselves. Alaka’i offers a variety of features to provide hikers with reliable and accurate information, along with the ability to reverse trail damage through donations.
