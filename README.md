@@ -10,9 +10,12 @@ https://user-images.githubusercontent.com/74911365/155099216-c10141d7-d22f-43de-
 
 
 # Trail Catalog
-The main feature of our landing page was the trail catalog and map api. The 
+Our catalog offers a one-stop-shop for all the information any hiker may need. Trails are displayed on cards and highlighted on the map using the Leaflet map API.
+![trailCatalog](https://user-images.githubusercontent.com/74911365/155107754-a7cdbf5f-6df4-475d-b834-7be3556ff077.png)
 
-Our catalog offers a one-stop-shop for all the information any hiker may need. Trails are displayed on cards for users to search through. Clicking on the card reveals more useful details.
+
+Clicking on a trail's card reveals more useful details like the route description, difficluty, total distance, and average time it takes someone to complete the hike.
+![info](https://user-images.githubusercontent.com/74911365/155107992-8b52982f-20f5-498c-ace7-3ea91b21742d.png)
 
 
 # Safety & Etiquette
