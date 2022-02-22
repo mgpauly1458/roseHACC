@@ -73,5 +73,8 @@ The biggest challenge our team encountered was the management of large datasets 
 
 # One-Minute Demo
 <br>
-https://user-images.githubusercontent.com/74911365/155117815-5073c9bb-57ad-4ee5-ab8b-14f0d57125c6.mp4
+
+
+https://user-images.githubusercontent.com/74911365/155117957-8b3e352e-fc9c-4fcf-9466-1f8ae733434e.mp4
+
 
