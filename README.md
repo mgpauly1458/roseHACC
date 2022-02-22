@@ -73,6 +73,7 @@ The biggest challenge our team encountered was the management of large datasets 
 
 # One-Minute Demo
 This demo shows a user using every feature on the site. They create an account, read the safety guidelines, create an emergency contact, check the traffic report on the hike they want to go on, make a reservation, and donate to the DLNR.
+<br><br>
 https://user-images.githubusercontent.com/74911365/155117957-8b3e352e-fc9c-4fcf-9466-1f8ae733434e.mp4
 
 
