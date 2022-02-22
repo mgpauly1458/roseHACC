@@ -1,18 +1,14 @@
 # Alaka'i Trail Directory
 A web application that allows state officials and the general public to monitor the foot-traffic density on any of Hawaii's hiking trails. This was our team's entry to the [Hawaii Annual Coding Challenge](https://hacc.hawaii.gov) (HACC) 2021, which got us invited to the finals day present to judges and an audience. Also, check out our [Devpost](https://devpost.com/software/rose-luiwyo).
 
-|  |  |
-|--|--|
-|<img src="https://user-images.githubusercontent.com/74911365/154952499-8de579a1-1ae2-45ea-b541-61a832515775.png" width="700">|<img src="https://user-images.githubusercontent.com/74911365/155088337-48d6e84c-b438-417f-b28c-85c78955bca5.jpg" width="700">|
-
+|  |  |  |
+|--|--|--|
+|<img src="https://user-images.githubusercontent.com/74911365/154952499-8de579a1-1ae2-45ea-b541-61a832515775.png" width="700">|<img src="https://user-images.githubusercontent.com/74911365/155088337-48d6e84c-b438-417f-b28c-85c78955bca5.jpg" width="700">|<img src="https://user-images.githubusercontent.com/74911365/154952551-95a0dd5d-8de4-4a0d-9539-fd2e8f1870d5.png" width="700">|
 
 https://user-images.githubusercontent.com/74911365/155099216-c10141d7-d22f-43de-8fc4-139cb811a7c3.mp4
 
 
-# Overview
-Trails are overburdened by congestion, and hikers are often unaware of proper trail etiquette and information. This poses a risk to the wellbeing of trail ecosystems, and a safety risk to hikers themselves. Alaka’i offers a variety of features to provide hikers with reliable and accurate information, along with the ability to reverse trail damage through donations.
 
-<img src="https://user-images.githubusercontent.com/74911365/154952551-95a0dd5d-8de4-4a0d-9539-fd2e8f1870d5.png" width="700">
 
 # Trail Catalog
 Our catalog offers a one-stop-shop for all the information any hiker may need. Trails are displayed on cards for users to search through. Clicking on the card reveals more useful details.
