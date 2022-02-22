@@ -33,6 +33,14 @@ A user first picks the day and time they wish to hike which automatically update
 <img src="https://user-images.githubusercontent.com/74911365/154952750-4908496f-8f39-4671-bfb4-977458b7e3d3.png" width="700">
 
 # Reservations
+Users with an account can make reservations. To make a reservation a user selects a hike and enters the time, date, and number of people they are taking with them. This data is stored and used to update the trail colors on the homepage, allowing future users to make more informed decisions about their hiking plans. 
+
+An emergency contact is optionally available to select for a reservation, who will be notified via text 6 hours after your hike that you should be done and to check up on you. If positive contact is not made, your contact then knows to alert the authorities that you could possibly be in trouble on your hike.
+<br>
+|Emergency Contact Form|Text Message Example|
+|----------------------|--------------------|
+|<img src="https://user-images.githubusercontent.com/74911365/155111739-20907f3e-9008-4747-b2bc-83d2c500fc28.png" width="700">|<img src="https://user-images.githubusercontent.com/74911365/155111859-5f4120a0-a828-4615-a970-66d58db7e1d4.png" width="700">|
+
 Our reservation feature provides a solution to overburdened trails by aligning the interests of hikers and the state
 Nobody enjoys hiking on busy trails. When reservations are made, our color indicators update and hikers are made aware of when other users plan to hike. Naturally, hikers will make reservations at less busy times reducing traffic without strict state enforcement.
 
@@ -44,6 +52,7 @@ Through our donations page, Alaka’i offers users the ability to support their 
 <img src="https://user-images.githubusercontent.com/74911365/154952863-ef7583b6-e769-4fab-9071-2aa14566b8e9.png" width="700">
 
 # Safety Alerts
+
 Requested by Hawaii’s hikers, Alaka’i now has a safety alerts system. Users can optionally create an emergency contact that will be automatically contacted 6 hours after their scheduled reservation.
 
 <img src="https://user-images.githubusercontent.com/74911365/154953129-4b599e8f-9ea6-44d5-8f37-70c3c03124dd.png" width="700">
