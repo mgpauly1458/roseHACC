@@ -23,8 +23,8 @@ Clicking on a trail's card reveals more useful details like the route descriptio
 # Safety & Etiquette
 Hiking can be dangerous, especially for people who have not hiked on Hawaii's trails before. Our app has a page dedicated to explaining the Department of Land and Natural Resources' safety guidlines and best practices for hiking on their trails.
 <br>
-| | |
-|-|-|
+|Safety Guidelines| |
+|-----------------|-|
 |<img src="https://user-images.githubusercontent.com/74911365/155108663-3d514da6-0dd4-4b95-867d-ddd21a8ee8e3.png" width="700">|<img src="https://user-images.githubusercontent.com/74911365/155108746-1006a31c-0a1c-41e1-a6a2-983cfe423bbe.png" width="700">|
 
 # Traffic Information
