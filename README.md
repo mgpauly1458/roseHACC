@@ -31,7 +31,7 @@ Hiking can be dangerous, especially for people who have not hiked on Hawaii's tr
 A user first picks the day and time they wish to hike which automatically updates the trail colors on the map based on an algorithm that combines predicted traffic data and reservation data stored in the app's database. This helps people spread out and not plan their hike on a trail that is predicted to have a busy day. 
 
 According to the DLNR, spreading people out also has the side effect of encouraging better hiking behavior because people are more likely to misbehave when in large groups.
-
+<br>
 <img src="https://user-images.githubusercontent.com/74911365/154952750-4908496f-8f39-4671-bfb4-977458b7e3d3.png" width="700">
 
 # Sign Up
@@ -42,22 +42,22 @@ Users have the option to create an account, which will unlock additional feature
 
 # Reservations
 Users with an account can make reservations. To make a reservation a user selects a hike and enters the time, date, and number of people they are taking with them. This data is stored and used to update the trail colors on the homepage, allowing future users to make more informed decisions about their hiking plans.
+<br>
 ![image](https://user-images.githubusercontent.com/74911365/155114147-ccfbe904-3fef-4b0c-9464-e95d38e2f24d.png)
 
 Users can view, update, and delete reservations on their profile page.
+<br>
 ![image](https://user-images.githubusercontent.com/74911365/155114317-cdf866ae-61aa-4f71-95c9-853912ff108a.png)
 
-# Safety Alerts
+# Safety Contact
 
 Users can create an emergency contact, which can be optionally added to a reservation. To create an emergency contact add your contact's name and phone number.
+<br>
 ![image](https://user-images.githubusercontent.com/74911365/155114649-c67285ca-dee4-408d-9cd8-7f0477a925ff.png)
 
 # Safety Text Messages
 
 If an emergency contact is added to a reservationto, they will be automatically notified via text message 6 hours after your scheduled hike. This way they know to reach out to you to make sure everything went ok. If no positive contact is made, the text message also includes the location, date, time, and number of people to look for. This is essential information to have when reporting a lost hiker to authorities.
-
-
-<img src="https://user-images.githubusercontent.com/74911365/155111739-20907f3e-9008-4747-b2bc-83d2c500fc28.png" >
 <br>
 <img src="https://user-images.githubusercontent.com/74911365/155111859-5f4120a0-a828-4615-a970-66d58db7e1d4.png" height="500">
 
