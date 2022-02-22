@@ -6,6 +6,19 @@ A web application that allows state officials and the general public to monitor 
 
 https://user-images.githubusercontent.com/74911365/155099216-c10141d7-d22f-43de-8fc4-139cb811a7c3.mp4
 
+# Contents
+- [Trail Catalog](#trail-catalog)
+- [Safety & Etiquette](#safety---etiquette)
+- [Traffic Information](#traffic-information)
+- [Sign Up](#sign-up)
+- [Reservations](#reservations)
+- [Safety Contact](#safety-contact)
+- [Safety Text Messages](#safety-text-messages)
+- [Donations](#donations)
+- [Mobile Friendly](#mobile-friendly)
+- [Challenges And Accomplishments](#challenges-and-accomplishments)
+- [One-Minute Demo](#one-minute-demo)
+
 # Trail Catalog
 Trails are displayed on cards and highlighted on the map using the Leaflet map API.
 <br><br>
