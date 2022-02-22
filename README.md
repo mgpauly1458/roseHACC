@@ -10,12 +10,12 @@ https://user-images.githubusercontent.com/74911365/155099216-c10141d7-d22f-43de-
 
 
 # Trail Catalog
-Our catalog offers a one-stop-shop for all the information any hiker may need. Trails are displayed on cards and highlighted on the map using the Leaflet map API.
+Trails are displayed on cards and highlighted on the map using the Leaflet map API.
 <br>
 <img src="https://user-images.githubusercontent.com/74911365/155107754-a7cdbf5f-6df4-475d-b834-7be3556ff077.png">
 
 
-Clicking on a trail's card reveals more useful details like the route description, difficluty, total distance, and average time it takes someone to complete the hike.
+Clicking on a trail's card reveals details about the hike like the route description, difficluty, total distance, and average time it takes someone to complete the hike.
 <br>
 <img src="https://user-images.githubusercontent.com/74911365/155107992-8b52982f-20f5-498c-ace7-3ea91b21742d.png">
 
@@ -31,6 +31,12 @@ Hiking can be dangerous, especially for people who have not hiked on Hawaii's tr
 A user first picks the day and time they wish to hike which automatically updates the trail colors on the map based on an algorithm that combines predicted traffic data and reservation data stored in the app's database. This helps people spread out and not plan hike on a trail that is predicted to have a busy day. According to the DLNR, spreading people out also has the side effect of encouraging better hiking behavior because people are more likely to misbehave when in large groups.
 
 <img src="https://user-images.githubusercontent.com/74911365/154952750-4908496f-8f39-4671-bfb4-977458b7e3d3.png" width="700">
+
+# Sign Up
+Users have the option to create an account, which will unlock additional features like creating reservations and emergency contacts.
+<br>
+![image](https://user-images.githubusercontent.com/74911365/155113519-014505a9-2f83-494c-89f7-714ab5776516.png)
+
 
 # Reservations
 Users with an account can make reservations. To make a reservation a user selects a hike and enters the time, date, and number of people they are taking with them. This data is stored and used to update the trail colors on the homepage, allowing future users to make more informed decisions about their hiking plans. 
