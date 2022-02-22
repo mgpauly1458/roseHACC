@@ -11,17 +11,19 @@ https://user-images.githubusercontent.com/74911365/155099216-c10141d7-d22f-43de-
 
 # Trail Catalog
 Our catalog offers a one-stop-shop for all the information any hiker may need. Trails are displayed on cards and highlighted on the map using the Leaflet map API.
+<br>
 <img src="https://user-images.githubusercontent.com/74911365/155107754-a7cdbf5f-6df4-475d-b834-7be3556ff077.png" width="700">
 
 
 Clicking on a trail's card reveals more useful details like the route description, difficluty, total distance, and average time it takes someone to complete the hike.
+<br>
 <img src="https://user-images.githubusercontent.com/74911365/155107992-8b52982f-20f5-498c-ace7-3ea91b21742d.png" width="700">
 
 
 # Safety & Etiquette
-Also, a dedicated safety and etiquette page ensures hikers are informed and responsible.
-
-<img src="https://user-images.githubusercontent.com/74911365/154952660-590cd3cc-5104-42a3-945f-c83a214203a1.png" width="700">
+Hiking can be dangerous, especially for people who have not hiked on Hawaii's trails before. Our app has a page dedicated to explaining the Department of Land and Natural Resources' safety guidlines and best practices for hiking on their trails.
+<img src="https://user-images.githubusercontent.com/74911365/155108663-3d514da6-0dd4-4b95-867d-ddd21a8ee8e3.png" width="700">
+<img src="https://user-images.githubusercontent.com/74911365/155108746-1006a31c-0a1c-41e1-a6a2-983cfe423bbe.png" width="700">
 
 # Traffic Information
 Real time traffic data is available to users through colored paths. Encouraging hikers to plan based on the traffic indicators reduces the burden on trail ecosystems and local communities.
