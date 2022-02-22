@@ -72,4 +72,6 @@ Alakai has a responsive and mobile friendly design.
 The biggest challenge our team encountered was the management of large datasets across multiple local development platforms. Passing the necessary data to every corner of the project was difficult and clunky at first, but through a large-scale overhaul of our database and restructuring to use AJAX requests, we were able to clean up our code and easily access our database information. Another large accomplishment for the team was the sudden delve into web development. A majority of our team has little to no prior experience with web development, yet we were able to use this competition as an opportunity to jump in head first into new territory, which significantly accelerated our growth as programmers. We were able to learn more about web design, proper coding practices, and maximizing the use of version control systems.
 
 # One-Minute Demo
-https://www.youtube.com/embed/7zXx1ivkXIg
+<br>
+https://user-images.githubusercontent.com/74911365/155117815-5073c9bb-57ad-4ee5-ab8b-14f0d57125c6.mp4
+
