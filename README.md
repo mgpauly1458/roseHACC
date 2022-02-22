@@ -25,8 +25,7 @@ Hiking can be dangerous, especially for people who have not hiked on Hawaii's tr
 <br>
 | | |
 |-|-|
-|<img src="https://user-images.githubusercontent.com/74911365/155108663-3d514da6-0dd4-4b95-867d-ddd21a8ee8e3.png" width="700">|
-<img src="https://user-images.githubusercontent.com/74911365/155108746-1006a31c-0a1c-41e1-a6a2-983cfe423bbe.png" width="700">|
+|<img src="https://user-images.githubusercontent.com/74911365/155108663-3d514da6-0dd4-4b95-867d-ddd21a8ee8e3.png" width="700">|<img src="https://user-images.githubusercontent.com/74911365/155108746-1006a31c-0a1c-41e1-a6a2-983cfe423bbe.png" width="700">|
 
 # Traffic Information
 Real time traffic data is available to users through colored paths. Encouraging hikers to plan based on the traffic indicators reduces the burden on trail ecosystems and local communities.
