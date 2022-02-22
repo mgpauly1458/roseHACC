@@ -39,7 +39,7 @@ An emergency contact is optionally available to select for a reservation, who wi
 <br>
 |Emergency Contact Form|Text Message Example|
 |----------------------|--------------------|
-|<img src="https://user-images.githubusercontent.com/74911365/155111739-20907f3e-9008-4747-b2bc-83d2c500fc28.png" width="700">|<img src="https://user-images.githubusercontent.com/74911365/155111859-5f4120a0-a828-4615-a970-66d58db7e1d4.png" width="700">|
+|<img src="https://user-images.githubusercontent.com/74911365/155111739-20907f3e-9008-4747-b2bc-83d2c500fc28.png" >|<img src="https://user-images.githubusercontent.com/74911365/155111859-5f4120a0-a828-4615-a970-66d58db7e1d4.png" height="500">|
 
 Our reservation feature provides a solution to overburdened trails by aligning the interests of hikers and the state
 Nobody enjoys hiking on busy trails. When reservations are made, our color indicators update and hikers are made aware of when other users plan to hike. Naturally, hikers will make reservations at less busy times reducing traffic without strict state enforcement.
