@@ -28,14 +28,16 @@ Hiking can be dangerous, especially for people who have not hiked on Hawaii's tr
 |<img src="https://user-images.githubusercontent.com/74911365/155108663-3d514da6-0dd4-4b95-867d-ddd21a8ee8e3.png" width="700">|<img src="https://user-images.githubusercontent.com/74911365/155108746-1006a31c-0a1c-41e1-a6a2-983cfe423bbe.png" width="500">|
 
 # Traffic Information
-A user first picks the day and time they wish to hike which automatically updates the trail colors on the map based on an algorithm that combines predicted traffic data and reservation data stored in the app's database. This helps people spread out and not plan hike on a trail that is predicted to have a busy day. According to the DLNR, spreading people out also has the side effect of encouraging better hiking behavior because people are more likely to misbehave when in large groups.
+A user first picks the day and time they wish to hike which automatically updates the trail colors on the map based on an algorithm that combines predicted traffic data and reservation data stored in the app's database. This helps people spread out and not plan their hike on a trail that is predicted to have a busy day. 
+
+According to the DLNR, spreading people out also has the side effect of encouraging better hiking behavior because people are more likely to misbehave when in large groups.
 
 <img src="https://user-images.githubusercontent.com/74911365/154952750-4908496f-8f39-4671-bfb4-977458b7e3d3.png" width="700">
 
 # Sign Up
 Users have the option to create an account, which will unlock additional features like creating reservations and emergency contacts.
 <br>
-![image](https://user-images.githubusercontent.com/74911365/155113519-014505a9-2f83-494c-89f7-714ab5776516.png)
+<img src="https://user-images.githubusercontent.com/74911365/155113519-014505a9-2f83-494c-89f7-714ab5776516.png" width="700">
 
 
 # Reservations
