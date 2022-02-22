@@ -41,10 +41,22 @@ Users have the option to create an account, which will unlock additional feature
 
 
 # Reservations
-Users with an account can make reservations. To make a reservation a user selects a hike and enters the time, date, and number of people they are taking with them. This data is stored and used to update the trail colors on the homepage, allowing future users to make more informed decisions about their hiking plans. 
+Users with an account can make reservations. To make a reservation a user selects a hike and enters the time, date, and number of people they are taking with them. This data is stored and used to update the trail colors on the homepage, allowing future users to make more informed decisions about their hiking plans.
+![image](https://user-images.githubusercontent.com/74911365/155114147-ccfbe904-3fef-4b0c-9464-e95d38e2f24d.png)
 
-An emergency contact is optionally available to select for a reservation, who will be notified via text 6 hours after your hike that you should be done and to check up on you. If positive contact is not made, your contact then knows to alert the authorities that you could possibly be in trouble on your hike.
-<br>
+Users can view, update, and delete reservations on their profile page.
+![image](https://user-images.githubusercontent.com/74911365/155114317-cdf866ae-61aa-4f71-95c9-853912ff108a.png)
+
+# Safety Alerts
+
+Users can create an emergency contact, which can be optionally added to a reservation. To create an emergency contact add your contact's name and phone number.
+![image](https://user-images.githubusercontent.com/74911365/155114649-c67285ca-dee4-408d-9cd8-7f0477a925ff.png)
+
+# Safety Text Messages
+
+If an emergency contact is added to a reservationto, they will be automatically notified via text message 6 hours after your scheduled hike. This way they know to reach out to you to make sure everything went ok. If no positive contact is made, the text message also includes the location, date, time, and number of people to look for. This is essential information to have when reporting a lost hiker to authorities.
+
+
 <img src="https://user-images.githubusercontent.com/74911365/155111739-20907f3e-9008-4747-b2bc-83d2c500fc28.png" >
 <br>
 <img src="https://user-images.githubusercontent.com/74911365/155111859-5f4120a0-a828-4615-a970-66d58db7e1d4.png" height="500">
@@ -59,9 +71,7 @@ Through our donations page, Alaka’i offers users the ability to support their 
 
 <img src="https://user-images.githubusercontent.com/74911365/154952863-ef7583b6-e769-4fab-9071-2aa14566b8e9.png" width="700">
 
-# Safety Alerts
 
-Requested by Hawaii’s hikers, Alaka’i now has a safety alerts system. Users can optionally create an emergency contact that will be automatically contacted 6 hours after their scheduled reservation.
 
 <img src="https://user-images.githubusercontent.com/74911365/154953129-4b599e8f-9ea6-44d5-8f37-70c3c03124dd.png" width="700">
 
