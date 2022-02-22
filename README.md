@@ -58,14 +58,14 @@ If an emergency contact is added to a reservationto, they will be automatically 
 
 # Donations
 Through our donations page, Alaka’i offers users the ability to support their favorite hikes through the Stripe API.
-<br>
+<br><br>
 <img src="https://user-images.githubusercontent.com/74911365/155116332-7cde9733-994f-40d3-8015-ede6084e695b.png" height="500">
 ![stripe1](https://user-images.githubusercontent.com/74911365/155116342-40fee5d7-c925-4791-b3c0-ef1b9ce9a119.png)
 
 
 # Mobile Friendly
 Alakai has a responsive and mobile friendly design.
-<br>
+<br><br>
 <img src="https://user-images.githubusercontent.com/74911365/154953181-089b0e7d-4422-486e-89d8-d2970a887086.png" width="700">
 
 # Challenges And Accomplishments
