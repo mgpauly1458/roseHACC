@@ -34,20 +34,19 @@ According to the DLNR, spreading people out also has the side effect of encourag
 # Sign Up
 Users have the option to create an account, which will unlock additional features like creating reservations and emergency contacts.
 <br> <br>
-<img src="https://user-images.githubusercontent.com/74911365/155113519-014505a9-2f83-494c-89f7-714ab5776516.png" width="700">
+<img src="https://user-images.githubusercontent.com/74911365/155113519-014505a9-2f83-494c-89f7-714ab5776516.png">
 
 
 # Reservations
 Users with an account can make reservations. To make a reservation a user selects a hike and enters the time, date, and number of people they are taking with them. This data is stored and used to update the trail colors on the homepage, allowing future users to make more informed decisions about their hiking plans.
-<br>
+<br><br>
 ![image](https://user-images.githubusercontent.com/74911365/155114147-ccfbe904-3fef-4b0c-9464-e95d38e2f24d.png)
-
+<br><br>
 Users can view, update, and delete reservations on their profile page.
-<br> <br>
+<br><br>
 ![image](https://user-images.githubusercontent.com/74911365/155114317-cdf866ae-61aa-4f71-95c9-853912ff108a.png)
 
 # Safety Contact
-
 Users can create an emergency contact, which can be optionally added to a reservation. To create an emergency contact add your contact's name and phone number.
 <br> <br>
 ![image](https://user-images.githubusercontent.com/74911365/155114649-c67285ca-dee4-408d-9cd8-7f0477a925ff.png)
@@ -65,7 +64,6 @@ Through our donations page, Alaka’i offers users the ability to support their 
 
 # Mobile Friendly
 Alakai has a responsive and mobile friendly design.
-
 <img src="https://user-images.githubusercontent.com/74911365/154953181-089b0e7d-4422-486e-89d8-d2970a887086.png" width="700">
 
 # Challenges And Accomplishments
