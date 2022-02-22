@@ -37,9 +37,9 @@ Users with an account can make reservations. To make a reservation a user select
 
 An emergency contact is optionally available to select for a reservation, who will be notified via text 6 hours after your hike that you should be done and to check up on you. If positive contact is not made, your contact then knows to alert the authorities that you could possibly be in trouble on your hike.
 <br>
-|Emergency Contact Form|Text Message Example|
-|----------------------|--------------------|
-|<img src="https://user-images.githubusercontent.com/74911365/155111739-20907f3e-9008-4747-b2bc-83d2c500fc28.png" >|<img src="https://user-images.githubusercontent.com/74911365/155111859-5f4120a0-a828-4615-a970-66d58db7e1d4.png" height="500">|
+<img src="https://user-images.githubusercontent.com/74911365/155111739-20907f3e-9008-4747-b2bc-83d2c500fc28.png" >
+<br>
+<img src="https://user-images.githubusercontent.com/74911365/155111859-5f4120a0-a828-4615-a970-66d58db7e1d4.png" height="500">
 
 Our reservation feature provides a solution to overburdened trails by aligning the interests of hikers and the state
 Nobody enjoys hiking on busy trails. When reservations are made, our color indicators update and hikers are made aware of when other users plan to hike. Naturally, hikers will make reservations at less busy times reducing traffic without strict state enforcement.
