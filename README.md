@@ -1,5 +1,5 @@
 # Alaka'i Trail Directory
-A web application that allows state officials and the general public to monitor the foot-traffic density on any of Hawaii's hiking trails. This was our team's entry to the [Hawaii Annual Coding Challenge] (https://hacc.hawaii.gov/) 2021, which got us invited to present to the judges/audience during the finals day. Below are the slides and the script we used during our presentatoin.
+A web application that allows state officials and the general public to monitor the foot-traffic density on any of Hawaii's hiking trails. This was our team's entry to the [Hawaii Annual Coding Challenge] (https://hacc.hawaii.gov) 2021, which got us invited to present to the judges/audience during the finals day. Below are the slides and the script we used during our presentatoin.
 
 <img src="https://user-images.githubusercontent.com/74911365/154952499-8de579a1-1ae2-45ea-b541-61a832515775.png" width="700">
 
