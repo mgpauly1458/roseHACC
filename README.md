@@ -1,5 +1,5 @@
 # Alaka'i Trail Directory
-A web application that allows state officials and the general public to monitor the foot-traffic density on any of Hawaii's hiking trails. This was our team's entry to the [Hawaii Annual Coding Challenge](https://hacc.hawaii.gov) (HACC) 2021, which got us invited to the finals day present to judges and an audience. Also, check out our [Devpost](https://devpost.com/software/rose-luiwyo).
+A web application that allows state officials and the general public to monitor the foot-traffic density on any of Hawaii's hiking trails. This was our team's entry to the [Hawaii Annual Coding Challenge](https://hacc.hawaii.gov) (HACC) 2021, which got us invited to the finalist day present to judges and an audience. Also, check out our [Devpost](https://devpost.com/software/rose-luiwyo).
 |  |The Team|  |
 |--|--------|--|
 |<img src="https://user-images.githubusercontent.com/74911365/154952499-8de579a1-1ae2-45ea-b541-61a832515775.png" width="700">|<img src="https://user-images.githubusercontent.com/74911365/155088337-48d6e84c-b438-417f-b28c-85c78955bca5.jpg" width="700">|<img src="https://user-images.githubusercontent.com/74911365/154952551-95a0dd5d-8de4-4a0d-9539-fd2e8f1870d5.png" width="700">|
@@ -10,9 +10,10 @@ https://user-images.githubusercontent.com/74911365/155099216-c10141d7-d22f-43de-
 
 
 # Trail Catalog
+The main feature of our landing page was the trail catalog and map api. The 
+
 Our catalog offers a one-stop-shop for all the information any hiker may need. Trails are displayed on cards for users to search through. Clicking on the card reveals more useful details.
 
-<img src="https://user-images.githubusercontent.com/74911365/154952601-d4f54e13-a68b-483c-bd64-36bfd0d2b66e.png" width="700">
 
 # Safety & Etiquette
 Also, a dedicated safety and etiquette page ensures hikers are informed and responsible.
@@ -32,7 +33,6 @@ Nobody enjoys hiking on busy trails. When reservations are made, our color indic
 
 <img src="https://user-images.githubusercontent.com/74911365/154952823-55d9297e-524f-4d8c-a0bf-1559e7f03c98.png" width="700">
 
-
 # Donations
 Through our donations page, Alaka’i offers users the ability to support their favorite hikes through the Stripe API.
 
@@ -48,6 +48,8 @@ Alakai has a responsive and mobile friendly design.
 
 <img src="https://user-images.githubusercontent.com/74911365/154953181-089b0e7d-4422-486e-89d8-d2970a887086.png" width="700">
 
+# Challenges And Accomplishments
+The biggest challenge our team encountered was the management of large datasets across multiple local development platforms. Passing the necessary data to every corner of the project was difficult and clunky at first, but through a large-scale overhaul of our database and restructuring to use AJAX requests, we were able to clean up our code and easily access our database information. Another large accomplishment for the team was the sudden delve into web development. A majority of our team has little to no prior experience with web development, yet we were able to use this competition as an opportunity to jump in head first into new territory, which significantly accelerated our growth as programmers. We were able to learn more about web design, proper coding practices, and maximizing the use of version control systems.
 
 # One-Minute Demo
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7zXx1ivkXIg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://www.youtube.com/embed/7zXx1ivkXIg
